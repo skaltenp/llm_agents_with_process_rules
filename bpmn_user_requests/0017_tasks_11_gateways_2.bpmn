@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0utygjx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:process id="Process_1xbn6du" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_112oldt</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_112oldt" sourceRef="StartEvent_1" targetRef="Activity_11zshd8" />
+    <bpmn:task id="Activity_1fq0tx2" name="Get Pollex locations">
+      <bpmn:incoming>Flow_05xmlz6</bpmn:incoming>
+      <bpmn:outgoing>Flow_1cyzglk</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_007pwt7">
+      <bpmn:incoming>Flow_1kzkxjt</bpmn:incoming>
+      <bpmn:outgoing>Flow_12tsr59</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0fzhi4l</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0wezyia</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1cyzglk" sourceRef="Activity_1fq0tx2" targetRef="Activity_0kul47y" />
+    <bpmn:task id="Activity_1qgzld7" name="Create high-voltage storage location in SAP using Pollex storage location id">
+      <bpmn:incoming>Flow_12tsr59</bpmn:incoming>
+      <bpmn:outgoing>Flow_0939ria</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_12tsr59" name="high-voltage storage exists in Pollex but not in SAP" sourceRef="Gateway_007pwt7" targetRef="Activity_1qgzld7" />
+    <bpmn:task id="Activity_1thnyf7" name="Compare  high-voltage &#60;storage_location_id&#62; of SAP and Pollex">
+      <bpmn:incoming>Flow_0fzhi4l</bpmn:incoming>
+      <bpmn:outgoing>Flow_17re3gt</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0fzhi4l" name="high-voltage storage exists in Pollex and in SAP" sourceRef="Gateway_007pwt7" targetRef="Activity_1thnyf7" />
+    <bpmn:task id="Activity_0kul47y" name="Search for high-voltage location in Pollex and SAP storage locations">
+      <bpmn:incoming>Flow_1cyzglk</bpmn:incoming>
+      <bpmn:outgoing>Flow_1kzkxjt</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1kzkxjt" sourceRef="Activity_0kul47y" targetRef="Gateway_007pwt7" />
+    <bpmn:endEvent id="Event_1tkmvab">
+      <bpmn:incoming>Flow_19vyke8</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0939ria" sourceRef="Activity_1qgzld7" targetRef="Activity_0lkrywz" />
+    <bpmn:task id="Activity_11zshd8" name="Get all storage locations from SAP">
+      <bpmn:incoming>Flow_112oldt</bpmn:incoming>
+      <bpmn:outgoing>Flow_05xmlz6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_05xmlz6" sourceRef="Activity_11zshd8" targetRef="Activity_1fq0tx2" />
+    <bpmn:endEvent id="Event_0ujumti">
+      <bpmn:incoming>Flow_0wezyia</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0wezyia" name="high-voltage storage exists neither in SAP but nor in Pollex" sourceRef="Gateway_007pwt7" targetRef="Event_0ujumti" />
+    <bpmn:task id="Activity_0vyyekh" name="Create high-voltage storage location in SAP using &#60;pollex_storage_location_id&#62;">
+      <bpmn:incoming>Flow_1o680v1</bpmn:incoming>
+      <bpmn:outgoing>Flow_1p608lv</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_0yvg2sq" name="Get all materials from  &#60;sap_storage_location_id&#62;">
+      <bpmn:incoming>Flow_1p608lv</bpmn:incoming>
+      <bpmn:outgoing>Flow_1sccg20</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1p608lv" sourceRef="Activity_0vyyekh" targetRef="Activity_0yvg2sq" />
+    <bpmn:task id="Activity_074zqac" name="Move all materials to new SAP storage location">
+      <bpmn:incoming>Flow_1sccg20</bpmn:incoming>
+      <bpmn:outgoing>Flow_1bd44az</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1sccg20" sourceRef="Activity_0yvg2sq" targetRef="Activity_074zqac" />
+    <bpmn:task id="Activity_0ir23fk" name="Send email with report and delete request for old &#60;sap_storage_location_id&#62;">
+      <bpmn:incoming>Flow_1bd44az</bpmn:incoming>
+      <bpmn:outgoing>Flow_0rhikta</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1bd44az" sourceRef="Activity_074zqac" targetRef="Activity_0ir23fk" />
+    <bpmn:sequenceFlow id="Flow_0rhikta" sourceRef="Activity_0ir23fk" targetRef="Event_13zhtcr" />
+    <bpmn:endEvent id="Event_13zhtcr">
+      <bpmn:incoming>Flow_0rhikta</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_02huq4l" />
+    </bpmn:endEvent>
+    <bpmn:task id="Activity_0lkrywz" name="Inform warehouse_manager@company.com about storage location creation">
+      <bpmn:incoming>Flow_0939ria</bpmn:incoming>
+      <bpmn:outgoing>Flow_0m9dycn</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0m9dycn" sourceRef="Activity_0lkrywz" targetRef="Activity_0m26ar4" />
+    <bpmn:task id="Activity_0m26ar4" name="Inform employee3@serviceprovider.com about storage location creation">
+      <bpmn:incoming>Flow_0m9dycn</bpmn:incoming>
+      <bpmn:outgoing>Flow_19vyke8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_19vyke8" sourceRef="Activity_0m26ar4" targetRef="Event_1tkmvab" />
+    <bpmn:endEvent id="Event_00igyyj">
+      <bpmn:incoming>Flow_0vc0gam</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_0w18j7h">
+      <bpmn:incoming>Flow_17re3gt</bpmn:incoming>
+      <bpmn:outgoing>Flow_1o680v1</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0vc0gam</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1o680v1" name="else" sourceRef="Gateway_0w18j7h" targetRef="Activity_0vyyekh" />
+    <bpmn:sequenceFlow id="Flow_0vc0gam" name="&#60;sap_storage_location_id&#62; == &#60;pollex_storage_location_id&#62;" sourceRef="Gateway_0w18j7h" targetRef="Event_00igyyj" />
+    <bpmn:sequenceFlow id="Flow_17re3gt" sourceRef="Activity_1thnyf7" targetRef="Gateway_0w18j7h" />
+    <bpmn:textAnnotation id="TextAnnotation_1nhum5h">
+      <bpmn:text>Transaction MMSC
+material_id=&lt;material_id&gt;
+storage_location_id=&lt;new_storage_location_id&gt;
+plant=1540</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_147fesc" associationDirection="None" sourceRef="Activity_074zqac" targetRef="TextAnnotation_1nhum5h" />
+    <bpmn:textAnnotation id="TextAnnotation_1ymfu44">
+      <bpmn:text>Email: The following materials were moved from &lt;sap_storage_location_id&gt; to &lt;new_storage_location_id&gt;:
+...
+To: error.handler1@company.com</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0535lom" associationDirection="None" sourceRef="Activity_0ir23fk" targetRef="TextAnnotation_1ymfu44" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1xbn6du">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="332" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1fq0tx2_di" bpmnElement="Activity_1fq0tx2">
+        <dc:Bounds x="400" y="310" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_007pwt7_di" bpmnElement="Gateway_007pwt7" isMarkerVisible="true">
+        <dc:Bounds x="725" y="325" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="980" y="135" width="80" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1qgzld7_di" bpmnElement="Activity_1qgzld7">
+        <dc:Bounds x="920" y="640" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1thnyf7_di" bpmnElement="Activity_1thnyf7">
+        <dc:Bounds x="920" y="310" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0kul47y_di" bpmnElement="Activity_0kul47y">
+        <dc:Bounds x="560" y="310" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1tkmvab_di" bpmnElement="Event_1tkmvab">
+        <dc:Bounds x="1432" y="662" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_11zshd8_di" bpmnElement="Activity_11zshd8">
+        <dc:Bounds x="240" y="310" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ujumti_di" bpmnElement="Event_0ujumti">
+        <dc:Bounds x="952" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0vyyekh_di" bpmnElement="Activity_0vyyekh">
+        <dc:Bounds x="1360" y="180" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0yvg2sq_di" bpmnElement="Activity_0yvg2sq">
+        <dc:Bounds x="1530" y="180" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_074zqac_di" bpmnElement="Activity_074zqac">
+        <dc:Bounds x="1700" y="180" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ir23fk_di" bpmnElement="Activity_0ir23fk">
+        <dc:Bounds x="1870" y="180" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0jnbqib_di" bpmnElement="Event_13zhtcr">
+        <dc:Bounds x="2042" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0lkrywz_di" bpmnElement="Activity_0lkrywz">
+        <dc:Bounds x="1080" y="640" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0m26ar4_di" bpmnElement="Activity_0m26ar4">
+        <dc:Bounds x="1250" y="640" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_00igyyj_di" bpmnElement="Event_00igyyj">
+        <dc:Bounds x="1392" y="332" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0w18j7h_di" bpmnElement="Gateway_0w18j7h" isMarkerVisible="true">
+        <dc:Bounds x="1165" y="325" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1nhum5h_di" bpmnElement="TextAnnotation_1nhum5h">
+        <dc:Bounds x="1610" y="80" width="280" height="70" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1ymfu44_di" bpmnElement="TextAnnotation_1ymfu44">
+        <dc:Bounds x="1930" y="66" width="229.99118338557994" height="84.63949843260188" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_112oldt_di" bpmnElement="Flow_112oldt">
+        <di:waypoint x="188" y="350" />
+        <di:waypoint x="240" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cyzglk_di" bpmnElement="Flow_1cyzglk">
+        <di:waypoint x="500" y="350" />
+        <di:waypoint x="560" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12tsr59_di" bpmnElement="Flow_12tsr59">
+        <di:waypoint x="750" y="375" />
+        <di:waypoint x="750" y="680" />
+        <di:waypoint x="920" y="680" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="797" y="667" width="80" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fzhi4l_di" bpmnElement="Flow_0fzhi4l">
+        <di:waypoint x="775" y="350" />
+        <di:waypoint x="920" y="350" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="783" y="337" width="89" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kzkxjt_di" bpmnElement="Flow_1kzkxjt">
+        <di:waypoint x="660" y="350" />
+        <di:waypoint x="725" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0939ria_di" bpmnElement="Flow_0939ria">
+        <di:waypoint x="1020" y="680" />
+        <di:waypoint x="1080" y="680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05xmlz6_di" bpmnElement="Flow_05xmlz6">
+        <di:waypoint x="340" y="350" />
+        <di:waypoint x="400" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wezyia_di" bpmnElement="Flow_0wezyia">
+        <di:waypoint x="750" y="325" />
+        <di:waypoint x="750" y="200" />
+        <di:waypoint x="952" y="200" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="756" y="205" width="89" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1p608lv_di" bpmnElement="Flow_1p608lv">
+        <di:waypoint x="1460" y="220" />
+        <di:waypoint x="1530" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sccg20_di" bpmnElement="Flow_1sccg20">
+        <di:waypoint x="1630" y="220" />
+        <di:waypoint x="1700" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1bd44az_di" bpmnElement="Flow_1bd44az">
+        <di:waypoint x="1800" y="220" />
+        <di:waypoint x="1870" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rhikta_di" bpmnElement="Flow_0rhikta">
+        <di:waypoint x="1970" y="220" />
+        <di:waypoint x="2042" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0m9dycn_di" bpmnElement="Flow_0m9dycn">
+        <di:waypoint x="1180" y="680" />
+        <di:waypoint x="1250" y="680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19vyke8_di" bpmnElement="Flow_19vyke8">
+        <di:waypoint x="1350" y="680" />
+        <di:waypoint x="1432" y="680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1o680v1_di" bpmnElement="Flow_1o680v1">
+        <di:waypoint x="1190" y="325" />
+        <di:waypoint x="1190" y="220" />
+        <di:waypoint x="1360" y="220" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1163" y="260" width="21" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vc0gam_di" bpmnElement="Flow_0vc0gam">
+        <di:waypoint x="1215" y="350" />
+        <di:waypoint x="1392" y="350" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1226" y="323" width="88" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17re3gt_di" bpmnElement="Flow_17re3gt">
+        <di:waypoint x="1020" y="350" />
+        <di:waypoint x="1165" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_147fesc_di" bpmnElement="Association_147fesc">
+        <di:waypoint x="1731" y="180" />
+        <di:waypoint x="1716" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0535lom_di" bpmnElement="Association_0535lom">
+        <di:waypoint x="1937" y="180" />
+        <di:waypoint x="1950" y="151" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

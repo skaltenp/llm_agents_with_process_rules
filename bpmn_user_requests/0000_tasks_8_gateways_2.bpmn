@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0">
+  <collaboration id="Collaboration_0bdpfgx">
+    <participant id="Participant_1os4hbr" name="Power Grid Provider" processRef="inventory_audit_process" />
+    <textAnnotation id="TextAnnotation_1xy8lk8">
+      <text>Send email to create Pollex storage locations to employee.10@serviceprovider.com</text>
+    </textAnnotation>
+    <association id="Association_17ebvir" associationDirection="None" sourceRef="Task_NotifyPollexCreate" targetRef="TextAnnotation_1xy8lk8" />
+  </collaboration>
+  <process id="inventory_audit_process" isExecutable="true">
+    <laneSet id="LaneSet_0maxff5">
+      <lane id="Lane_0l9o3mt" name="LLM Agent">
+        <flowNodeRef>Task_GetSAPLocations</flowNodeRef>
+        <flowNodeRef>Task_GetPollexLocations</flowNodeRef>
+        <flowNodeRef>Task_CompareLocations</flowNodeRef>
+        <flowNodeRef>StartEvent_1</flowNodeRef>
+        <flowNodeRef>Activity_18vag5q</flowNodeRef>
+        <flowNodeRef>Gateway_LocationExists</flowNodeRef>
+        <flowNodeRef>Task_NotifyPollexCreate</flowNodeRef>
+        <flowNodeRef>Task_SendEmailRetrieveMaterials</flowNodeRef>
+        <flowNodeRef>Gateway_1rgz417</flowNodeRef>
+        <flowNodeRef>Task_CreateSAPLocation</flowNodeRef>
+        <flowNodeRef>EndEvent_1</flowNodeRef>
+        <flowNodeRef>Task_GenerateReport</flowNodeRef>
+        <flowNodeRef>Gateway_1m582bo</flowNodeRef>
+      </lane>
+    </laneSet>
+    <task id="Task_GetSAPLocations" name="Retrieve storage locations for plant 1540">
+      <incoming>flow_Start_To_GetSAP</incoming>
+      <outgoing>flow_GetSAP_To_GetPollex</outgoing>
+    </task>
+    <task id="Task_GetPollexLocations" name="Retrieve Pollex storage locations">
+      <incoming>flow_GetSAP_To_GetPollex</incoming>
+      <outgoing>flow_GetPollex_To_Compare</outgoing>
+    </task>
+    <task id="Task_CompareLocations" name="Compare SAP and Pollex storage locations">
+      <incoming>flow_GetPollex_To_Compare</incoming>
+      <outgoing>flow_Compare_To_Gateway</outgoing>
+    </task>
+    <startEvent id="StartEvent_1" />
+    <task id="Activity_18vag5q" name="Get materials in storage location">
+      <incoming>Flow_1x3entz</incoming>
+      <outgoing>flow_NotifyPollex_To_Report</outgoing>
+    </task>
+    <inclusiveGateway id="Gateway_LocationExists" default="Flow_1qrj84r">
+      <incoming>flow_Compare_To_Gateway</incoming>
+      <outgoing>flow_Gateway_To_CreateSAP</outgoing>
+      <outgoing>flow_Gateway_To_NotifyPollex</outgoing>
+      <outgoing>Flow_1qrj84r</outgoing>
+    </inclusiveGateway>
+    <task id="Task_NotifyPollexCreate" name="Notify service provider to add storage locations">
+      <incoming>Flow_13y4dic</incoming>
+    </task>
+    <task id="Task_SendEmailRetrieveMaterials" name="Request materials list from employee.3@serviceprovider.com">
+      <incoming>flow_CreateSAP_To_Email</incoming>
+      <outgoing>Flow_0pkzbch</outgoing>
+    </task>
+    <sequenceFlow id="flow_Start_To_GetSAP" sourceRef="StartEvent_1" targetRef="Task_GetSAPLocations" />
+    <sequenceFlow id="flow_GetSAP_To_GetPollex" sourceRef="Task_GetSAPLocations" targetRef="Task_GetPollexLocations" />
+    <sequenceFlow id="flow_GetPollex_To_Compare" sourceRef="Task_GetPollexLocations" targetRef="Task_CompareLocations" />
+    <sequenceFlow id="flow_Compare_To_Gateway" sourceRef="Task_CompareLocations" targetRef="Gateway_LocationExists" />
+    <sequenceFlow id="flow_Gateway_To_NotifyPollex" name="Storage locations exist in SAP but not in Pollex?" sourceRef="Gateway_LocationExists" targetRef="Gateway_1rgz417">
+      <conditionExpression xsi:type="tFormalExpression">locationInSAPNotInPollex</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_13y4dic" sourceRef="Gateway_1rgz417" targetRef="Task_NotifyPollexCreate" />
+    <sequenceFlow id="Flow_1x3entz" sourceRef="Gateway_1rgz417" targetRef="Activity_18vag5q" />
+    <sequenceFlow id="flow_NotifyPollex_To_Report" sourceRef="Activity_18vag5q" targetRef="Gateway_1m582bo" />
+    <sequenceFlow id="flow_Gateway_To_CreateSAP" name="Storage locations exist in Pollex but not in SAP?" sourceRef="Gateway_LocationExists" targetRef="Task_CreateSAPLocation">
+      <conditionExpression xsi:type="tFormalExpression">locationInPollexNotInSAP</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow_Report_To_End" sourceRef="Task_GenerateReport" targetRef="EndEvent_1" />
+    <sequenceFlow id="flow_CreateSAP_To_Email" sourceRef="Task_CreateSAPLocation" targetRef="Task_SendEmailRetrieveMaterials" />
+    <parallelGateway id="Gateway_1rgz417">
+      <incoming>flow_Gateway_To_NotifyPollex</incoming>
+      <outgoing>Flow_13y4dic</outgoing>
+      <outgoing>Flow_1x3entz</outgoing>
+    </parallelGateway>
+    <task id="Task_CreateSAPLocation" name="Create storage location in SAP">
+      <incoming>flow_Gateway_To_CreateSAP</incoming>
+      <outgoing>flow_CreateSAP_To_Email</outgoing>
+    </task>
+    <endEvent id="EndEvent_1">
+      <incoming>flow_Report_To_End</incoming>
+      <messageEventDefinition id="MessageEventDefinition_1gn2g8i" />
+    </endEvent>
+    <task id="Task_GenerateReport" name="Send discrepancy report to audit@company.com">
+      <incoming>Flow_0qwy191</incoming>
+      <outgoing>flow_Report_To_End</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_1m582bo">
+      <incoming>flow_NotifyPollex_To_Report</incoming>
+      <incoming>Flow_1qrj84r</incoming>
+      <incoming>Flow_0pkzbch</incoming>
+      <outgoing>Flow_0qwy191</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="Flow_0qwy191" sourceRef="Gateway_1m582bo" targetRef="Task_GenerateReport" />
+    <sequenceFlow id="Flow_1qrj84r" sourceRef="Gateway_LocationExists" targetRef="Gateway_1m582bo" />
+    <sequenceFlow id="Flow_0pkzbch" sourceRef="Task_SendEmailRetrieveMaterials" targetRef="Gateway_1m582bo" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0bdpfgx">
+      <bpmndi:BPMNShape id="Participant_1os4hbr_di" bpmnElement="Participant_1os4hbr" isHorizontal="true">
+        <omgdc:Bounds x="160" y="80" width="1900" height="580" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0l9o3mt_di" bpmnElement="Lane_0l9o3mt" isHorizontal="true">
+        <omgdc:Bounds x="190" y="80" width="1870" height="580" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ovcemj_di" bpmnElement="Task_GetSAPLocations">
+        <omgdc:Bounds x="300" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1k7vuew_di" bpmnElement="Task_GetPollexLocations">
+        <omgdc:Bounds x="440" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ivzsyo_di" bpmnElement="Task_CompareLocations">
+        <omgdc:Bounds x="580" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartEvent" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="222" y="262" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="204" y="678" width="72" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_18vag5q_di" bpmnElement="Activity_18vag5q">
+        <omgdc:Bounds x="1050" y="490" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_04vyznj_di" bpmnElement="Gateway_LocationExists">
+        <omgdc:Bounds x="715" y="255" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="775" y="640" width="80" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0zswzh4_di" bpmnElement="Task_NotifyPollexCreate">
+        <omgdc:Bounds x="1050" y="360" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1eri7bo_di" bpmnElement="Task_SendEmailRetrieveMaterials">
+        <omgdc:Bounds x="1050" y="120" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0jddwmy_di" bpmnElement="Gateway_1rgz417">
+        <omgdc:Bounds x="885" y="505" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_059pp2a_di" bpmnElement="Task_CreateSAPLocation">
+        <omgdc:Bounds x="860" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ci7qt9_di" bpmnElement="EndEvent_1">
+        <omgdc:Bounds x="1452" y="512" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1b1dwuf_di" bpmnElement="Task_GenerateReport">
+        <omgdc:Bounds x="1310" y="490" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1m582bo_di" bpmnElement="Gateway_1m582bo" isMarkerVisible="true">
+        <omgdc:Bounds x="1205" y="505" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_flow_Start_To_GetSAP" bpmnElement="flow_Start_To_GetSAP">
+        <omgdi:waypoint x="258" y="280" />
+        <omgdi:waypoint x="300" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_flow_GetSAP_To_GetPollex" bpmnElement="flow_GetSAP_To_GetPollex">
+        <omgdi:waypoint x="400" y="280" />
+        <omgdi:waypoint x="440" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_flow_GetPollex_To_Compare" bpmnElement="flow_GetPollex_To_Compare">
+        <omgdi:waypoint x="540" y="280" />
+        <omgdi:waypoint x="580" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_flow_Compare_To_Gateway" bpmnElement="flow_Compare_To_Gateway">
+        <omgdi:waypoint x="680" y="280" />
+        <omgdi:waypoint x="715" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_flow_Gateway_To_NotifyPollex" bpmnElement="flow_Gateway_To_NotifyPollex">
+        <omgdi:waypoint x="765" y="280" />
+        <omgdi:waypoint x="790" y="280" />
+        <omgdi:waypoint x="790" y="530" />
+        <omgdi:waypoint x="885" y="530" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="797" y="380" width="85" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13y4dic_di" bpmnElement="Flow_13y4dic">
+        <omgdi:waypoint x="910" y="505" />
+        <omgdi:waypoint x="910" y="400" />
+        <omgdi:waypoint x="1050" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1x3entz_di" bpmnElement="Flow_1x3entz">
+        <omgdi:waypoint x="935" y="530" />
+        <omgdi:waypoint x="1050" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_flow_NotifyPollex_To_Report" bpmnElement="flow_NotifyPollex_To_Report">
+        <omgdi:waypoint x="1150" y="530" />
+        <omgdi:waypoint x="1205" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_flow_Gateway_To_CreateSAP" bpmnElement="flow_Gateway_To_CreateSAP">
+        <omgdi:waypoint x="765" y="280" />
+        <omgdi:waypoint x="790" y="280" />
+        <omgdi:waypoint x="790" y="160" />
+        <omgdi:waypoint x="860" y="160" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="797" y="225" width="86" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_flow_Report_To_End" bpmnElement="flow_Report_To_End">
+        <omgdi:waypoint x="1410" y="530" />
+        <omgdi:waypoint x="1452" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_flow_CreateSAP_To_Email" bpmnElement="flow_CreateSAP_To_Email">
+        <omgdi:waypoint x="960" y="160" />
+        <omgdi:waypoint x="1050" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qwy191_di" bpmnElement="Flow_0qwy191">
+        <omgdi:waypoint x="1255" y="530" />
+        <omgdi:waypoint x="1310" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qrj84r_di" bpmnElement="Flow_1qrj84r">
+        <omgdi:waypoint x="740" y="305" />
+        <omgdi:waypoint x="740" y="610" />
+        <omgdi:waypoint x="1230" y="610" />
+        <omgdi:waypoint x="1230" y="555" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pkzbch_di" bpmnElement="Flow_0pkzbch">
+        <omgdi:waypoint x="1150" y="160" />
+        <omgdi:waypoint x="1230" y="160" />
+        <omgdi:waypoint x="1230" y="505" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_17ebvir_di" bpmnElement="Association_17ebvir">
+        <omgdi:waypoint x="1080" y="360" />
+        <omgdi:waypoint x="1065" y="331" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1xy8lk8_di" bpmnElement="TextAnnotation_1xy8lk8">
+        <omgdc:Bounds x="960" y="270" width="210" height="56" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

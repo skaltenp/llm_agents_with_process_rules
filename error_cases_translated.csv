@@ -1,0 +1,781 @@
+date,idoc_id,pollex_id,error_message,process,query,mockups
+2023-01-06 00:00:00,45119561,37040,System status CLSD is active (ORD WM9072050029 ),5.0,"Error Message:
+IDoc ID: 45119561
+Pollex ID: 37040
+Description: System status CLSD is active (ORD WM9072050029 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-01-06 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-01-10 00:00:00,19467893,98127,G/L account 404302 is not provided for in company code 0090,4.0,"Error Message:
+IDoc ID: 19467893
+Pollex ID: 98127
+Description: G/L account 404302 is not provided for in company code 0090","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""GLACCOUNT_SCREEN_KEY"": {""SAKNR"": {""404302"": ""SAKNR,BURKS\n404302,0043""}}}}, ""CURRENT_DATE"": ""2023-01-10 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-01-25 00:00:00,45732063,37559,System status CLSD is active (ORD IB9022265000 ),5.0,"Error Message:
+IDoc ID: 45732063
+Pollex ID: 37559
+Description: System status CLSD is active (ORD IB9022265000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-01-25 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-01-26 00:00:00,45877560,37596,System status LKD is active (ORD WB4801752230 ),5.0,"Error Message:
+IDoc ID: 45877560
+Pollex ID: 37596
+Description: System status LKD is active (ORD WB4801752230 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-01-26 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-01-26 00:00:00,45943945,37604,System status CLSD is active (ORD WW9312251004 ),5.0,"Error Message:
+IDoc ID: 45943945
+Pollex ID: 37604
+Description: System status CLSD is active (ORD WW9312251004 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-01-26 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-01-30 10:53:26,46132794,37697,"COMPLETE
+
+From: LLM Agent <llm.agent@company.com>
+Date: 2023-01-30 10:53:26
+To: Error Handler2 <error.handler2@company.com>
+Subject: Error in IDoc 46132794 with Pollex ID 37697
+
+Dear Error Handler2,
+
+Error Message:
+IDoc ID: 46132794
+Pollex ID: 37697
+Description: G/L account 507500 is locked for posting in company code 0015
+
+Please unblock the G/L account with ID 507500 for this period to complete the IDoc above.",7.0,"COMPLETE
+
+From: LLM Agent <llm.agent@company.com>
+Date: 2023-01-30 10:53:26
+To: Error Handler2 <error.handler2@company.com>
+Subject: Error in IDoc 46132794 with Pollex ID 37697
+
+Dear Error Handler2,
+
+Error Message:
+IDoc ID: 46132794
+Pollex ID: 37697
+Description: G/L account 507500 is locked for posting in company code 0015
+
+Please unblock the G/L account with ID 507500 for this period to complete the IDoc above.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-01-30 10:53:26"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-01-30 14:12:01,46132794,37697,"The G/L account 507500 is now unlocked. I assume your request is completed.
+
+From: LLM Agent <llm.agent@company.com>
+Date: 2023-01-30 10:53:26
+To: Error Handler2 <error.handler2@company.com>
+Subject: Error in IDoc 46132794 with Pollex ID 37697
+
+Dear Error Handler2,
+
+Error Message:
+IDoc ID: 46132794
+Pollex ID: 37697
+Description: G/L account 507500 is locked for posting in company code 0015
+
+Please unblock the G/L account with ID 507500 for this period to complete the IDoc above.",7.0,"The G/L account 507500 is now unlocked. I assume your request is completed.
+
+From: LLM Agent <llm.agent@company.com>
+Date: 2023-01-30 10:53:26
+To: Error Handler2 <error.handler2@company.com>
+Subject: Error in IDoc 46132794 with Pollex ID 37697
+
+Dear Error Handler2,
+
+Error Message:
+IDoc ID: 46132794
+Pollex ID: 37697
+Description: G/L account 507500 is locked for posting in company code 0015
+
+Please unblock the G/L account with ID 507500 for this period to complete the IDoc above.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-01-30 14:12:01"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-01-31 00:00:00,46132794,37697,G/L account 507500 is locked for posting in company code 0015,3.0,"Error Message:
+IDoc ID: 46132794
+Pollex ID: 37697
+Description: G/L account 507500 is locked for posting in company code 0015","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-02-01 00:00:00"", ""IDOC_VALUES"": {""46132794"": {""EDI_DC40"": {""CREDAT"": ""2023-01-31 00:00:00""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-01-31 00:00:00,46142479,37740,Material 22031001 1540 0010 is not available,2.0,"Error Message:
+IDoc ID: 46142479
+Pollex ID: 37740
+Description: Material 22031001 1540 0010 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-01-31 00:00:00"", ""IDOC_VALUES"": {""46142479"": {""E1EDL24"": {""LGORT"": ""0010""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0061"": ""Material, Description\n06875, Material 06875\n03613, Material 03613\n07361, Material 07361\n09656, Material 09656\n04559, Material 04559\n"", ""0131"": ""Material, Description\n02549, Material 02549\n03529, Material 03529\n05516, Material 05516\n01676, Material 01676\n01521, Material 01521\n"", ""0156"": ""Material, Description\n04335, Material 04335\n00713, Material 00713\n07529, Material 07529\n08787, Material 08787\n02047, Material 02047\n"", ""0008"": ""Material, Description\n09461, Material 09461\n03152, Material 03152\n01141, Material 01141\n00752, Material 00752\n03735, Material 03735\n"", ""0145"": ""Material, Description\n04556, Material 04556\n07430, Material 07430\n05979, Material 05979\n02666, Material 02666\n06067, Material 06067\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0061, Location 0061\n0131, Location 0131\n0156, Location 0156\n0008, Location 0008\n0145, Location 0145\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0061, Location 0061\n0131, Location 0131\n0156, Location 0156\n0008, Location 0008\n0145, Location 0145\n""}, ""STORAGE_LOCATION_ID"": ""0010"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0061"": ""Location 0061:\nMaterial, Description\n06875, Material 06875\n03613, Material 03613\n07361, Material 07361\n09656, Material 09656\n04559, Material 04559\n"", ""0131"": ""Location 0131:\nMaterial, Description\n02549, Material 02549\n03529, Material 03529\n05516, Material 05516\n01676, Material 01676\n01521, Material 01521\n"", ""0156"": ""Location 0156:\nMaterial, Description\n04335, Material 04335\n00713, Material 00713\n07529, Material 07529\n08787, Material 08787\n02047, Material 02047\n"", ""0008"": ""Location 0008:\nMaterial, Description\n09461, Material 09461\n03152, Material 03152\n01141, Material 01141\n00752, Material 00752\n03735, Material 03735\n"", ""0145"": ""Location 0145:\nMaterial, Description\n04556, Material 04556\n07430, Material 07430\n05979, Material 05979\n02666, Material 02666\n06067, Material 06067\n"", ""0010"": ""Location 0010:\nMaterial, Description\n04556, Material 04556\n07430, Material 07430\n05979, Material 05979\n02666, Material 02666\n06067, Material 06067\n""}}}"
+2023-02-21 00:00:00,46549354,38185,User status LOIA is active (ORD IB5027869000),6.0,"Error Message:
+IDoc ID: 46549354
+Pollex ID: 38185
+Description: User status LOIA is active (ORD IB5027869000)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-02-21 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-02-27 00:00:00,46638231,38435,User status LOIA is active (ORD IB5027869000 ),6.0,"Error Message:
+IDoc ID: 46638231
+Pollex ID: 38435
+Description: User status LOIA is active (ORD IB5027869000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-02-27 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-02-27 00:00:00,46651924,38470,Unit of measure ROL cannot be converted to stock unit of measure ST,8.0,"Error Message:
+IDoc ID: 46651924
+Pollex ID: 38470
+Description: Unit of measure ROL cannot be converted to stock unit of measure ST","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-02-27 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-02-27 00:00:00,46653730,38466,G/L account 506301 is not provided for in company code 0090,4.0,"Error Message:
+IDoc ID: 46653730
+Pollex ID: 38466
+Description: G/L account 506301 is not provided for in company code 0090","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""GLACCOUNT_SCREEN_KEY"": {""SAKNR"": {""506301"": ""SAKNR,BURKS\n506301,0043""}}}}, ""CURRENT_DATE"": ""2023-02-27 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-03-06 00:00:00,46808153,38674,User status LOIA is active (ORD IB5029068300 ),6.0,"Error Message:
+IDoc ID: 46808153
+Pollex ID: 38674
+Description: User status LOIA is active (ORD IB5029068300 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-03-06 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-03-17 00:00:00,47027922,39060,System status CLSD is active (ORD IB5014369000 ),5.0,"Error Message:
+IDoc ID: 47027922
+Pollex ID: 39060
+Description: System status CLSD is active (ORD IB5014369000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-03-17 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-03-21 00:00:00,47066354,39150,System status CLSD is active (ORD IB9312250006 ),5.0,"Error Message:
+IDoc ID: 47066354
+Pollex ID: 39150
+Description: System status CLSD is active (ORD IB9312250006 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-03-21 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-03-22 00:00:00,47079518,39192,Material 22031000 1540 0010 is not available,2.0,"Error Message:
+IDoc ID: 47079518
+Pollex ID: 39192
+Description: Material 22031000 1540 0010 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-03-22 00:00:00"", ""IDOC_VALUES"": {""47079518"": {""E1EDL24"": {""LGORT"": ""0010""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0138"": ""Material, Description\n03600, Material 03600\n05315, Material 05315\n00918, Material 00918\n03754, Material 03754\n00527, Material 00527\n"", ""0188"": ""Material, Description\n09294, Material 09294\n05157, Material 05157\n03485, Material 03485\n08181, Material 08181\n06484, Material 06484\n"", ""0064"": ""Material, Description\n09199, Material 09199\n08832, Material 08832\n04306, Material 04306\n09579, Material 09579\n07021, Material 07021\n"", ""0043"": ""Material, Description\n08350, Material 08350\n08087, Material 08087\n01491, Material 01491\n00773, Material 00773\n01798, Material 01798\n"", ""0120"": ""Material, Description\n06306, Material 06306\n06254, Material 06254\n09765, Material 09765\n07670, Material 07670\n08671, Material 08671\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0138, Location 0138\n0188, Location 0188\n0064, Location 0064\n0043, Location 0043\n0120, Location 0120\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0138, Location 0138\n0188, Location 0188\n0064, Location 0064\n0043, Location 0043\n0120, Location 0120\n""}, ""STORAGE_LOCATION_ID"": ""0010"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0138"": ""Location 0138:\nMaterial, Description\n03600, Material 03600\n05315, Material 05315\n00918, Material 00918\n03754, Material 03754\n00527, Material 00527\n"", ""0188"": ""Location 0188:\nMaterial, Description\n09294, Material 09294\n05157, Material 05157\n03485, Material 03485\n08181, Material 08181\n06484, Material 06484\n"", ""0064"": ""Location 0064:\nMaterial, Description\n09199, Material 09199\n08832, Material 08832\n04306, Material 04306\n09579, Material 09579\n07021, Material 07021\n"", ""0043"": ""Location 0043:\nMaterial, Description\n08350, Material 08350\n08087, Material 08087\n01491, Material 01491\n00773, Material 00773\n01798, Material 01798\n"", ""0120"": ""Location 0120:\nMaterial, Description\n06306, Material 06306\n06254, Material 06254\n09765, Material 09765\n07670, Material 07670\n08671, Material 08671\n"", ""0010"": ""Location 0010:\nMaterial, Description\n06306, Material 06306\n06254, Material 06254\n09765, Material 09765\n07670, Material 07670\n08671, Material 08671\n""}}}"
+2023-03-22 00:00:00,87901901,55063,Storage location 0061 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 87901901
+Pollex ID: 55063
+Description: Storage location 0061 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-03-22 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0089, Location 0089\n0104, Location 0104\n0085, Location 0085\n0082, Location 0082\n0171, Location 0171\n0061, Location 0061\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0089, Location 0089\n0104, Location 0104\n0085, Location 0085\n0082, Location 0082\n0171, Location 0171\n""}, ""STORAGE_LOCATION_ID"": ""0061"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0061 not available in plant 1540""}"
+2023-03-30 00:00:00,47229336,39558,Material 11022055 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 47229336
+Pollex ID: 39558
+Description: Material 11022055 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-03-30 00:00:00"", ""IDOC_VALUES"": {""47229336"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0194"": ""Material, Description\n07435, Material 07435\n00055, Material 00055\n04317, Material 04317\n08203, Material 08203\n02929, Material 02929\n"", ""0070"": ""Material, Description\n03260, Material 03260\n02506, Material 02506\n06128, Material 06128\n02648, Material 02648\n08839, Material 08839\n"", ""0198"": ""Material, Description\n00321, Material 00321\n01834, Material 01834\n05949, Material 05949\n05040, Material 05040\n03925, Material 03925\n"", ""0166"": ""Material, Description\n07964, Material 07964\n01135, Material 01135\n08729, Material 08729\n02062, Material 02062\n02105, Material 02105\n"", ""0089"": ""Material, Description\n09940, Material 09940\n06934, Material 06934\n03472, Material 03472\n08837, Material 08837\n03297, Material 03297\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0194, Location 0194\n0070, Location 0070\n0198, Location 0198\n0166, Location 0166\n0089, Location 0089\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0194, Location 0194\n0070, Location 0070\n0198, Location 0198\n0166, Location 0166\n0089, Location 0089\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0194"": ""Location 0194:\nMaterial, Description\n07435, Material 07435\n00055, Material 00055\n04317, Material 04317\n08203, Material 08203\n02929, Material 02929\n"", ""0070"": ""Location 0070:\nMaterial, Description\n03260, Material 03260\n02506, Material 02506\n06128, Material 06128\n02648, Material 02648\n08839, Material 08839\n"", ""0198"": ""Location 0198:\nMaterial, Description\n00321, Material 00321\n01834, Material 01834\n05949, Material 05949\n05040, Material 05040\n03925, Material 03925\n"", ""0166"": ""Location 0166:\nMaterial, Description\n07964, Material 07964\n01135, Material 01135\n08729, Material 08729\n02062, Material 02062\n02105, Material 02105\n"", ""0089"": ""Location 0089:\nMaterial, Description\n09940, Material 09940\n06934, Material 06934\n03472, Material 03472\n08837, Material 08837\n03297, Material 03297\n"", ""0001"": ""Location 0001:\nMaterial, Description\n09940, Material 09940\n06934, Material 06934\n03472, Material 03472\n08837, Material 08837\n03297, Material 03297\n""}}}"
+2023-03-31 00:00:00,66234581,76554,G/L account 775934 is locked for posting in company code 0015,3.0,"Error Message:
+IDoc ID: 66234581
+Pollex ID: 76554
+Description: G/L account 775934 is locked for posting in company code 0015","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-04-01 00:00:00"", ""IDOC_VALUES"": {""66234581"": {""EDI_DC40"": {""CREDAT"": ""2023-03-31 00:00:00""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-04-04 00:00:00,47305594,39666,User status LOIA is active (ORD IB5019969000 ),6.0,"Error Message:
+IDoc ID: 47305594
+Pollex ID: 39666
+Description: User status LOIA is active (ORD IB5019969000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-04-04 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-04-07 00:00:00,68401401,22014,Storage location 0007 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 68401401
+Pollex ID: 22014
+Description: Storage location 0007 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-04-07 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0194, Location 0194\n0013, Location 0013\n0052, Location 0052\n0068, Location 0068\n0140, Location 0140\n0007, Location 0007\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0194, Location 0194\n0013, Location 0013\n0052, Location 0052\n0068, Location 0068\n0140, Location 0140\n""}, ""STORAGE_LOCATION_ID"": ""0007"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0007 not available in plant 1540""}"
+2023-04-13 00:00:00,47454861,39928,System status CRTD is active (ORD IB4121064000 ),5.0,"Error Message:
+IDoc ID: 47454861
+Pollex ID: 39928
+Description: System status CRTD is active (ORD IB4121064000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {""IW33"": {""ORDER_NUMBER"": {""IB4121064000"": {""PERSON_RESPONSIBLE"": ""00000001""}}}}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""PUSER002"": {""PUSER_ID"": {""00000001"": ""person.responsible@company.com""}}}}, ""CURRENT_DATE"": ""2023-04-13 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-04-13 02:01:36,47454861,39928,"Your order has been released.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2023-04-13 02:01:36
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order IB4121064000
+
+Dear Person responsible for the order IB4121064000,
+
+Error Message:
+IDoc ID: 47454861
+Pollex ID: 39928
+Description: System status CRTD is active (ORD IB4121064000 )
+
+Please release the order IB4121064000. Answer this email when you have released the order.",7.0,"Your order has been released.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2023-04-13 02:01:36
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order IB4121064000
+
+Dear Person responsible for the order IB4121064000,
+
+Error Message:
+IDoc ID: 47454861
+Pollex ID: 39928
+Description: System status CRTD is active (ORD IB4121064000 )
+
+Please release the order IB4121064000. Answer this email when you have released the order.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-04-13 02:01:36"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-04-21 00:00:00,67518907,74741,G/L account 505401 is not provided for in company code 0075,4.0,"Error Message:
+IDoc ID: 67518907
+Pollex ID: 74741
+Description: G/L account 505401 is not provided for in company code 0075","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""GLACCOUNT_SCREEN_KEY"": {""SAKNR"": {""505401"": ""SAKNR,BURKS\n505401,0043""}}}}, ""CURRENT_DATE"": ""2023-04-21 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-04-28 00:00:00,47725997,40496,System status CRTD is active (ORD 71501218 ),5.0,"Error Message:
+IDoc ID: 47725997
+Pollex ID: 40496
+Description: System status CRTD is active (ORD 71501218 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {""IW33"": {""ORDER_NUMBER"": {""71501218"": {""PERSON_RESPONSIBLE"": ""00000001""}}}}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""PUSER002"": {""PUSER_ID"": {""00000001"": ""person.responsible@company.com""}}}}, ""CURRENT_DATE"": ""2023-04-28 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-04-28 13:29:58,47725997,40496,"The order 71501218 has been released. Your request is completed.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2023-04-28 13:29:58
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order 71501218
+
+Dear Person responsible for the order 71501218,
+
+Error Message:
+IDoc ID: 47725997
+Pollex ID: 40496
+Description: System status CRTD is active (ORD 71501218 )
+
+Please release the order 71501218. Answer this email when you have completed the release.",7.0,"The order 71501218 has been released. Your request is completed.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2023-04-28 13:29:58
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order 71501218
+
+Dear Person responsible for the order 71501218,
+
+Error Message:
+IDoc ID: 47725997
+Pollex ID: 40496
+Description: System status CRTD is active (ORD 71501218 )
+
+Please release the order 71501218. Answer this email when you have completed the release.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-04-28 13:29:58"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-04-30 00:00:00,12458325,74895,G/L account 225752 is locked for posting in company code 0015,3.0,"Error Message:
+IDoc ID: 12458325
+Pollex ID: 74895
+Description: G/L account 225752 is locked for posting in company code 0015","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-05-01 00:00:00"", ""IDOC_VALUES"": {""12458325"": {""EDI_DC40"": {""CREDAT"": ""2023-04-30 00:00:00""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-05-08 00:00:00,47901401,40698,Storage location 0300 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 47901401
+Pollex ID: 40698
+Description: Storage location 0300 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-05-08 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0115, Location 0115\n0030, Location 0030\n0063, Location 0063\n0057, Location 0057\n0016, Location 0016\n""}, ""STORAGE_LOCATION_ID"": ""0300"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0300 not available in plant 1540""}"
+2023-05-11 00:00:00,47975310,40841,System status CRTD is active (ORD WM7000066000 ),5.0,"Error Message:
+IDoc ID: 47975310
+Pollex ID: 40841
+Description: System status CRTD is active (ORD WM7000066000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {""IW33"": {""ORDER_NUMBER"": {""WM7000066000"": {""PERSON_RESPONSIBLE"": ""00000001""}}}}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""PUSER002"": {""PUSER_ID"": {""00000001"": ""person.responsible@company.com""}}}}, ""CURRENT_DATE"": ""2023-05-11 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-05-11 04:27:29,47975310,40841,"COMPLETED
+
+From: Employee 1 <employee.1@company.com>
+Date: 2023-05-11 04:27:29
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order WM7000066000
+
+Dear Person responsible for the order WM7000066000,
+
+Error Message:
+IDoc ID: 47975310
+Pollex ID: 40841
+Description: System status CRTD is active (ORD WM7000066000 )
+
+Please release the order WM7000066000. Answer this email with COMPLETED when you have released the order.",7.0,"COMPLETED
+
+From: Employee 1 <employee.1@company.com>
+Date: 2023-05-11 04:27:29
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order WM7000066000
+
+Dear Person responsible for the order WM7000066000,
+
+Error Message:
+IDoc ID: 47975310
+Pollex ID: 40841
+Description: System status CRTD is active (ORD WM7000066000 )
+
+Please release the order WM7000066000. Answer this email with COMPLETED when you have released the order.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-05-11 04:27:29"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-05-31 00:00:00,74385790,87894,G/L account 403810 is locked for posting in company code 0015,3.0,"Error Message:
+IDoc ID: 74385790
+Pollex ID: 87894
+Description: G/L account 403810 is locked for posting in company code 0015","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-06-01 00:00:00"", ""IDOC_VALUES"": {""74385790"": {""EDI_DC40"": {""CREDAT"": ""2023-05-31 00:00:00""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-05-31 00:00:00,48220896,41493,Material 11022075 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 48220896
+Pollex ID: 41493
+Description: Material 11022075 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-05-31 00:00:00"", ""IDOC_VALUES"": {""48220896"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0152"": ""Material, Description\n00516, Material 00516\n05415, Material 05415\n01162, Material 01162\n08425, Material 08425\n03901, Material 03901\n"", ""0058"": ""Material, Description\n09357, Material 09357\n09442, Material 09442\n07746, Material 07746\n03983, Material 03983\n07751, Material 07751\n"", ""0003"": ""Material, Description\n05806, Material 05806\n06941, Material 06941\n06737, Material 06737\n07653, Material 07653\n00889, Material 00889\n"", ""0020"": ""Material, Description\n04075, Material 04075\n03141, Material 03141\n03118, Material 03118\n08788, Material 08788\n07352, Material 07352\n"", ""0183"": ""Material, Description\n04094, Material 04094\n01237, Material 01237\n07262, Material 07262\n09018, Material 09018\n01606, Material 01606\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0152, Location 0152\n0058, Location 0058\n0003, Location 0003\n0020, Location 0020\n0183, Location 0183\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0152, Location 0152\n0058, Location 0058\n0003, Location 0003\n0020, Location 0020\n0183, Location 0183\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0152"": ""Location 0152:\nMaterial, Description\n00516, Material 00516\n05415, Material 05415\n01162, Material 01162\n08425, Material 08425\n03901, Material 03901\n"", ""0058"": ""Location 0058:\nMaterial, Description\n09357, Material 09357\n09442, Material 09442\n07746, Material 07746\n03983, Material 03983\n07751, Material 07751\n"", ""0003"": ""Location 0003:\nMaterial, Description\n05806, Material 05806\n06941, Material 06941\n06737, Material 06737\n07653, Material 07653\n00889, Material 00889\n"", ""0020"": ""Location 0020:\nMaterial, Description\n04075, Material 04075\n03141, Material 03141\n03118, Material 03118\n08788, Material 08788\n07352, Material 07352\n"", ""0183"": ""Location 0183:\nMaterial, Description\n04094, Material 04094\n01237, Material 01237\n07262, Material 07262\n09018, Material 09018\n01606, Material 01606\n"", ""0001"": ""Location 0001:\nMaterial, Description\n04094, Material 04094\n01237, Material 01237\n07262, Material 07262\n09018, Material 09018\n01606, Material 01606\n""}}}"
+2023-07-04 00:00:00,48798055,41758,System status CLSD is active (ORD IB9022350057 ),5.0,"Error Message:
+IDoc ID: 48798055
+Pollex ID: 41758
+Description: System status CLSD is active (ORD IB9022350057 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-07-04 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-07-18 00:00:00,49007691,43041,System status CLSD is active (ORD WB4922056701 ),5.0,"Error Message:
+IDoc ID: 49007691
+Pollex ID: 43041
+Description: System status CLSD is active (ORD WB4922056701 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-07-18 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-07-19 00:00:00,49018970,43099,Material 3046540 has in plant 1540 status Deleted for all processes,8.0,"Error Message:
+IDoc ID: 49018970
+Pollex ID: 43099
+Description: Material 3046540 has in plant 1540 status Deleted for all processes","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-07-19 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-07-27 00:00:00,49172189,43331,User status LOIA is active (ORD IB5029068350 ),6.0,"Error Message:
+IDoc ID: 49172189
+Pollex ID: 43331
+Description: User status LOIA is active (ORD IB5029068350 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-07-27 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-08-08 00:00:00,49384789,43684,Material 22030013 1540 0010 is not available,2.0,"Error Message:
+IDoc ID: 49384789
+Pollex ID: 43684
+Description: Material 22030013 1540 0010 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-08-08 00:00:00"", ""IDOC_VALUES"": {""49384789"": {""E1EDL24"": {""LGORT"": ""0010""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0044"": ""Material, Description\n06398, Material 06398\n04347, Material 04347\n07456, Material 07456\n04675, Material 04675\n06932, Material 06932\n"", ""0106"": ""Material, Description\n03568, Material 03568\n00960, Material 00960\n09491, Material 09491\n08885, Material 08885\n01000, Material 01000\n"", ""0126"": ""Material, Description\n08240, Material 08240\n08703, Material 08703\n02581, Material 02581\n00933, Material 00933\n08322, Material 08322\n"", ""0125"": ""Material, Description\n03855, Material 03855\n06617, Material 06617\n01966, Material 01966\n09335, Material 09335\n04035, Material 04035\n"", ""0056"": ""Material, Description\n09564, Material 09564\n09262, Material 09262\n08567, Material 08567\n05185, Material 05185\n04274, Material 04274\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0044, Location 0044\n0106, Location 0106\n0126, Location 0126\n0125, Location 0125\n0056, Location 0056\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0044, Location 0044\n0106, Location 0106\n0126, Location 0126\n0125, Location 0125\n0056, Location 0056\n""}, ""STORAGE_LOCATION_ID"": ""0010"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0044"": ""Location 0044:\nMaterial, Description\n06398, Material 06398\n04347, Material 04347\n07456, Material 07456\n04675, Material 04675\n06932, Material 06932\n"", ""0106"": ""Location 0106:\nMaterial, Description\n03568, Material 03568\n00960, Material 00960\n09491, Material 09491\n08885, Material 08885\n01000, Material 01000\n"", ""0126"": ""Location 0126:\nMaterial, Description\n08240, Material 08240\n08703, Material 08703\n02581, Material 02581\n00933, Material 00933\n08322, Material 08322\n"", ""0125"": ""Location 0125:\nMaterial, Description\n03855, Material 03855\n06617, Material 06617\n01966, Material 01966\n09335, Material 09335\n04035, Material 04035\n"", ""0056"": ""Location 0056:\nMaterial, Description\n09564, Material 09564\n09262, Material 09262\n08567, Material 08567\n05185, Material 05185\n04274, Material 04274\n"", ""0010"": ""Location 0010:\nMaterial, Description\n09564, Material 09564\n09262, Material 09262\n08567, Material 08567\n05185, Material 05185\n04274, Material 04274\n""}}}"
+2023-08-14 00:00:00,77901501,78874,Storage location 0471 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 77901501
+Pollex ID: 78874
+Description: Storage location 0471 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-08-14 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0166, Location 0166\n0113, Location 0113\n0071, Location 0071\n0046, Location 0046\n0149, Location 0149\n""}, ""STORAGE_LOCATION_ID"": ""0471"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0471 not available in plant 1540""}"
+2023-08-17 00:00:00,10045256,80236,G/L account 106650 is not provided for in company code 0090,4.0,"Error Message:
+IDoc ID: 10045256
+Pollex ID: 80236
+Description: G/L account 106650 is not provided for in company code 0090","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""GLACCOUNT_SCREEN_KEY"": {""SAKNR"": {""106650"": ""SAKNR,BURKS\n106650,0043""}}}}, ""CURRENT_DATE"": ""2023-08-17 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-08-30 00:00:00,49688454,44439,Material 3505130 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 49688454
+Pollex ID: 44439
+Description: Material 3505130 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-08-30 00:00:00"", ""IDOC_VALUES"": {""49688454"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0035"": ""Material, Description\n07510, Material 07510\n09226, Material 09226\n01640, Material 01640\n01202, Material 01202\n08810, Material 08810\n"", ""0173"": ""Material, Description\n01129, Material 01129\n04004, Material 04004\n06056, Material 06056\n04671, Material 04671\n02586, Material 02586\n"", ""0167"": ""Material, Description\n09088, Material 09088\n04907, Material 04907\n01699, Material 01699\n02202, Material 02202\n04335, Material 04335\n"", ""0078"": ""Material, Description\n04618, Material 04618\n09911, Material 09911\n03452, Material 03452\n05619, Material 05619\n03337, Material 03337\n"", ""0119"": ""Material, Description\n01514, Material 01514\n06941, Material 06941\n04535, Material 04535\n00724, Material 00724\n00060, Material 00060\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0035, Location 0035\n0173, Location 0173\n0167, Location 0167\n0078, Location 0078\n0119, Location 0119\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0035, Location 0035\n0173, Location 0173\n0167, Location 0167\n0078, Location 0078\n0119, Location 0119\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0035"": ""Location 0035:\nMaterial, Description\n07510, Material 07510\n09226, Material 09226\n01640, Material 01640\n01202, Material 01202\n08810, Material 08810\n"", ""0173"": ""Location 0173:\nMaterial, Description\n01129, Material 01129\n04004, Material 04004\n06056, Material 06056\n04671, Material 04671\n02586, Material 02586\n"", ""0167"": ""Location 0167:\nMaterial, Description\n09088, Material 09088\n04907, Material 04907\n01699, Material 01699\n02202, Material 02202\n04335, Material 04335\n"", ""0078"": ""Location 0078:\nMaterial, Description\n04618, Material 04618\n09911, Material 09911\n03452, Material 03452\n05619, Material 05619\n03337, Material 03337\n"", ""0119"": ""Location 0119:\nMaterial, Description\n01514, Material 01514\n06941, Material 06941\n04535, Material 04535\n00724, Material 00724\n00060, Material 00060\n"", ""0001"": ""Location 0001:\nMaterial, Description\n01514, Material 01514\n06941, Material 06941\n04535, Material 04535\n00724, Material 00724\n00060, Material 00060\n""}}}"
+2023-08-31 00:00:00,49704553,44471,Material 1395 1540 0043 is not available,2.0,"Error Message:
+IDoc ID: 49704553
+Pollex ID: 44471
+Description: Material 1395 1540 0043 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-08-31 00:00:00"", ""IDOC_VALUES"": {""49704553"": {""E1EDL24"": {""LGORT"": ""0043""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0143"": ""Material, Description\n00592, Material 00592\n06051, Material 06051\n09545, Material 09545\n09054, Material 09054\n02428, Material 02428\n"", ""0182"": ""Material, Description\n00655, Material 00655\n05864, Material 05864\n03443, Material 03443\n04090, Material 04090\n01686, Material 01686\n"", ""0111"": ""Material, Description\n02664, Material 02664\n02902, Material 02902\n06757, Material 06757\n00408, Material 00408\n02940, Material 02940\n"", ""0145"": ""Material, Description\n01773, Material 01773\n06269, Material 06269\n00636, Material 00636\n07713, Material 07713\n03646, Material 03646\n"", ""0004"": ""Material, Description\n03654, Material 03654\n00389, Material 00389\n03166, Material 03166\n06530, Material 06530\n05380, Material 05380\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0143, Location 0143\n0182, Location 0182\n0111, Location 0111\n0145, Location 0145\n0004, Location 0004\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0143, Location 0143\n0182, Location 0182\n0111, Location 0111\n0145, Location 0145\n0004, Location 0004\n""}, ""STORAGE_LOCATION_ID"": ""0043"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0143"": ""Location 0143:\nMaterial, Description\n00592, Material 00592\n06051, Material 06051\n09545, Material 09545\n09054, Material 09054\n02428, Material 02428\n"", ""0182"": ""Location 0182:\nMaterial, Description\n00655, Material 00655\n05864, Material 05864\n03443, Material 03443\n04090, Material 04090\n01686, Material 01686\n"", ""0111"": ""Location 0111:\nMaterial, Description\n02664, Material 02664\n02902, Material 02902\n06757, Material 06757\n00408, Material 00408\n02940, Material 02940\n"", ""0145"": ""Location 0145:\nMaterial, Description\n01773, Material 01773\n06269, Material 06269\n00636, Material 00636\n07713, Material 07713\n03646, Material 03646\n"", ""0004"": ""Location 0004:\nMaterial, Description\n03654, Material 03654\n00389, Material 00389\n03166, Material 03166\n06530, Material 06530\n05380, Material 05380\n"", ""0043"": ""Location 0043:\nMaterial, Description\n03654, Material 03654\n00389, Material 00389\n03166, Material 03166\n06530, Material 06530\n05380, Material 05380\n""}}}"
+2023-09-01 00:00:00,49716537,44529,Material 612 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 49716537
+Pollex ID: 44529
+Description: Material 612 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-09-01 00:00:00"", ""IDOC_VALUES"": {""49716537"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0104"": ""Material, Description\n04351, Material 04351\n00628, Material 00628\n01778, Material 01778\n09776, Material 09776\n07121, Material 07121\n"", ""0175"": ""Material, Description\n01896, Material 01896\n06313, Material 06313\n09448, Material 09448\n03116, Material 03116\n04175, Material 04175\n"", ""0139"": ""Material, Description\n03230, Material 03230\n05969, Material 05969\n07068, Material 07068\n01148, Material 01148\n05411, Material 05411\n"", ""0086"": ""Material, Description\n06693, Material 06693\n05346, Material 05346\n06594, Material 06594\n04846, Material 04846\n09085, Material 09085\n"", ""0009"": ""Material, Description\n09326, Material 09326\n04932, Material 04932\n06655, Material 06655\n08979, Material 08979\n00008, Material 00008\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0104, Location 0104\n0175, Location 0175\n0139, Location 0139\n0086, Location 0086\n0009, Location 0009\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0104, Location 0104\n0175, Location 0175\n0139, Location 0139\n0086, Location 0086\n0009, Location 0009\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0104"": ""Location 0104:\nMaterial, Description\n04351, Material 04351\n00628, Material 00628\n01778, Material 01778\n09776, Material 09776\n07121, Material 07121\n"", ""0175"": ""Location 0175:\nMaterial, Description\n01896, Material 01896\n06313, Material 06313\n09448, Material 09448\n03116, Material 03116\n04175, Material 04175\n"", ""0139"": ""Location 0139:\nMaterial, Description\n03230, Material 03230\n05969, Material 05969\n07068, Material 07068\n01148, Material 01148\n05411, Material 05411\n"", ""0086"": ""Location 0086:\nMaterial, Description\n06693, Material 06693\n05346, Material 05346\n06594, Material 06594\n04846, Material 04846\n09085, Material 09085\n"", ""0009"": ""Location 0009:\nMaterial, Description\n09326, Material 09326\n04932, Material 04932\n06655, Material 06655\n08979, Material 08979\n00008, Material 00008\n"", ""0001"": ""Location 0001:\nMaterial, Description\n09326, Material 09326\n04932, Material 04932\n06655, Material 06655\n08979, Material 08979\n00008, Material 00008\n""}}}"
+2023-09-01 00:00:00,49716539,44531,Material 3531 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 49716539
+Pollex ID: 44531
+Description: Material 3531 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-09-01 00:00:00"", ""IDOC_VALUES"": {""49716539"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0157"": ""Material, Description\n07754, Material 07754\n02782, Material 02782\n01391, Material 01391\n04651, Material 04651\n08447, Material 08447\n"", ""0169"": ""Material, Description\n03264, Material 03264\n02416, Material 02416\n00402, Material 00402\n00759, Material 00759\n04013, Material 04013\n"", ""0084"": ""Material, Description\n03187, Material 03187\n06293, Material 06293\n08101, Material 08101\n06549, Material 06549\n03999, Material 03999\n"", ""0121"": ""Material, Description\n02883, Material 02883\n08488, Material 08488\n07613, Material 07613\n00824, Material 00824\n09134, Material 09134\n"", ""0115"": ""Material, Description\n08704, Material 08704\n09159, Material 09159\n09757, Material 09757\n05200, Material 05200\n07253, Material 07253\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0157, Location 0157\n0169, Location 0169\n0084, Location 0084\n0121, Location 0121\n0115, Location 0115\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0157, Location 0157\n0169, Location 0169\n0084, Location 0084\n0121, Location 0121\n0115, Location 0115\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0157"": ""Location 0157:\nMaterial, Description\n07754, Material 07754\n02782, Material 02782\n01391, Material 01391\n04651, Material 04651\n08447, Material 08447\n"", ""0169"": ""Location 0169:\nMaterial, Description\n03264, Material 03264\n02416, Material 02416\n00402, Material 00402\n00759, Material 00759\n04013, Material 04013\n"", ""0084"": ""Location 0084:\nMaterial, Description\n03187, Material 03187\n06293, Material 06293\n08101, Material 08101\n06549, Material 06549\n03999, Material 03999\n"", ""0121"": ""Location 0121:\nMaterial, Description\n02883, Material 02883\n08488, Material 08488\n07613, Material 07613\n00824, Material 00824\n09134, Material 09134\n"", ""0115"": ""Location 0115:\nMaterial, Description\n08704, Material 08704\n09159, Material 09159\n09757, Material 09757\n05200, Material 05200\n07253, Material 07253\n"", ""0001"": ""Location 0001:\nMaterial, Description\n08704, Material 08704\n09159, Material 09159\n09757, Material 09757\n05200, Material 05200\n07253, Material 07253\n""}}}"
+2023-09-04 00:00:00,49770943,44601,Storage location 0201 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 49770943
+Pollex ID: 44601
+Description: Storage location 0201 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-09-04 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0190, Location 0190\n0121, Location 0121\n0115, Location 0115\n0066, Location 0066\n0192, Location 0192\n""}, ""STORAGE_LOCATION_ID"": ""0201"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0201 not available in plant 1540""}"
+2023-09-19 00:00:00,50045861,45083,Material 5004 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 50045861
+Pollex ID: 45083
+Description: Material 5004 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-09-19 00:00:00"", ""IDOC_VALUES"": {""50045861"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0135"": ""Material, Description\n03843, Material 03843\n04453, Material 04453\n05504, Material 05504\n05240, Material 05240\n08851, Material 08851\n"", ""0126"": ""Material, Description\n02505, Material 02505\n03507, Material 03507\n01054, Material 01054\n06799, Material 06799\n06680, Material 06680\n"", ""0162"": ""Material, Description\n03390, Material 03390\n06885, Material 06885\n06383, Material 06383\n09571, Material 09571\n00322, Material 00322\n"", ""0063"": ""Material, Description\n04894, Material 04894\n06391, Material 06391\n06867, Material 06867\n08820, Material 08820\n08949, Material 08949\n"", ""0072"": ""Material, Description\n07142, Material 07142\n07958, Material 07958\n00477, Material 00477\n06373, Material 06373\n05509, Material 05509\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0135, Location 0135\n0126, Location 0126\n0162, Location 0162\n0063, Location 0063\n0072, Location 0072\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0135, Location 0135\n0126, Location 0126\n0162, Location 0162\n0063, Location 0063\n0072, Location 0072\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0135"": ""Location 0135:\nMaterial, Description\n03843, Material 03843\n04453, Material 04453\n05504, Material 05504\n05240, Material 05240\n08851, Material 08851\n"", ""0126"": ""Location 0126:\nMaterial, Description\n02505, Material 02505\n03507, Material 03507\n01054, Material 01054\n06799, Material 06799\n06680, Material 06680\n"", ""0162"": ""Location 0162:\nMaterial, Description\n03390, Material 03390\n06885, Material 06885\n06383, Material 06383\n09571, Material 09571\n00322, Material 00322\n"", ""0063"": ""Location 0063:\nMaterial, Description\n04894, Material 04894\n06391, Material 06391\n06867, Material 06867\n08820, Material 08820\n08949, Material 08949\n"", ""0072"": ""Location 0072:\nMaterial, Description\n07142, Material 07142\n07958, Material 07958\n00477, Material 00477\n06373, Material 06373\n05509, Material 05509\n"", ""0001"": ""Location 0001:\nMaterial, Description\n07142, Material 07142\n07958, Material 07958\n00477, Material 00477\n06373, Material 06373\n05509, Material 05509\n""}}}"
+2023-09-20 00:00:00,50061955,45154,Material 11005097 1540 0043 is not available,2.0,"Error Message:
+IDoc ID: 50061955
+Pollex ID: 45154
+Description: Material 11005097 1540 0043 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-09-20 00:00:00"", ""IDOC_VALUES"": {""50061955"": {""E1EDL24"": {""LGORT"": ""0043""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0103"": ""Material, Description\n04943, Material 04943\n09839, Material 09839\n01985, Material 01985\n09274, Material 09274\n00674, Material 00674\n"", ""0185"": ""Material, Description\n08291, Material 08291\n05592, Material 05592\n00209, Material 00209\n06884, Material 06884\n08033, Material 08033\n"", ""0052"": ""Material, Description\n07137, Material 07137\n02887, Material 02887\n08550, Material 08550\n04427, Material 04427\n08819, Material 08819\n"", ""0021"": ""Material, Description\n05282, Material 05282\n04024, Material 04024\n01421, Material 01421\n04571, Material 04571\n07387, Material 07387\n"", ""0153"": ""Material, Description\n00472, Material 00472\n08100, Material 08100\n05327, Material 05327\n02981, Material 02981\n07990, Material 07990\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0103, Location 0103\n0185, Location 0185\n0052, Location 0052\n0021, Location 0021\n0153, Location 0153\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0103, Location 0103\n0185, Location 0185\n0052, Location 0052\n0021, Location 0021\n0153, Location 0153\n""}, ""STORAGE_LOCATION_ID"": ""0043"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0103"": ""Location 0103:\nMaterial, Description\n04943, Material 04943\n09839, Material 09839\n01985, Material 01985\n09274, Material 09274\n00674, Material 00674\n"", ""0185"": ""Location 0185:\nMaterial, Description\n08291, Material 08291\n05592, Material 05592\n00209, Material 00209\n06884, Material 06884\n08033, Material 08033\n"", ""0052"": ""Location 0052:\nMaterial, Description\n07137, Material 07137\n02887, Material 02887\n08550, Material 08550\n04427, Material 04427\n08819, Material 08819\n"", ""0021"": ""Location 0021:\nMaterial, Description\n05282, Material 05282\n04024, Material 04024\n01421, Material 01421\n04571, Material 04571\n07387, Material 07387\n"", ""0153"": ""Location 0153:\nMaterial, Description\n00472, Material 00472\n08100, Material 08100\n05327, Material 05327\n02981, Material 02981\n07990, Material 07990\n"", ""0043"": ""Location 0043:\nMaterial, Description\n00472, Material 00472\n08100, Material 08100\n05327, Material 05327\n02981, Material 02981\n07990, Material 07990\n""}}}"
+2023-09-20 00:00:00,50059078,45135,Material 2745 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 50059078
+Pollex ID: 45135
+Description: Material 2745 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-09-20 00:00:00"", ""IDOC_VALUES"": {""50059078"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0008"": ""Material, Description\n02225, Material 02225\n07566, Material 07566\n02979, Material 02979\n00825, Material 00825\n04264, Material 04264\n"", ""0102"": ""Material, Description\n05531, Material 05531\n06213, Material 06213\n04560, Material 04560\n06908, Material 06908\n04135, Material 04135\n"", ""0153"": ""Material, Description\n05735, Material 05735\n03675, Material 03675\n01126, Material 01126\n00661, Material 00661\n00510, Material 00510\n"", ""0146"": ""Material, Description\n02070, Material 02070\n07760, Material 07760\n01876, Material 01876\n09242, Material 09242\n03573, Material 03573\n"", ""0171"": ""Material, Description\n09951, Material 09951\n01878, Material 01878\n02685, Material 02685\n05098, Material 05098\n01773, Material 01773\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0008, Location 0008\n0102, Location 0102\n0153, Location 0153\n0146, Location 0146\n0171, Location 0171\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0008, Location 0008\n0102, Location 0102\n0153, Location 0153\n0146, Location 0146\n0171, Location 0171\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0008"": ""Location 0008:\nMaterial, Description\n02225, Material 02225\n07566, Material 07566\n02979, Material 02979\n00825, Material 00825\n04264, Material 04264\n"", ""0102"": ""Location 0102:\nMaterial, Description\n05531, Material 05531\n06213, Material 06213\n04560, Material 04560\n06908, Material 06908\n04135, Material 04135\n"", ""0153"": ""Location 0153:\nMaterial, Description\n05735, Material 05735\n03675, Material 03675\n01126, Material 01126\n00661, Material 00661\n00510, Material 00510\n"", ""0146"": ""Location 0146:\nMaterial, Description\n02070, Material 02070\n07760, Material 07760\n01876, Material 01876\n09242, Material 09242\n03573, Material 03573\n"", ""0171"": ""Location 0171:\nMaterial, Description\n09951, Material 09951\n01878, Material 01878\n02685, Material 02685\n05098, Material 05098\n01773, Material 01773\n"", ""0001"": ""Location 0001:\nMaterial, Description\n09951, Material 09951\n01878, Material 01878\n02685, Material 02685\n05098, Material 05098\n01773, Material 01773\n""}}}"
+2023-09-22 00:00:00,50091656,45225,Material 601 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 50091656
+Pollex ID: 45225
+Description: Material 601 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-09-22 00:00:00"", ""IDOC_VALUES"": {""50091656"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0154"": ""Material, Description\n06660, Material 06660\n08006, Material 08006\n09098, Material 09098\n03939, Material 03939\n07802, Material 07802\n"", ""0181"": ""Material, Description\n03632, Material 03632\n06627, Material 06627\n03988, Material 03988\n05018, Material 05018\n09530, Material 09530\n"", ""0072"": ""Material, Description\n06973, Material 06973\n09019, Material 09019\n05421, Material 05421\n05766, Material 05766\n07436, Material 07436\n"", ""0144"": ""Material, Description\n03157, Material 03157\n05171, Material 05171\n01960, Material 01960\n08781, Material 08781\n03035, Material 03035\n"", ""0004"": ""Material, Description\n08597, Material 08597\n09779, Material 09779\n04638, Material 04638\n01649, Material 01649\n03182, Material 03182\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0154, Location 0154\n0181, Location 0181\n0072, Location 0072\n0144, Location 0144\n0004, Location 0004\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0154, Location 0154\n0181, Location 0181\n0072, Location 0072\n0144, Location 0144\n0004, Location 0004\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0154"": ""Location 0154:\nMaterial, Description\n06660, Material 06660\n08006, Material 08006\n09098, Material 09098\n03939, Material 03939\n07802, Material 07802\n"", ""0181"": ""Location 0181:\nMaterial, Description\n03632, Material 03632\n06627, Material 06627\n03988, Material 03988\n05018, Material 05018\n09530, Material 09530\n"", ""0072"": ""Location 0072:\nMaterial, Description\n06973, Material 06973\n09019, Material 09019\n05421, Material 05421\n05766, Material 05766\n07436, Material 07436\n"", ""0144"": ""Location 0144:\nMaterial, Description\n03157, Material 03157\n05171, Material 05171\n01960, Material 01960\n08781, Material 08781\n03035, Material 03035\n"", ""0004"": ""Location 0004:\nMaterial, Description\n08597, Material 08597\n09779, Material 09779\n04638, Material 04638\n01649, Material 01649\n03182, Material 03182\n"", ""0001"": ""Location 0001:\nMaterial, Description\n08597, Material 08597\n09779, Material 09779\n04638, Material 04638\n01649, Material 01649\n03182, Material 03182\n""}}}"
+2023-09-24 00:00:00,97931401,77149,Storage location 0075 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 97931401
+Pollex ID: 77149
+Description: Storage location 0075 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-09-24 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0126, Location 0126\n0073, Location 0073\n0169, Location 0169\n0102, Location 0102\n0194, Location 0194\n0075, Location 0075\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0126, Location 0126\n0073, Location 0073\n0169, Location 0169\n0102, Location 0102\n0194, Location 0194\n""}, ""STORAGE_LOCATION_ID"": ""0075"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0075 not available in plant 1540""}"
+2023-10-12 00:00:00,50397257,45833,System status CRTD is active (ORD IB4146620000 ),5.0,"Error Message:
+IDoc ID: 50397257
+Pollex ID: 45833
+Description: System status CRTD is active (ORD IB4146620000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {""IW33"": {""ORDER_NUMBER"": {""IB4146620000"": {""PERSON_RESPONSIBLE"": ""00000001""}}}}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""PUSER002"": {""PUSER_ID"": {""00000001"": ""person.responsible@company.com""}}}}, ""CURRENT_DATE"": ""2023-10-12 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-10-12 00:00:00,67902401,98897,Storage location 0114 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 67902401
+Pollex ID: 98897
+Description: Storage location 0114 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-10-12 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0195, Location 0195\n0172, Location 0172\n0068, Location 0068\n0147, Location 0147\n0010, Location 0010\n0114, Location 0114\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0195, Location 0195\n0172, Location 0172\n0068, Location 0068\n0147, Location 0147\n0010, Location 0010\n""}, ""STORAGE_LOCATION_ID"": ""0114"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0114 not available in plant 1540""}"
+2023-10-12 02:32:24,50397257,45833,"The order IB4146620000 has been released. Your request is completed.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2023-10-12 02:32:24
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order IB4146620000
+
+Dear Person responsible for the order IB4146620000,
+
+Error Message:
+IDoc ID: 50397257
+Pollex ID: 45833
+Description: System status CRTD is active (ORD IB4146620000 )
+
+Please release the order IB4146620000. Answer this email when you have completed the release.",7.0,"The order IB4146620000 has been released. Your request is completed.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2023-10-12 02:32:24
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order IB4146620000
+
+Dear Person responsible for the order IB4146620000,
+
+Error Message:
+IDoc ID: 50397257
+Pollex ID: 45833
+Description: System status CRTD is active (ORD IB4146620000 )
+
+Please release the order IB4146620000. Answer this email when you have completed the release.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-10-12 02:32:24"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-10-13 00:00:00,50420094,,"FI interface: Balance in transaction currency 108,57 (EUR )",8.0,"Error Message:
+IDoc ID: 50420094
+Pollex ID: 
+Description: FI interface: Balance in transaction currency 108,57 (EUR )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-10-13 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-10-30 00:00:00,50684616,46471,System status CLSD is active (ORD WB4710004340 ),5.0,"Error Message:
+IDoc ID: 50684616
+Pollex ID: 46471
+Description: System status CLSD is active (ORD WB4710004340 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-10-30 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-11-07 00:00:00,50820185,46755,Material 11006482 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 50820185
+Pollex ID: 46755
+Description: Material 11006482 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-11-07 00:00:00"", ""IDOC_VALUES"": {""50820185"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0005"": ""Material, Description\n02070, Material 02070\n08044, Material 08044\n01682, Material 01682\n00202, Material 00202\n09407, Material 09407\n"", ""0183"": ""Material, Description\n03022, Material 03022\n00843, Material 00843\n04138, Material 04138\n07829, Material 07829\n01871, Material 01871\n"", ""0138"": ""Material, Description\n00880, Material 00880\n02487, Material 02487\n02446, Material 02446\n09223, Material 09223\n04980, Material 04980\n"", ""0034"": ""Material, Description\n09935, Material 09935\n09768, Material 09768\n03699, Material 03699\n08563, Material 08563\n06234, Material 06234\n"", ""0072"": ""Material, Description\n05005, Material 05005\n09318, Material 09318\n00988, Material 00988\n09990, Material 09990\n01627, Material 01627\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0005, Location 0005\n0183, Location 0183\n0138, Location 0138\n0034, Location 0034\n0072, Location 0072\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0005, Location 0005\n0183, Location 0183\n0138, Location 0138\n0034, Location 0034\n0072, Location 0072\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0005"": ""Location 0005:\nMaterial, Description\n02070, Material 02070\n08044, Material 08044\n01682, Material 01682\n00202, Material 00202\n09407, Material 09407\n"", ""0183"": ""Location 0183:\nMaterial, Description\n03022, Material 03022\n00843, Material 00843\n04138, Material 04138\n07829, Material 07829\n01871, Material 01871\n"", ""0138"": ""Location 0138:\nMaterial, Description\n00880, Material 00880\n02487, Material 02487\n02446, Material 02446\n09223, Material 09223\n04980, Material 04980\n"", ""0034"": ""Location 0034:\nMaterial, Description\n09935, Material 09935\n09768, Material 09768\n03699, Material 03699\n08563, Material 08563\n06234, Material 06234\n"", ""0072"": ""Location 0072:\nMaterial, Description\n05005, Material 05005\n09318, Material 09318\n00988, Material 00988\n09990, Material 09990\n01627, Material 01627\n"", ""0001"": ""Location 0001:\nMaterial, Description\n05005, Material 05005\n09318, Material 09318\n00988, Material 00988\n09990, Material 09990\n01627, Material 01627\n""}}}"
+2023-11-20 00:00:00,51082721,47297,Material 11006547 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 51082721
+Pollex ID: 47297
+Description: Material 11006547 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-11-20 00:00:00"", ""IDOC_VALUES"": {""51082721"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0063"": ""Material, Description\n09731, Material 09731\n07701, Material 07701\n04773, Material 04773\n00536, Material 00536\n03794, Material 03794\n"", ""0046"": ""Material, Description\n04336, Material 04336\n09665, Material 09665\n03243, Material 03243\n06967, Material 06967\n01882, Material 01882\n"", ""0143"": ""Material, Description\n01171, Material 01171\n00979, Material 00979\n02720, Material 02720\n05041, Material 05041\n09751, Material 09751\n"", ""0021"": ""Material, Description\n04984, Material 04984\n06596, Material 06596\n04462, Material 04462\n08201, Material 08201\n08849, Material 08849\n"", ""0042"": ""Material, Description\n07080, Material 07080\n05282, Material 05282\n09893, Material 09893\n04104, Material 04104\n00425, Material 00425\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0063, Location 0063\n0046, Location 0046\n0143, Location 0143\n0021, Location 0021\n0042, Location 0042\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0063, Location 0063\n0046, Location 0046\n0143, Location 0143\n0021, Location 0021\n0042, Location 0042\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0063"": ""Location 0063:\nMaterial, Description\n09731, Material 09731\n07701, Material 07701\n04773, Material 04773\n00536, Material 00536\n03794, Material 03794\n"", ""0046"": ""Location 0046:\nMaterial, Description\n04336, Material 04336\n09665, Material 09665\n03243, Material 03243\n06967, Material 06967\n01882, Material 01882\n"", ""0143"": ""Location 0143:\nMaterial, Description\n01171, Material 01171\n00979, Material 00979\n02720, Material 02720\n05041, Material 05041\n09751, Material 09751\n"", ""0021"": ""Location 0021:\nMaterial, Description\n04984, Material 04984\n06596, Material 06596\n04462, Material 04462\n08201, Material 08201\n08849, Material 08849\n"", ""0042"": ""Location 0042:\nMaterial, Description\n07080, Material 07080\n05282, Material 05282\n09893, Material 09893\n04104, Material 04104\n00425, Material 00425\n"", ""0001"": ""Location 0001:\nMaterial, Description\n07080, Material 07080\n05282, Material 05282\n09893, Material 09893\n04104, Material 04104\n00425, Material 00425\n""}}}"
+2023-11-27 00:00:00,17901400,84731,Storage location 0131 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 17901400
+Pollex ID: 84731
+Description: Storage location 0131 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-11-27 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0064, Location 0064\n0082, Location 0082\n0029, Location 0029\n0197, Location 0197\n0103, Location 0103\n0131, Location 0131\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0064, Location 0064\n0082, Location 0082\n0029, Location 0029\n0197, Location 0197\n0103, Location 0103\n""}, ""STORAGE_LOCATION_ID"": ""0131"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0131 not available in plant 1540""}"
+2023-12-12 00:00:00,77189098,76345,G/L account 999999 is locked for posting in company code 0015,3.0,"Error Message:
+IDoc ID: 77189098
+Pollex ID: 76345
+Description: G/L account 999999 is locked for posting in company code 0015","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-12-12 00:00:00"", ""IDOC_VALUES"": {""77189098"": {""EDI_DC40"": {""CREDAT"": ""2023-12-12 00:00:00""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2023-12-17 00:00:00,69449371,56737,Storage location 0189 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 69449371
+Pollex ID: 56737
+Description: Storage location 0189 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2023-12-17 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0127, Location 0127\n0183, Location 0183\n0074, Location 0074\n0130, Location 0130\n0180, Location 0180\n0189, Location 0189\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0127, Location 0127\n0183, Location 0183\n0074, Location 0074\n0130, Location 0130\n0180, Location 0180\n""}, ""STORAGE_LOCATION_ID"": ""0189"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0189 not available in plant 1540""}"
+2024-01-10 00:00:00,51931569,48473,System status CRTD is active (ORD 71501306 ),5.0,"Error Message:
+IDoc ID: 51931569
+Pollex ID: 48473
+Description: System status CRTD is active (ORD 71501306 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {""IW33"": {""ORDER_NUMBER"": {""71501306"": {""PERSON_RESPONSIBLE"": ""00000001""}}}}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""PUSER002"": {""PUSER_ID"": {""00000001"": ""person.responsible@company.com""}}}}, ""CURRENT_DATE"": ""2024-01-10 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-01-10 01:51:57,51931569,48473,"Your order has been released.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-01-10 01:51:57
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order 71501306
+
+Dear Person responsible for the order 71501306,
+
+Error Message:
+IDoc ID: 51931569
+Pollex ID: 48473
+Description: System status CRTD is active (ORD 71501306 )
+
+Please release the order 71501306. Answer this email when you have released the order.",7.0,"Your order has been released.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-01-10 01:51:57
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order 71501306
+
+Dear Person responsible for the order 71501306,
+
+Error Message:
+IDoc ID: 51931569
+Pollex ID: 48473
+Description: System status CRTD is active (ORD 71501306 )
+
+Please release the order 71501306. Answer this email when you have released the order.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-01-10 01:51:57"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-01-11 00:00:00,51957125,48529,Material 3763 1540 0015 is not available,2.0,"Error Message:
+IDoc ID: 51957125
+Pollex ID: 48529
+Description: Material 3763 1540 0015 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-01-11 00:00:00"", ""IDOC_VALUES"": {""51957125"": {""E1EDL24"": {""LGORT"": ""0015""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0036"": ""Material, Description\n04893, Material 04893\n09618, Material 09618\n09503, Material 09503\n08024, Material 08024\n02436, Material 02436\n"", ""0019"": ""Material, Description\n09044, Material 09044\n08905, Material 08905\n06182, Material 06182\n07462, Material 07462\n05274, Material 05274\n"", ""0072"": ""Material, Description\n06732, Material 06732\n00717, Material 00717\n05215, Material 05215\n07751, Material 07751\n06248, Material 06248\n"", ""0199"": ""Material, Description\n08231, Material 08231\n09671, Material 09671\n05441, Material 05441\n01646, Material 01646\n07215, Material 07215\n"", ""0108"": ""Material, Description\n06719, Material 06719\n02531, Material 02531\n01227, Material 01227\n07694, Material 07694\n04344, Material 04344\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0036, Location 0036\n0019, Location 0019\n0072, Location 0072\n0199, Location 0199\n0108, Location 0108\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0036, Location 0036\n0019, Location 0019\n0072, Location 0072\n0199, Location 0199\n0108, Location 0108\n""}, ""STORAGE_LOCATION_ID"": ""0015"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0036"": ""Location 0036:\nMaterial, Description\n04893, Material 04893\n09618, Material 09618\n09503, Material 09503\n08024, Material 08024\n02436, Material 02436\n"", ""0019"": ""Location 0019:\nMaterial, Description\n09044, Material 09044\n08905, Material 08905\n06182, Material 06182\n07462, Material 07462\n05274, Material 05274\n"", ""0072"": ""Location 0072:\nMaterial, Description\n06732, Material 06732\n00717, Material 00717\n05215, Material 05215\n07751, Material 07751\n06248, Material 06248\n"", ""0199"": ""Location 0199:\nMaterial, Description\n08231, Material 08231\n09671, Material 09671\n05441, Material 05441\n01646, Material 01646\n07215, Material 07215\n"", ""0108"": ""Location 0108:\nMaterial, Description\n06719, Material 06719\n02531, Material 02531\n01227, Material 01227\n07694, Material 07694\n04344, Material 04344\n"", ""0015"": ""Location 0015:\nMaterial, Description\n06719, Material 06719\n02531, Material 02531\n01227, Material 01227\n07694, Material 07694\n04344, Material 04344\n""}}}"
+2024-01-13 00:00:00,81845910,99785,Storage location 0149 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 81845910
+Pollex ID: 99785
+Description: Storage location 0149 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-01-13 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0003, Location 0003\n0141, Location 0141\n0104, Location 0104\n0023, Location 0023\n0057, Location 0057\n0149, Location 0149\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0003, Location 0003\n0141, Location 0141\n0104, Location 0104\n0023, Location 0023\n0057, Location 0057\n""}, ""STORAGE_LOCATION_ID"": ""0149"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0149 not available in plant 1540""}"
+2024-01-29 00:00:00,71256121,73581,Storage location 1000 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 71256121
+Pollex ID: 73581
+Description: Storage location 1000 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-01-29 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0124, Location 0124\n0031, Location 0031\n0007, Location 0007\n0161, Location 0161\n0155, Location 0155\n""}, ""STORAGE_LOCATION_ID"": ""1000"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 1000 not available in plant 1540""}"
+2024-02-03 00:00:00,57901405,96543,Storage location 0685 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 57901405
+Pollex ID: 96543
+Description: Storage location 0685 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-02-03 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0105, Location 0105\n0013, Location 0013\n0048, Location 0048\n0132, Location 0132\n0092, Location 0092\n""}, ""STORAGE_LOCATION_ID"": ""0685"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0685 not available in plant 1540""}"
+2024-02-07 00:00:00,52605926,49170,System status CLSD is active (ORD WM9071950028 ),5.0,"Error Message:
+IDoc ID: 52605926
+Pollex ID: 49170
+Description: System status CLSD is active (ORD WM9071950028 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-02-07 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-02-07 00:00:00,52611188,49171,System status CLSD is active (ORD WM9072250001 ),5.0,"Error Message:
+IDoc ID: 52611188
+Pollex ID: 49171
+Description: System status CLSD is active (ORD WM9072250001 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-02-07 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-02-23 00:00:00,52911577,49802,System status CLSD is active (ORD IB9232350031 ),5.0,"Error Message:
+IDoc ID: 52911577
+Pollex ID: 49802
+Description: System status CLSD is active (ORD IB9232350031 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-02-23 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-02-27 00:00:00,52968146,49931,System status CLSD is active (ORD IB8992300500 ),5.0,"Error Message:
+IDoc ID: 52968146
+Pollex ID: 49931
+Description: System status CLSD is active (ORD IB8992300500 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-02-27 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-02-27 00:00:00,52977665,49945,System status CLSD is active (ORD IB4141004100 ),5.0,"Error Message:
+IDoc ID: 52977665
+Pollex ID: 49945
+Description: System status CLSD is active (ORD IB4141004100 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-02-27 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-04 00:00:00,53113139,50126,Batch 256164071 of material 3012391 already locked by WF-BATCH,8.0,"Error Message:
+IDoc ID: 53113139
+Pollex ID: 50126
+Description: Batch 256164071 of material 3012391 already locked by WF-BATCH","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-04 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-04 00:00:00,53113136,50122,Batch 256164207 of material 3012391 already locked by WF-BATCH,8.0,"Error Message:
+IDoc ID: 53113136
+Pollex ID: 50122
+Description: Batch 256164207 of material 3012391 already locked by WF-BATCH","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-04 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-07 00:00:00,53186367,50305,Material 11008408 1540 0043 is not available,2.0,"Error Message:
+IDoc ID: 53186367
+Pollex ID: 50305
+Description: Material 11008408 1540 0043 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-07 00:00:00"", ""IDOC_VALUES"": {""53186367"": {""E1EDL24"": {""LGORT"": ""0043""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0027"": ""Material, Description\n02003, Material 02003\n07452, Material 07452\n01503, Material 01503\n03477, Material 03477\n09785, Material 09785\n"", ""0177"": ""Material, Description\n09252, Material 09252\n03364, Material 03364\n01126, Material 01126\n09082, Material 09082\n03396, Material 03396\n"", ""0096"": ""Material, Description\n09766, Material 09766\n00048, Material 00048\n04544, Material 04544\n02372, Material 02372\n02131, Material 02131\n"", ""0141"": ""Material, Description\n02161, Material 02161\n00245, Material 00245\n05871, Material 05871\n03900, Material 03900\n09649, Material 09649\n"", ""0167"": ""Material, Description\n02078, Material 02078\n06899, Material 06899\n08621, Material 08621\n01864, Material 01864\n01043, Material 01043\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0027, Location 0027\n0177, Location 0177\n0096, Location 0096\n0141, Location 0141\n0167, Location 0167\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0027, Location 0027\n0177, Location 0177\n0096, Location 0096\n0141, Location 0141\n0167, Location 0167\n""}, ""STORAGE_LOCATION_ID"": ""0043"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0027"": ""Location 0027:\nMaterial, Description\n02003, Material 02003\n07452, Material 07452\n01503, Material 01503\n03477, Material 03477\n09785, Material 09785\n"", ""0177"": ""Location 0177:\nMaterial, Description\n09252, Material 09252\n03364, Material 03364\n01126, Material 01126\n09082, Material 09082\n03396, Material 03396\n"", ""0096"": ""Location 0096:\nMaterial, Description\n09766, Material 09766\n00048, Material 00048\n04544, Material 04544\n02372, Material 02372\n02131, Material 02131\n"", ""0141"": ""Location 0141:\nMaterial, Description\n02161, Material 02161\n00245, Material 00245\n05871, Material 05871\n03900, Material 03900\n09649, Material 09649\n"", ""0167"": ""Location 0167:\nMaterial, Description\n02078, Material 02078\n06899, Material 06899\n08621, Material 08621\n01864, Material 01864\n01043, Material 01043\n"", ""0043"": ""Location 0043:\nMaterial, Description\n02078, Material 02078\n06899, Material 06899\n08621, Material 08621\n01864, Material 01864\n01043, Material 01043\n""}}}"
+2024-03-07 00:00:00,53186560,50340,Storage location 0104 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 53186560
+Pollex ID: 50340
+Description: Storage location 0104 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-07 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0027, Location 0027\n0115, Location 0115\n0128, Location 0128\n0056, Location 0056\n0157, Location 0157\n0104, Location 0104\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0027, Location 0027\n0115, Location 0115\n0128, Location 0128\n0056, Location 0056\n0157, Location 0157\n""}, ""STORAGE_LOCATION_ID"": ""0104"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0104 not available in plant 1540""}"
+2024-03-14 00:00:00,53350061,50545,Material 11001424 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 53350061
+Pollex ID: 50545
+Description: Material 11001424 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-14 00:00:00"", ""IDOC_VALUES"": {""53350061"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0079"": ""Material, Description\n01770, Material 01770\n08034, Material 08034\n07269, Material 07269\n01206, Material 01206\n01325, Material 01325\n"", ""0119"": ""Material, Description\n04507, Material 04507\n09592, Material 09592\n08986, Material 08986\n05329, Material 05329\n06242, Material 06242\n"", ""0166"": ""Material, Description\n09921, Material 09921\n07050, Material 07050\n01626, Material 01626\n01876, Material 01876\n09035, Material 09035\n"", ""0009"": ""Material, Description\n05555, Material 05555\n07432, Material 07432\n06534, Material 06534\n06817, Material 06817\n01559, Material 01559\n"", ""0017"": ""Material, Description\n02502, Material 02502\n07772, Material 07772\n01101, Material 01101\n01496, Material 01496\n01400, Material 01400\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0079, Location 0079\n0119, Location 0119\n0166, Location 0166\n0009, Location 0009\n0017, Location 0017\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0079, Location 0079\n0119, Location 0119\n0166, Location 0166\n0009, Location 0009\n0017, Location 0017\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0079"": ""Location 0079:\nMaterial, Description\n01770, Material 01770\n08034, Material 08034\n07269, Material 07269\n01206, Material 01206\n01325, Material 01325\n"", ""0119"": ""Location 0119:\nMaterial, Description\n04507, Material 04507\n09592, Material 09592\n08986, Material 08986\n05329, Material 05329\n06242, Material 06242\n"", ""0166"": ""Location 0166:\nMaterial, Description\n09921, Material 09921\n07050, Material 07050\n01626, Material 01626\n01876, Material 01876\n09035, Material 09035\n"", ""0009"": ""Location 0009:\nMaterial, Description\n05555, Material 05555\n07432, Material 07432\n06534, Material 06534\n06817, Material 06817\n01559, Material 01559\n"", ""0017"": ""Location 0017:\nMaterial, Description\n02502, Material 02502\n07772, Material 07772\n01101, Material 01101\n01496, Material 01496\n01400, Material 01400\n"", ""0001"": ""Location 0001:\nMaterial, Description\n02502, Material 02502\n07772, Material 07772\n01101, Material 01101\n01496, Material 01496\n01400, Material 01400\n""}}}"
+2024-03-14 00:00:00,53350060,50544,System status CRTD is active (ORD IB4189920000 ),5.0,"Error Message:
+IDoc ID: 53350060
+Pollex ID: 50544
+Description: System status CRTD is active (ORD IB4189920000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {""IW33"": {""ORDER_NUMBER"": {""IB4189920000"": {""PERSON_RESPONSIBLE"": ""00000001""}}}}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""PUSER002"": {""PUSER_ID"": {""00000001"": ""person.responsible@company.com""}}}}, ""CURRENT_DATE"": ""2024-03-14 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-14 00:00:00,53350059,50543,System status CRTD is active (ORD IB4189720000 ),5.0,"Error Message:
+IDoc ID: 53350059
+Pollex ID: 50543
+Description: System status CRTD is active (ORD IB4189720000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {""IW33"": {""ORDER_NUMBER"": {""IB4189720000"": {""PERSON_RESPONSIBLE"": ""00000001""}}}}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""PUSER002"": {""PUSER_ID"": {""00000001"": ""person.responsible@company.com""}}}}, ""CURRENT_DATE"": ""2024-03-14 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-14 00:00:00,53350058,50542,System status CRTD is active (ORD IB4201820000 ),5.0,"Error Message:
+IDoc ID: 53350058
+Pollex ID: 50542
+Description: System status CRTD is active (ORD IB4201820000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {""IW33"": {""ORDER_NUMBER"": {""IB4201820000"": {""PERSON_RESPONSIBLE"": ""00000001""}}}}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""PUSER002"": {""PUSER_ID"": {""00000001"": ""person.responsible@company.com""}}}}, ""CURRENT_DATE"": ""2024-03-14 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-14 01:34:57,53350059,50543,"Your order has been released.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-03-14 01:34:57
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order IB4189720000
+
+Dear Person responsible for the order IB4189720000,
+
+Error Message:
+IDoc ID: 53350059
+Pollex ID: 50543
+Description: System status CRTD is active (ORD IB4189720000 )
+
+Please release the order IB4189720000. Answer this email when you have released the order.",7.0,"Your order has been released.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-03-14 01:34:57
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order IB4189720000
+
+Dear Person responsible for the order IB4189720000,
+
+Error Message:
+IDoc ID: 53350059
+Pollex ID: 50543
+Description: System status CRTD is active (ORD IB4189720000 )
+
+Please release the order IB4189720000. Answer this email when you have released the order.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-14 01:34:57"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-14 07:40:51,53350060,50544,"Your order has been released.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-03-14 07:40:51
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order IB4189920000
+
+Dear Person responsible for the order IB4189920000,
+
+Error Message:
+IDoc ID: 53350060
+Pollex ID: 50544
+Description: System status CRTD is active (ORD IB4189920000 )
+
+Please release the order IB4189920000. Answer this email when you have released the order.",7.0,"Your order has been released.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-03-14 07:40:51
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order IB4189920000
+
+Dear Person responsible for the order IB4189920000,
+
+Error Message:
+IDoc ID: 53350060
+Pollex ID: 50544
+Description: System status CRTD is active (ORD IB4189920000 )
+
+Please release the order IB4189920000. Answer this email when you have released the order.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-14 07:40:51"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-14 13:29:00,53350058,50542,"Your order has been released.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-03-14 13:29:00
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order IB4201820000
+
+Dear Person responsible for the order IB4201820000,
+
+Error Message:
+IDoc ID: 53350058
+Pollex ID: 50542
+Description: System status CRTD is active (ORD IB4201820000 )
+
+Please release the order IB4201820000. Answer this email when you have released the order.",7.0,"Your order has been released.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-03-14 13:29:00
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order IB4201820000
+
+Dear Person responsible for the order IB4201820000,
+
+Error Message:
+IDoc ID: 53350058
+Pollex ID: 50542
+Description: System status CRTD is active (ORD IB4201820000 )
+
+Please release the order IB4201820000. Answer this email when you have released the order.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-14 13:29:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-15 00:00:00,89983471,65435,G/L account 746127 is locked for posting in company code 0015,3.0,"Error Message:
+IDoc ID: 89983471
+Pollex ID: 65435
+Description: G/L account 746127 is locked for posting in company code 0015","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-15 00:00:00"", ""IDOC_VALUES"": {""89983471"": {""EDI_DC40"": {""CREDAT"": ""2024-03-15 00:00:00""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-19 00:00:00,53483671,50683,System status CLSD is active (ORD IB4127605023 ),5.0,"Error Message:
+IDoc ID: 53483671
+Pollex ID: 50683
+Description: System status CLSD is active (ORD IB4127605023 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-19 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-03-22 00:00:00,53567859,50860,Material 22010050 1540 0103 is not available,2.0,"Error Message:
+IDoc ID: 53567859
+Pollex ID: 50860
+Description: Material 22010050 1540 0103 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-22 00:00:00"", ""IDOC_VALUES"": {""53567859"": {""E1EDL24"": {""LGORT"": ""0103""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0153"": ""Material, Description\n06043, Material 06043\n04705, Material 04705\n01259, Material 01259\n01481, Material 01481\n09735, Material 09735\n"", ""0016"": ""Material, Description\n00674, Material 00674\n07370, Material 07370\n09368, Material 09368\n03086, Material 03086\n05269, Material 05269\n"", ""0092"": ""Material, Description\n07383, Material 07383\n01697, Material 01697\n05628, Material 05628\n01383, Material 01383\n08268, Material 08268\n"", ""0131"": ""Material, Description\n08588, Material 08588\n08566, Material 08566\n09993, Material 09993\n02602, Material 02602\n05964, Material 05964\n"", ""0020"": ""Material, Description\n09797, Material 09797\n00859, Material 00859\n05484, Material 05484\n01081, Material 01081\n05403, Material 05403\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0153, Location 0153\n0016, Location 0016\n0092, Location 0092\n0131, Location 0131\n0020, Location 0020\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0153, Location 0153\n0016, Location 0016\n0092, Location 0092\n0131, Location 0131\n0020, Location 0020\n""}, ""STORAGE_LOCATION_ID"": ""0103"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0153"": ""Location 0153:\nMaterial, Description\n06043, Material 06043\n04705, Material 04705\n01259, Material 01259\n01481, Material 01481\n09735, Material 09735\n"", ""0016"": ""Location 0016:\nMaterial, Description\n00674, Material 00674\n07370, Material 07370\n09368, Material 09368\n03086, Material 03086\n05269, Material 05269\n"", ""0092"": ""Location 0092:\nMaterial, Description\n07383, Material 07383\n01697, Material 01697\n05628, Material 05628\n01383, Material 01383\n08268, Material 08268\n"", ""0131"": ""Location 0131:\nMaterial, Description\n08588, Material 08588\n08566, Material 08566\n09993, Material 09993\n02602, Material 02602\n05964, Material 05964\n"", ""0020"": ""Location 0020:\nMaterial, Description\n09797, Material 09797\n00859, Material 00859\n05484, Material 05484\n01081, Material 01081\n05403, Material 05403\n"", ""0103"": ""Location 0103:\nMaterial, Description\n09797, Material 09797\n00859, Material 00859\n05484, Material 05484\n01081, Material 01081\n05403, Material 05403\n""}}}"
+2024-03-28 00:00:00,53653038,,Material 11008182 1540 0043 is not available,2.0,"Error Message:
+IDoc ID: 53653038
+Pollex ID: 
+Description: Material 11008182 1540 0043 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-03-28 00:00:00"", ""IDOC_VALUES"": {""53653038"": {""E1EDL24"": {""LGORT"": ""0043""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0187"": ""Material, Description\n05084, Material 05084\n06423, Material 06423\n02114, Material 02114\n09751, Material 09751\n01390, Material 01390\n"", ""0170"": ""Material, Description\n08626, Material 08626\n01533, Material 01533\n06939, Material 06939\n08333, Material 08333\n05930, Material 05930\n"", ""0156"": ""Material, Description\n05600, Material 05600\n07969, Material 07969\n03147, Material 03147\n03713, Material 03713\n02255, Material 02255\n"", ""0040"": ""Material, Description\n08845, Material 08845\n08628, Material 08628\n00620, Material 00620\n05519, Material 05519\n02149, Material 02149\n"", ""0087"": ""Material, Description\n02714, Material 02714\n07172, Material 07172\n00717, Material 00717\n06733, Material 06733\n05970, Material 05970\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0187, Location 0187\n0170, Location 0170\n0156, Location 0156\n0040, Location 0040\n0087, Location 0087\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0187, Location 0187\n0170, Location 0170\n0156, Location 0156\n0040, Location 0040\n0087, Location 0087\n""}, ""STORAGE_LOCATION_ID"": ""0043"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0187"": ""Location 0187:\nMaterial, Description\n05084, Material 05084\n06423, Material 06423\n02114, Material 02114\n09751, Material 09751\n01390, Material 01390\n"", ""0170"": ""Location 0170:\nMaterial, Description\n08626, Material 08626\n01533, Material 01533\n06939, Material 06939\n08333, Material 08333\n05930, Material 05930\n"", ""0156"": ""Location 0156:\nMaterial, Description\n05600, Material 05600\n07969, Material 07969\n03147, Material 03147\n03713, Material 03713\n02255, Material 02255\n"", ""0040"": ""Location 0040:\nMaterial, Description\n08845, Material 08845\n08628, Material 08628\n00620, Material 00620\n05519, Material 05519\n02149, Material 02149\n"", ""0087"": ""Location 0087:\nMaterial, Description\n02714, Material 02714\n07172, Material 07172\n00717, Material 00717\n06733, Material 06733\n05970, Material 05970\n"", ""0043"": ""Location 0043:\nMaterial, Description\n02714, Material 02714\n07172, Material 07172\n00717, Material 00717\n06733, Material 06733\n05970, Material 05970\n""}}}"
+2024-04-03 00:00:00,53715284,51135,System status CLSD is active (ORD IB5031269500 ),5.0,"Error Message:
+IDoc ID: 53715284
+Pollex ID: 51135
+Description: System status CLSD is active (ORD IB5031269500 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-04-03 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-04-08 00:00:00,53791553,51264,System status CLSD is active (ORD IB4141004000 ),5.0,"Error Message:
+IDoc ID: 53791553
+Pollex ID: 51264
+Description: System status CLSD is active (ORD IB4141004000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-04-08 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-05-28 00:00:00,54837206,53026,System status CLSD is active (ORD IB9132250008 ),5.0,"Error Message:
+IDoc ID: 54837206
+Pollex ID: 53026
+Description: System status CLSD is active (ORD IB9132250008 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-05-28 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-06-14 00:00:00,15264790,67762,G/L account 904508 is not provided for in company code 0090,4.0,"Error Message:
+IDoc ID: 15264790
+Pollex ID: 67762
+Description: G/L account 904508 is not provided for in company code 0090","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""GLACCOUNT_SCREEN_KEY"": {""SAKNR"": {""904508"": ""SAKNR,BURKS\n904508,0043\n904508,0015""}}}}, ""CURRENT_DATE"": ""2024-06-14 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-06-24 00:00:00,55418780,53875,System status CLSD is active (ORD WW9322251003 ),5.0,"Error Message:
+IDoc ID: 55418780
+Pollex ID: 53875
+Description: System status CLSD is active (ORD WW9322251003 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-06-24 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-06-25 00:00:00,55437542,53919,System status CRTD is active (ORD 71501339 ),5.0,"Error Message:
+IDoc ID: 55437542
+Pollex ID: 53919
+Description: System status CRTD is active (ORD 71501339 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {""IW33"": {""ORDER_NUMBER"": {""71501339"": {""PERSON_RESPONSIBLE"": ""00000001""}}}}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""PUSER002"": {""PUSER_ID"": {""00000001"": ""person.responsible@company.com""}}}}, ""CURRENT_DATE"": ""2024-06-25 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-06-25 00:32:32,55437542,53919,"The order 71501339 has been released. Your request is completed.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-06-25 00:32:32
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order 71501339
+
+Dear Person responsible for the order 71501339,
+
+Error Message:
+IDoc ID: 55437542
+Pollex ID: 53919
+Description: System status CRTD is active (ORD 71501339 )
+
+Please release the order 71501339. Answer this email when you have completed the release.",7.0,"The order 71501339 has been released. Your request is completed.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-06-25 00:32:32
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order 71501339
+
+Dear Person responsible for the order 71501339,
+
+Error Message:
+IDoc ID: 55437542
+Pollex ID: 53919
+Description: System status CRTD is active (ORD 71501339 )
+
+Please release the order 71501339. Answer this email when you have completed the release.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-06-25 00:32:32"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-07-22 00:00:00,98907623,55773,G/L account 607301 is not provided for in company code 0090,4.0,"Error Message:
+IDoc ID: 98907623
+Pollex ID: 55773
+Description: G/L account 607301 is not provided for in company code 0090","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""GLACCOUNT_SCREEN_KEY"": {""SAKNR"": {""607301"": ""SAKNR,BURKS\n607301,0043\n607301,0015""}}}}, ""CURRENT_DATE"": ""2024-07-22 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-07-30 00:00:00,56055121,55449,System status CLSD is active (ORD WW9302350010 ),5.0,"Error Message:
+IDoc ID: 56055121
+Pollex ID: 55449
+Description: System status CLSD is active (ORD WW9302350010 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-07-30 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-08-15 00:00:00,56302456,56109,Material 22030013 1540 0043 is not available,2.0,"Error Message:
+IDoc ID: 56302456
+Pollex ID: 56109
+Description: Material 22030013 1540 0043 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-08-15 00:00:00"", ""IDOC_VALUES"": {""56302456"": {""E1EDL24"": {""LGORT"": ""0043""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0144"": ""Material, Description\n06931, Material 06931\n00844, Material 00844\n04714, Material 04714\n09839, Material 09839\n05121, Material 05121\n"", ""0017"": ""Material, Description\n02537, Material 02537\n07902, Material 07902\n03676, Material 03676\n01775, Material 01775\n05738, Material 05738\n"", ""0152"": ""Material, Description\n03707, Material 03707\n07032, Material 07032\n09192, Material 09192\n09123, Material 09123\n00432, Material 00432\n"", ""0145"": ""Material, Description\n00504, Material 00504\n01505, Material 01505\n08693, Material 08693\n03526, Material 03526\n06165, Material 06165\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0144, Location 0144\n0017, Location 0017\n0152, Location 0152\n0145, Location 0145\n0145, Location 0145\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0144, Location 0144\n0017, Location 0017\n0152, Location 0152\n0145, Location 0145\n0145, Location 0145\n""}, ""STORAGE_LOCATION_ID"": ""0043"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0144"": ""Location 0144:\nMaterial, Description\n06931, Material 06931\n00844, Material 00844\n04714, Material 04714\n09839, Material 09839\n05121, Material 05121\n"", ""0017"": ""Location 0017:\nMaterial, Description\n02537, Material 02537\n07902, Material 07902\n03676, Material 03676\n01775, Material 01775\n05738, Material 05738\n"", ""0152"": ""Location 0152:\nMaterial, Description\n03707, Material 03707\n07032, Material 07032\n09192, Material 09192\n09123, Material 09123\n00432, Material 00432\n"", ""0145"": ""Location 0145:\nMaterial, Description\n00504, Material 00504\n01505, Material 01505\n08693, Material 08693\n03526, Material 03526\n06165, Material 06165\n"", ""0043"": ""Location 0043:\nMaterial, Description\n00504, Material 00504\n01505, Material 01505\n08693, Material 08693\n03526, Material 03526\n06165, Material 06165\n""}}}"
+2024-08-27 00:00:00,56496573,56651,Material 11008388 and 11008399 1540 0043 are not available,6.0,"Error Message:
+IDoc ID: 56496573
+Pollex ID: 56651
+Description: Material 11008388 and 11008399 1540 0043 are not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-08-27 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-08-27 00:00:00,56496575,56653,Material 1523 1540 0043 is not available,2.0,"Error Message:
+IDoc ID: 56496575
+Pollex ID: 56653
+Description: Material 1523 1540 0043 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-08-27 00:00:00"", ""IDOC_VALUES"": {""56496575"": {""E1EDL24"": {""LGORT"": ""0043""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0006"": ""Material, Description\n06845, Material 06845\n04745, Material 04745\n01889, Material 01889\n06638, Material 06638\n00343, Material 00343\n"", ""0119"": ""Material, Description\n07157, Material 07157\n01736, Material 01736\n03988, Material 03988\n07140, Material 07140\n09650, Material 09650\n"", ""0021"": ""Material, Description\n05564, Material 05564\n03632, Material 03632\n05458, Material 05458\n02756, Material 02756\n01253, Material 01253\n"", ""0082"": ""Material, Description\n05726, Material 05726\n05754, Material 05754\n02421, Material 02421\n03873, Material 03873\n01686, Material 01686\n"", ""0149"": ""Material, Description\n02506, Material 02506\n01236, Material 01236\n02904, Material 02904\n08097, Material 08097\n07603, Material 07603\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0006, Location 0006\n0119, Location 0119\n0021, Location 0021\n0082, Location 0082\n0149, Location 0149\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0006, Location 0006\n0119, Location 0119\n0021, Location 0021\n0082, Location 0082\n0149, Location 0149\n""}, ""STORAGE_LOCATION_ID"": ""0043"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0006"": ""Location 0006:\nMaterial, Description\n06845, Material 06845\n04745, Material 04745\n01889, Material 01889\n06638, Material 06638\n00343, Material 00343\n"", ""0119"": ""Location 0119:\nMaterial, Description\n07157, Material 07157\n01736, Material 01736\n03988, Material 03988\n07140, Material 07140\n09650, Material 09650\n"", ""0021"": ""Location 0021:\nMaterial, Description\n05564, Material 05564\n03632, Material 03632\n05458, Material 05458\n02756, Material 02756\n01253, Material 01253\n"", ""0082"": ""Location 0082:\nMaterial, Description\n05726, Material 05726\n05754, Material 05754\n02421, Material 02421\n03873, Material 03873\n01686, Material 01686\n"", ""0149"": ""Location 0149:\nMaterial, Description\n02506, Material 02506\n01236, Material 01236\n02904, Material 02904\n08097, Material 08097\n07603, Material 07603\n"", ""0043"": ""Location 0043:\nMaterial, Description\n02506, Material 02506\n01236, Material 01236\n02904, Material 02904\n08097, Material 08097\n07603, Material 07603\n""}}}"
+2024-08-27 00:00:00,56496572,56650,Material 11006184 1540 0043 is not available,2.0,"Error Message:
+IDoc ID: 56496572
+Pollex ID: 56650
+Description: Material 11006184 1540 0043 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-08-27 00:00:00"", ""IDOC_VALUES"": {""56496572"": {""E1EDL24"": {""LGORT"": ""0043""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0081"": ""Material, Description\n00817, Material 00817\n01338, Material 01338\n04460, Material 04460\n07261, Material 07261\n06949, Material 06949\n"", ""0186"": ""Material, Description\n03533, Material 03533\n08396, Material 08396\n01866, Material 01866\n05657, Material 05657\n07045, Material 07045\n"", ""0085"": ""Material, Description\n05055, Material 05055\n00746, Material 00746\n03614, Material 03614\n06477, Material 06477\n09821, Material 09821\n"", ""0200"": ""Material, Description\n02250, Material 02250\n04188, Material 04188\n04744, Material 04744\n05377, Material 05377\n01967, Material 01967\n"", ""0147"": ""Material, Description\n06231, Material 06231\n08727, Material 08727\n03772, Material 03772\n08198, Material 08198\n09156, Material 09156\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0081, Location 0081\n0186, Location 0186\n0085, Location 0085\n0200, Location 0200\n0147, Location 0147\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0081, Location 0081\n0186, Location 0186\n0085, Location 0085\n0200, Location 0200\n0147, Location 0147\n""}, ""STORAGE_LOCATION_ID"": ""0043"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0081"": ""Location 0081:\nMaterial, Description\n00817, Material 00817\n01338, Material 01338\n04460, Material 04460\n07261, Material 07261\n06949, Material 06949\n"", ""0186"": ""Location 0186:\nMaterial, Description\n03533, Material 03533\n08396, Material 08396\n01866, Material 01866\n05657, Material 05657\n07045, Material 07045\n"", ""0085"": ""Location 0085:\nMaterial, Description\n05055, Material 05055\n00746, Material 00746\n03614, Material 03614\n06477, Material 06477\n09821, Material 09821\n"", ""0200"": ""Location 0200:\nMaterial, Description\n02250, Material 02250\n04188, Material 04188\n04744, Material 04744\n05377, Material 05377\n01967, Material 01967\n"", ""0147"": ""Location 0147:\nMaterial, Description\n06231, Material 06231\n08727, Material 08727\n03772, Material 03772\n08198, Material 08198\n09156, Material 09156\n"", ""0043"": ""Location 0043:\nMaterial, Description\n06231, Material 06231\n08727, Material 08727\n03772, Material 03772\n08198, Material 08198\n09156, Material 09156\n""}}}"
+2024-09-11 00:00:00,56722694,57692,Material 22030013 1540 0001 is not available,2.0,"Error Message:
+IDoc ID: 56722694
+Pollex ID: 57692
+Description: Material 22030013 1540 0001 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-09-11 00:00:00"", ""IDOC_VALUES"": {""56722694"": {""E1EDL24"": {""LGORT"": ""0001""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0118"": ""Material, Description\n05883, Material 05883\n09419, Material 09419\n04849, Material 04849\n04839, Material 04839\n00361, Material 00361\n"", ""0079"": ""Material, Description\n09937, Material 09937\n08140, Material 08140\n04691, Material 04691\n03772, Material 03772\n09948, Material 09948\n"", ""0052"": ""Material, Description\n01593, Material 01593\n00647, Material 00647\n05063, Material 05063\n07224, Material 07224\n00548, Material 00548\n"", ""0100"": ""Material, Description\n05354, Material 05354\n06809, Material 06809\n02879, Material 02879\n03291, Material 03291\n02167, Material 02167\n"", ""0125"": ""Material, Description\n02697, Material 02697\n04212, Material 04212\n07896, Material 07896\n04837, Material 04837\n05551, Material 05551\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0118, Location 0118\n0079, Location 0079\n0052, Location 0052\n0100, Location 0100\n0125, Location 0125\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0118, Location 0118\n0079, Location 0079\n0052, Location 0052\n0100, Location 0100\n0125, Location 0125\n""}, ""STORAGE_LOCATION_ID"": ""0001"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0118"": ""Location 0118:\nMaterial, Description\n05883, Material 05883\n09419, Material 09419\n04849, Material 04849\n04839, Material 04839\n00361, Material 00361\n"", ""0079"": ""Location 0079:\nMaterial, Description\n09937, Material 09937\n08140, Material 08140\n04691, Material 04691\n03772, Material 03772\n09948, Material 09948\n"", ""0052"": ""Location 0052:\nMaterial, Description\n01593, Material 01593\n00647, Material 00647\n05063, Material 05063\n07224, Material 07224\n00548, Material 00548\n"", ""0100"": ""Location 0100:\nMaterial, Description\n05354, Material 05354\n06809, Material 06809\n02879, Material 02879\n03291, Material 03291\n02167, Material 02167\n"", ""0125"": ""Location 0125:\nMaterial, Description\n02697, Material 02697\n04212, Material 04212\n07896, Material 07896\n04837, Material 04837\n05551, Material 05551\n"", ""0001"": ""Location 0001:\nMaterial, Description\n02697, Material 02697\n04212, Material 04212\n07896, Material 07896\n04837, Material 04837\n05551, Material 05551\n""}}}"
+2024-09-16 00:00:00,56825176,57913,System status CLSD is active (ORD KE29274011 ),5.0,"Error Message:
+IDoc ID: 56825176
+Pollex ID: 57913
+Description: System status CLSD is active (ORD KE29274011 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-09-16 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-09-23 00:00:00,56946863,58239,System status CLSD is active (ORD IB7016467000 ),5.0,"Error Message:
+IDoc ID: 56946863
+Pollex ID: 58239
+Description: System status CLSD is active (ORD IB7016467000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-09-23 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-09-25 00:00:00,56977185,58412,System status CLSD is active (ORD IB9802350015 ),5.0,"Error Message:
+IDoc ID: 56977185
+Pollex ID: 58412
+Description: System status CLSD is active (ORD IB9802350015 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-09-25 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-09-26 00:00:00,57008676,58542,System status CLSD is active (ORD IB4206265000 ),5.0,"Error Message:
+IDoc ID: 57008676
+Pollex ID: 58542
+Description: System status CLSD is active (ORD IB4206265000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-09-26 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-09-26 00:00:00,57008675,58541,System status CLSD is active (ORD IB4206164000 ),5.0,"Error Message:
+IDoc ID: 57008675
+Pollex ID: 58541
+Description: System status CLSD is active (ORD IB4206164000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-09-26 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-09-27 00:00:00,57022432,58586,System status CLSD is active (ORD WM0016665000 ),5.0,"Error Message:
+IDoc ID: 57022432
+Pollex ID: 58586
+Description: System status CLSD is active (ORD WM0016665000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-09-27 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-09-30 00:00:00,57040170,58438,System status CLSD is active (ORD KE29274121 ),5.0,"Error Message:
+IDoc ID: 57040170
+Pollex ID: 58438
+Description: System status CLSD is active (ORD KE29274121 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-09-30 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-10-10 00:00:00,57206593,59003,Enter batch,6.0,"Error Message:
+IDoc ID: 57206593
+Pollex ID: 59003
+Description: Enter batch","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-10-10 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-10-11 00:00:00,57236727,59067,Storage location 0107 is not allowed (Check your entry),1.0,"Error Message:
+IDoc ID: 57236727
+Pollex ID: 59067
+Description: Storage location 0107 is not allowed (Check your entry)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-10-11 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0160, Location 0160\n0080, Location 0080\n0038, Location 0038\n0112, Location 0112\n0017, Location 0017\n0107, Location 0107\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0160, Location 0160\n0080, Location 0080\n0038, Location 0038\n0112, Location 0112\n0017, Location 0017\n""}, ""STORAGE_LOCATION_ID"": ""0107"", ""STORAGE_LOCATION_INFO"": ""Error: Storage location 0107 not available in plant 1540""}"
+2024-10-14 00:00:00,57270850,59105,System status CLSD is active (ORD IB7024466000 ),5.0,"Error Message:
+IDoc ID: 57270850
+Pollex ID: 59105
+Description: System status CLSD is active (ORD IB7024466000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-10-14 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-10-15 00:00:00,57288011,59212,System status CLSD is active (ORD KE20275121 ),5.0,"Error Message:
+IDoc ID: 57288011
+Pollex ID: 59212
+Description: System status CLSD is active (ORD KE20275121 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-10-15 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-10-31 00:00:00,57638050,60136,System status CRTD is active (ORD WB4922156791 ),5.0,"Error Message:
+IDoc ID: 57638050
+Pollex ID: 60136
+Description: System status CRTD is active (ORD WB4922156791 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {""IW33"": {""ORDER_NUMBER"": {""WB4922156791"": {""PERSON_RESPONSIBLE"": ""00000001""}}}}, ""RFC_READ_TABLE"": {""RFC_READ_TABLE"": {""PUSER002"": {""PUSER_ID"": {""00000001"": ""person.responsible@company.com""}}}}, ""CURRENT_DATE"": ""2024-10-31 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-10-31 03:58:48,57638050,60136,"The order WB4922156791 has been released. Your request is completed.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-10-31 03:58:48
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order WB4922156791
+
+Dear Person responsible for the order WB4922156791,
+
+Error Message:
+IDoc ID: 57638050
+Pollex ID: 60136
+Description: System status CRTD is active (ORD WB4922156791 )
+
+Please release the order WB4922156791. Answer this email when you have completed the release.",7.0,"The order WB4922156791 has been released. Your request is completed.
+
+From: Employee 1 <employee.1@company.com>
+Date: 2024-10-31 03:58:48
+To: LLM Agent <llm.agent@company.com>
+Subject: Release Order WB4922156791
+
+Dear Person responsible for the order WB4922156791,
+
+Error Message:
+IDoc ID: 57638050
+Pollex ID: 60136
+Description: System status CRTD is active (ORD WB4922156791 )
+
+Please release the order WB4922156791. Answer this email when you have completed the release.","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-10-31 03:58:48"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-11-19 00:00:00,65643785,76435,G/L account 010049 is locked for posting in company code 0015,3.0,"Error Message:
+IDoc ID: 65643785
+Pollex ID: 76435
+Description: G/L account 010049 is locked for posting in company code 0015","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-11-19 00:00:00"", ""IDOC_VALUES"": {""65643785"": {""EDI_DC40"": {""CREDAT"": ""2024-11-19 00:00:00""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-11-21 00:00:00,58149780,60975,System status CLSD is active (ORD WD3001069000 ),5.0,"Error Message:
+IDoc ID: 58149780
+Pollex ID: 60975
+Description: System status CLSD is active (ORD WD3001069000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-11-21 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-11-26 00:00:00,58218540,61066,Material 11008184 1540 0043 is not available,2.0,"Error Message:
+IDoc ID: 58218540
+Pollex ID: 61066
+Description: Material 11008184 1540 0043 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-11-26 00:00:00"", ""IDOC_VALUES"": {""58218540"": {""E1EDL24"": {""LGORT"": ""0043""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0099"": ""Material, Description\n03848, Material 03848\n04710, Material 04710\n03729, Material 03729\n01482, Material 01482\n07112, Material 07112\n"", ""0083"": ""Material, Description\n00476, Material 00476\n00755, Material 00755\n05316, Material 05316\n00921, Material 00921\n04808, Material 04808\n"", ""0162"": ""Material, Description\n08704, Material 08704\n06753, Material 06753\n09274, Material 09274\n02952, Material 02952\n02787, Material 02787\n"", ""0185"": ""Material, Description\n08155, Material 08155\n09556, Material 09556\n02346, Material 02346\n03806, Material 03806\n07557, Material 07557\n"", ""0196"": ""Material, Description\n04714, Material 04714\n08957, Material 08957\n02590, Material 02590\n01212, Material 01212\n07239, Material 07239\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0099, Location 0099\n0083, Location 0083\n0162, Location 0162\n0185, Location 0185\n0196, Location 0196\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0099, Location 0099\n0083, Location 0083\n0162, Location 0162\n0185, Location 0185\n0196, Location 0196\n""}, ""STORAGE_LOCATION_ID"": ""0043"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0099"": ""Location 0099:\nMaterial, Description\n03848, Material 03848\n04710, Material 04710\n03729, Material 03729\n01482, Material 01482\n07112, Material 07112\n"", ""0083"": ""Location 0083:\nMaterial, Description\n00476, Material 00476\n00755, Material 00755\n05316, Material 05316\n00921, Material 00921\n04808, Material 04808\n"", ""0162"": ""Location 0162:\nMaterial, Description\n08704, Material 08704\n06753, Material 06753\n09274, Material 09274\n02952, Material 02952\n02787, Material 02787\n"", ""0185"": ""Location 0185:\nMaterial, Description\n08155, Material 08155\n09556, Material 09556\n02346, Material 02346\n03806, Material 03806\n07557, Material 07557\n"", ""0196"": ""Location 0196:\nMaterial, Description\n04714, Material 04714\n08957, Material 08957\n02590, Material 02590\n01212, Material 01212\n07239, Material 07239\n"", ""0043"": ""Location 0043:\nMaterial, Description\n04714, Material 04714\n08957, Material 08957\n02590, Material 02590\n01212, Material 01212\n07239, Material 07239\n""}}}"
+2024-12-06 00:00:00,58518365,61591,System status CLSD is active (ORD IB4197164000 ),5.0,"Error Message:
+IDoc ID: 58518365
+Pollex ID: 61591
+Description: System status CLSD is active (ORD IB4197164000 )","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-12-06 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-12-11 00:00:00,58736966,61590,System status CLSD is active (ORD IB4144164000),5.0,"Error Message:
+IDoc ID: 58736966
+Pollex ID: 61590
+Description: System status CLSD is active (ORD IB4144164000)","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-12-11 00:00:00"", ""IDOC_VALUES"": {}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"
+2024-12-20 00:00:00,59134825,61931,Material 22020042 1540 0106 is not available,2.0,"Error Message:
+IDoc ID: 59134825
+Pollex ID: 61931
+Description: Material 22020042 1540 0106 is not available","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-12-20 00:00:00"", ""IDOC_VALUES"": {""59134825"": {""E1EDL24"": {""LGORT"": ""0106""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {""0175"": ""Material, Description\n08793, Material 08793\n02026, Material 02026\n07453, Material 07453\n06040, Material 06040\n04297, Material 04297\n"", ""0187"": ""Material, Description\n07726, Material 07726\n00412, Material 00412\n09200, Material 09200\n05376, Material 05376\n09997, Material 09997\n"", ""0174"": ""Material, Description\n01913, Material 01913\n02292, Material 02292\n00744, Material 00744\n00611, Material 00611\n04988, Material 04988\n"", ""0103"": ""Material, Description\n02224, Material 02224\n06369, Material 06369\n07434, Material 07434\n06080, Material 06080\n08852, Material 08852\n"", ""0144"": ""Material, Description\n08019, Material 08019\n06688, Material 06688\n04585, Material 04585\n00538, Material 00538\n06072, Material 06072\n""}, ""POLLEX_STORAGE_LOCATIONS"": ""ID, Description\n0175, Location 0175\n0187, Location 0187\n0174, Location 0174\n0103, Location 0103\n0144, Location 0144\n"", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n0175, Location 0175\n0187, Location 0187\n0174, Location 0174\n0103, Location 0103\n0144, Location 0144\n""}, ""STORAGE_LOCATION_ID"": ""0106"", ""STORAGE_LOCATION_INFO"": {""1540"": {""0175"": ""Location 0175:\nMaterial, Description\n08793, Material 08793\n02026, Material 02026\n07453, Material 07453\n06040, Material 06040\n04297, Material 04297\n"", ""0187"": ""Location 0187:\nMaterial, Description\n07726, Material 07726\n00412, Material 00412\n09200, Material 09200\n05376, Material 05376\n09997, Material 09997\n"", ""0174"": ""Location 0174:\nMaterial, Description\n01913, Material 01913\n02292, Material 02292\n00744, Material 00744\n00611, Material 00611\n04988, Material 04988\n"", ""0103"": ""Location 0103:\nMaterial, Description\n02224, Material 02224\n06369, Material 06369\n07434, Material 07434\n06080, Material 06080\n08852, Material 08852\n"", ""0144"": ""Location 0144:\nMaterial, Description\n08019, Material 08019\n06688, Material 06688\n04585, Material 04585\n00538, Material 00538\n06072, Material 06072\n"", ""0106"": ""Location 0106:\nMaterial, Description\n08019, Material 08019\n06688, Material 06688\n04585, Material 04585\n00538, Material 00538\n06072, Material 06072\n""}}}"
+2024-12-27 00:00:00,53953474,79321,G/L account 604900 is locked for posting in company code 0015,3.0,"Error Message:
+IDoc ID: 53953474
+Pollex ID: 79321
+Description: G/L account 604900 is locked for posting in company code 0015","{""RULE_BASE"": """", ""RPA_FIELD_VALUE"": {}, ""RFC_READ_TABLE"": {}, ""CURRENT_DATE"": ""2024-12-27 00:00:00"", ""IDOC_VALUES"": {""53953474"": {""EDI_DC40"": {""CREDAT"": ""2024-12-27 00:00:00""}}}, ""MATERIALS_IN_STORAGE_LOCATION"": {}, ""POLLEX_STORAGE_LOCATIONS"": """", ""STORAGE_LOCATIONS_IN_PLANT"": {""1540"": ""ID, Description\n""}, ""STORAGE_LOCATION_ID"": """", ""STORAGE_LOCATION_INFO"": {}}"

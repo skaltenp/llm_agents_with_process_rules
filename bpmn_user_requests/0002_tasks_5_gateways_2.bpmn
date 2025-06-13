@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0">
+  <collaboration id="Collaboration_0a7ffxk">
+    <participant id="Participant_00dfwqi" name="LLM Agent" processRef="optimize_material_storage" />
+  </collaboration>
+  <process id="optimize_material_storage" name="Optimize Material Storage in Plant 1540" isExecutable="true">
+    <startEvent id="StartEvent_1" name="Start Optimization">
+      <outgoing>Flow_1</outgoing>
+    </startEvent>
+    <exclusiveGateway id="ExclusiveGateway_1" name="Materials Less Than 10?">
+      <incoming>Flow_3</incoming>
+      <outgoing>Flow_5</outgoing>
+      <outgoing>Flow_044ixvs</outgoing>
+    </exclusiveGateway>
+    <task id="ServiceTask_2" name="Retrieve Materials in Storage Location">
+      <incoming>Flow_2</incoming>
+      <outgoing>Flow_3</outgoing>
+    </task>
+    <task id="ServiceTask_1" name="Get Storage Locations in Plant 1540">
+      <incoming>Flow_1</incoming>
+      <outgoing>Flow_2</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_0rmnrgu" name="Storage location 0199 exists?">
+      <incoming>Flow_044ixvs</incoming>
+      <outgoing>Flow_0ej0k8u</outgoing>
+      <outgoing>Flow_06e6jnn</outgoing>
+    </exclusiveGateway>
+    <exclusiveGateway id="Gateway_0ezar8n">
+      <incoming>Flow_6</incoming>
+      <incoming>Flow_06e6jnn</incoming>
+      <outgoing>Flow_0ovbry8</outgoing>
+    </exclusiveGateway>
+    <task id="ServiceTask_3" name="Create Storage Location 0199">
+      <incoming>Flow_0ej0k8u</incoming>
+      <outgoing>Flow_6</outgoing>
+    </task>
+    <task id="ServiceTask_4" name="Move Materials to 0199 in 1540">
+      <incoming>Flow_0ovbry8</incoming>
+      <outgoing>Flow_7</outgoing>
+    </task>
+    <sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="ServiceTask_1" />
+    <sequenceFlow id="Flow_3" sourceRef="ServiceTask_2" targetRef="ExclusiveGateway_1" />
+    <sequenceFlow id="Flow_5" name="no" sourceRef="ExclusiveGateway_1" targetRef="Gateway_093cmua">
+      <conditionExpression xsi:type="tFormalExpression">count({MATERIALS}) &amp;gt;= 10</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_044ixvs" name="yes" sourceRef="ExclusiveGateway_1" targetRef="Gateway_0rmnrgu" />
+    <sequenceFlow id="Flow_2" sourceRef="ServiceTask_1" targetRef="ServiceTask_2" />
+    <sequenceFlow id="Flow_0ej0k8u" name="no" sourceRef="Gateway_0rmnrgu" targetRef="ServiceTask_3" />
+    <sequenceFlow id="Flow_06e6jnn" name="yes" sourceRef="Gateway_0rmnrgu" targetRef="Gateway_0ezar8n" />
+    <sequenceFlow id="Flow_6" sourceRef="ServiceTask_3" targetRef="Gateway_0ezar8n" />
+    <sequenceFlow id="Flow_0ovbry8" sourceRef="Gateway_0ezar8n" targetRef="ServiceTask_4" />
+    <sequenceFlow id="Flow_7" sourceRef="ServiceTask_4" targetRef="Gateway_093cmua" />
+    <sequenceFlow id="Flow_8" sourceRef="ServiceTask_5" targetRef="EndEvent_1" />
+    <endEvent id="EndEvent_1">
+      <incoming>Flow_8</incoming>
+      <messageEventDefinition id="MessageEventDefinition_0shtutv" />
+    </endEvent>
+    <task id="ServiceTask_5" name="Notify logistics team by email after material move">
+      <incoming>Flow_1w4r4pm</incoming>
+      <outgoing>Flow_8</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_093cmua">
+      <incoming>Flow_7</incoming>
+      <incoming>Flow_5</incoming>
+      <outgoing>Flow_1w4r4pm</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="Flow_1w4r4pm" sourceRef="Gateway_093cmua" targetRef="ServiceTask_5" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0a7ffxk">
+      <bpmndi:BPMNShape id="Participant_00dfwqi_di" bpmnElement="Participant_00dfwqi" isHorizontal="true">
+        <omgdc:Bounds x="160" y="40" width="1320" height="370" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="233" y="282" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="207" y="318" width="88" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1_di" bpmnElement="ExclusiveGateway_1" isMarkerVisible="true">
+        <omgdc:Bounds x="591" y="275" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="650.5" y="286.5" width="71" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10a5go7_di" bpmnElement="ServiceTask_2">
+        <omgdc:Bounds x="441" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1q44jjk_di" bpmnElement="ServiceTask_1">
+        <omgdc:Bounds x="301" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0rmnrgu_di" bpmnElement="Gateway_0rmnrgu" isMarkerVisible="true">
+        <omgdc:Bounds x="716" y="165" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="701" y="222" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0ezar8n_di" bpmnElement="Gateway_0ezar8n" isMarkerVisible="true">
+        <omgdc:Bounds x="955" y="165" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1w7aj4g_di" bpmnElement="ServiceTask_3">
+        <omgdc:Bounds x="810" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_08p1e25_di" bpmnElement="ServiceTask_4">
+        <omgdc:Bounds x="1050" y="150" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1xnvmap_di" bpmnElement="EndEvent_1">
+        <omgdc:Bounds x="1422" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1250" y="148" width="84" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_019toed_di" bpmnElement="ServiceTask_5">
+        <omgdc:Bounds x="1290" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_093cmua_di" bpmnElement="Gateway_093cmua" isMarkerVisible="true">
+        <omgdc:Bounds x="1195" y="165" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <omgdi:waypoint x="269" y="300" />
+        <omgdi:waypoint x="301" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <omgdi:waypoint x="541" y="300" />
+        <omgdi:waypoint x="591" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <omgdi:waypoint x="616" y="325" />
+        <omgdi:waypoint x="616" y="370" />
+        <omgdi:waypoint x="1220" y="370" />
+        <omgdi:waypoint x="1220" y="215" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="620" y="341" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_044ixvs_di" bpmnElement="Flow_044ixvs">
+        <omgdi:waypoint x="616" y="275" />
+        <omgdi:waypoint x="616" y="190" />
+        <omgdi:waypoint x="716" y="190" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="622" y="230" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <omgdi:waypoint x="401" y="300" />
+        <omgdi:waypoint x="441" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ej0k8u_di" bpmnElement="Flow_0ej0k8u">
+        <omgdi:waypoint x="766" y="190" />
+        <omgdi:waypoint x="810" y="190" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="782" y="172" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06e6jnn_di" bpmnElement="Flow_06e6jnn">
+        <omgdi:waypoint x="741" y="165" />
+        <omgdi:waypoint x="741" y="100" />
+        <omgdi:waypoint x="980" y="100" />
+        <omgdi:waypoint x="980" y="165" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="852" y="82" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <omgdi:waypoint x="910" y="190" />
+        <omgdi:waypoint x="955" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ovbry8_di" bpmnElement="Flow_0ovbry8">
+        <omgdi:waypoint x="1005" y="190" />
+        <omgdi:waypoint x="1050" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <omgdi:waypoint x="1150" y="190" />
+        <omgdi:waypoint x="1195" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <omgdi:waypoint x="1390" y="190" />
+        <omgdi:waypoint x="1422" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1w4r4pm_di" bpmnElement="Flow_1w4r4pm">
+        <omgdi:waypoint x="1245" y="190" />
+        <omgdi:waypoint x="1290" y="190" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

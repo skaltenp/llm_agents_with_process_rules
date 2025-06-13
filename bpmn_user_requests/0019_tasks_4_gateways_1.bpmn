@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_07jgb46" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:process id="Process_1pc2kns" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1eymsme</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_19qpj7o" name="Get the delivery date of the IDoc 98712419">
+      <bpmn:incoming>Flow_1eymsme</bpmn:incoming>
+      <bpmn:outgoing>Flow_1nmhmv6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1eymsme" sourceRef="StartEvent_1" targetRef="Activity_19qpj7o" />
+    <bpmn:task id="Activity_1aoybh8" name="Determine if the delivery date is before 2025">
+      <bpmn:incoming>Flow_1nmhmv6</bpmn:incoming>
+      <bpmn:outgoing>Flow_0fgnnw1</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1nmhmv6" sourceRef="Activity_19qpj7o" targetRef="Activity_1aoybh8" />
+    <bpmn:exclusiveGateway id="Gateway_17ecrsk">
+      <bpmn:incoming>Flow_0fgnnw1</bpmn:incoming>
+      <bpmn:outgoing>Flow_1lcd6cv</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1g7whdz</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0fgnnw1" sourceRef="Activity_1aoybh8" targetRef="Gateway_17ecrsk" />
+    <bpmn:task id="Activity_1brij6w" name="Get the current date">
+      <bpmn:incoming>Flow_1lcd6cv</bpmn:incoming>
+      <bpmn:outgoing>Flow_1nz6ftm</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1lcd6cv" name="Year of CREDAT &#60; 2025" sourceRef="Gateway_17ecrsk" targetRef="Activity_1brij6w" />
+    <bpmn:endEvent id="Event_06klqle">
+      <bpmn:incoming>Flow_1g7whdz</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1g7whdz" name="else" sourceRef="Gateway_17ecrsk" targetRef="Event_06klqle" />
+    <bpmn:task id="Activity_1uagc5e" name="Set the IDoc delivery date to the current date">
+      <bpmn:incoming>Flow_1nz6ftm</bpmn:incoming>
+      <bpmn:outgoing>Flow_03v8i24</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1nz6ftm" sourceRef="Activity_1brij6w" targetRef="Activity_1uagc5e" />
+    <bpmn:endEvent id="Event_0b61vw8">
+      <bpmn:incoming>Flow_03v8i24</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_03v8i24" sourceRef="Activity_1uagc5e" targetRef="Event_0b61vw8" />
+    <bpmn:textAnnotation id="TextAnnotation_0zdmytk">
+      <bpmn:text>Segmet "EDI_DC40"
+Key  "CREDAT"</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_06vbvmb" associationDirection="None" sourceRef="Activity_19qpj7o" targetRef="TextAnnotation_0zdmytk" />
+    <bpmn:textAnnotation id="TextAnnotation_1tn9pif">
+      <bpmn:text>Segmet "EDI_DC40"
+Key "CREDAT"</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0aic2yv" associationDirection="None" sourceRef="Activity_1uagc5e" targetRef="TextAnnotation_1tn9pif" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1pc2kns">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_19qpj7o_di" bpmnElement="Activity_19qpj7o">
+        <dc:Bounds x="270" y="140" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1aoybh8_di" bpmnElement="Activity_1aoybh8">
+        <dc:Bounds x="430" y="140" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_17ecrsk_di" bpmnElement="Gateway_17ecrsk" isMarkerVisible="true">
+        <dc:Bounds x="595" y="155" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1brij6w_di" bpmnElement="Activity_1brij6w">
+        <dc:Bounds x="760" y="140" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_06klqle_di" bpmnElement="Event_06klqle">
+        <dc:Bounds x="792" y="272" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1uagc5e_di" bpmnElement="Activity_1uagc5e">
+        <dc:Bounds x="900" y="140" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0b61vw8_di" bpmnElement="Event_0b61vw8">
+        <dc:Bounds x="1032" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0zdmytk_di" bpmnElement="TextAnnotation_0zdmytk">
+        <dc:Bounds x="220" y="70" width="160" height="41" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1tn9pif_di" bpmnElement="TextAnnotation_1tn9pif">
+        <dc:Bounds x="920" y="60" width="150" height="41" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1eymsme_di" bpmnElement="Flow_1eymsme">
+        <di:waypoint x="218" y="180" />
+        <di:waypoint x="270" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nmhmv6_di" bpmnElement="Flow_1nmhmv6">
+        <di:waypoint x="370" y="180" />
+        <di:waypoint x="430" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fgnnw1_di" bpmnElement="Flow_0fgnnw1">
+        <di:waypoint x="530" y="180" />
+        <di:waypoint x="595" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1lcd6cv_di" bpmnElement="Flow_1lcd6cv">
+        <di:waypoint x="645" y="180" />
+        <di:waypoint x="760" y="180" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="662" y="166" width="82" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1g7whdz_di" bpmnElement="Flow_1g7whdz">
+        <di:waypoint x="620" y="205" />
+        <di:waypoint x="620" y="290" />
+        <di:waypoint x="792" y="290" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="625" y="245" width="21" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nz6ftm_di" bpmnElement="Flow_1nz6ftm">
+        <di:waypoint x="860" y="180" />
+        <di:waypoint x="900" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03v8i24_di" bpmnElement="Flow_03v8i24">
+        <di:waypoint x="1000" y="180" />
+        <di:waypoint x="1032" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_06vbvmb_di" bpmnElement="Association_06vbvmb">
+        <di:waypoint x="299" y="140" />
+        <di:waypoint x="283" y="111" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0aic2yv_di" bpmnElement="Association_0aic2yv">
+        <di:waypoint x="958" y="140" />
+        <di:waypoint x="965" y="101" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

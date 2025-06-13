@@ -1,0 +1,838 @@
+[
+    {
+        "id": "0000",
+        "query":"I need to perform an inventory audit for plant 1540.\nFirst, retrieve all storage locations in the plant.\nThen, get all storage locations in Pollex.\nCompare the SAP storage locations with those in Pollex.\nIf any storage location exists in Pollex but not in SAP, create the storage location in SAP respectively and request the materials list of this pollex location from employee.3@serviceprovider.com.\nIf any storage location exists in SAP but not in Pollex, get the materials of this storage location.\nThen, send a request to create the storage location and with the respective materials in pollex to the employee.10@serviceprovider.com\nFinally, generate a report with all the discrepancies and send it to audit@company.com.",
+        "tasks":8,
+        "gateways":3,
+        "bpmn_path": "bpmn_user_requests/0000_tasks_8_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0001,Location 0001\n0050,Location 0050\n0077,Location 0077\n0184,Location 0184"
+                },
+                "get_pollex_storage_locations": "ID,Description\n0001,Location 0001\n0050,Location 0050\n0077,Location 0077\n0121,Location 0121",
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description\n22456897,High-Voltage Circuit Breaker\n33567984,Medium-Voltage Transformer\n12948679,Low-Voltage Switch Gear\n55478963,Surge Protection Device\n67548923,High-Voltage Disconnect Switch\n87654321,Power Grid Monitoring Sensor",
+                    "0050": "ID,Description\n098764512,Low-Voltage Isolation Gas SF6\n9856235,Isolation Oil X4\n22334455,High-Voltage Ceramic Insulator\n66778899,Composite Polymer Insulator\n44556677,Conductive Copper Busbar\n99887766,Dielectric Transformer Oil",
+                    "0077": "ID,Description\n7531254,Cleaner XFZ\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator",
+                    "0184": "ID,Description\n11948679,Low-voltage Automatic Switch Gear\n22446688,Medium-Voltage Power Transformer\n33557799,Overhead Power Line Spacer\n44778899,Substation Earthing Electrode\n55667788,High-Voltage Surge Arrester\n66778899,HV Bushing for Transformer"
+                }
+            },
+            "path1": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0001,Location 0001\n0050,Location 0050\n0077,Location 0077"
+                },
+                "get_pollex_storage_locations": "ID,Description\n0001,Location 0001\n0050,Location 0050\n0077,Location 0077",
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description\n22456897,High-Voltage Circuit Breaker\n33567984,Medium-Voltage Transformer\n12948679,Low-Voltage Switch Gear\n55478963,Surge Protection Device\n67548923,High-Voltage Disconnect Switch\n87654321,Power Grid Monitoring Sensor",
+                    "0050": "ID,Description\n098764512,Low-Voltage Isolation Gas SF6\n9856235,Isolation Oil X4\n22334455,High-Voltage Ceramic Insulator\n66778899,Composite Polymer Insulator\n44556677,Conductive Copper Busbar\n99887766,Dielectric Transformer Oil",
+                    "0077": "ID,Description\n7531254,Cleaner XFZ\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator",
+                    "0184": "ID,Description\n11948679,Low-voltage Automatic Switch Gear\n22446688,Medium-Voltage Power Transformer\n33557799,Overhead Power Line Spacer\n44778899,Substation Earthing Electrode\n55667788,High-Voltage Surge Arrester\n66778899,HV Bushing for Transformer"
+                }
+            }
+        }
+    },
+    {
+        "id": "0001",
+        "query":"A shipment-related IDoc (ID: 789456) has encountered an issue.\nRetrieve the 'STATUS' field from the 'EDI_DC40' segment.\nIf the status is '56', check the plant with key 'WERKS' in the segment 'E1EDP01' and verify if it is 1540.\nIf the plant is incorrect, set it to 1540 and reinitialize the IDoc.\nFinally, send a summary email to logistics@company.com about the issue and the corrective action taken.",
+        "tasks":5,
+        "gateways":2,
+        "bpmn_path": "bpmn_user_requests/0001_tasks_5_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_idoc_field": {
+                    "789456,EDI_DC40,STATUS": "56",
+                    "789456,E1EDP01,WERKS": "1501"
+                }
+            },
+            "path1": {
+                "get_idoc_field": {
+                    "789456,EDI_DC40,STATUS": "33",
+                    "789456,E1EDP01,WERKS": "1540"
+                }
+            }
+        }
+    },
+    {
+        "id": "0002",
+        "query":"I need to optimize material storage in plant 1540.\nGet all storage locations in the plant and retrieve the materials stored in each location.\nIdentify all storage locations that contain less than 10 materials and consolidate their contents into storage location 0199, create storage location 0199, if necessary.\nExecute MMSC transactions to move the materials to location 0199.\nOnce done, generate a report and send it to warehouse.manager@company.com.",
+        "tasks":5,
+        "gateways":2,
+        "bpmn_path": "bpmn_user_requests/0002_tasks_5_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0001,Location 0001\n0077,Location 0077\n0184,Location 0184"
+                },
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description\n22456897,High-Voltage Circuit Breaker\n33567984,Medium-Voltage Transformer\n12948679,Low-Voltage Switch Gear\n55478963,Surge Protection Device\n67548923,High-Voltage Disconnect Switch\n87654321,Power Grid Monitoring Sensor\n098764512,Low-Voltage Isolation Gas SF6\n9856235,Isolation Oil X4\n22334455,High-Voltage Ceramic Insulator\n66778899,Composite Polymer Insulator\n44556677,Conductive Copper Busbar\n99887766,Dielectric Transformer Oil",
+                    "0077": "ID,Description\n7531254,Cleaner XFZ\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator",
+                    "0184": "ID,Description\n11948679,Low-voltage Automatic Switch Gear\n22446688,Medium-Voltage Power Transformer\n33557799,Overhead Power Line Spacer\n44778899,Substation Earthing Electrode\n55667788,High-Voltage Surge Arrester\n66778899,HV Bushing for Transformer"
+                }
+            },
+            "path1": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0001,Location 0001"
+                },
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description\n22456897,High-Voltage Circuit Breaker\n33567984,Medium-Voltage Transformer\n12948679,Low-Voltage Switch Gear\n55478963,Surge Protection Device\n67548923,High-Voltage Disconnect Switch\n87654321,Power Grid Monitoring Sensor\n098764512,Low-Voltage Isolation Gas SF6\n9856235,Isolation Oil X4\n22334455,High-Voltage Ceramic Insulator\n66778899,Composite Polymer Insulator\n44556677,Conductive Copper Busbar\n99887766,Dielectric Transformer Oil"
+                }
+            }
+        }
+    },
+    {
+        "id": "0003",
+        "query":"Our primary storage location 0001 in plant 1540 is running out of space.\nPlease retrieve all materials currently stored in 0001 and compare their quantities.\nIdentify the top five materials with the highest quantities and relocate them all to the next available storage location, if they do not exceed the maximum quantity of the next available storage.\nIf no existing storage location is available with free storage quantity, create a new one and move all materials in it.\nOnce completed, send an email update to warehouse_manager@company.com with the reallocation details.",
+        "tasks":6,
+        "gateways":1,
+        "bpmn_path": "bpmn_user_requests/0003_tasks_6_gateways_1.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description,Quantity\n22456897,High-Voltage Circuit Breaker,15\n33567984,Medium-Voltage Transformer,8\n12948679,Low-Voltage Switch Gear,22\n55478963,Surge Protection Device,35\n67548923,High-Voltage Disconnect Switch,12\n87654321,Power Grid Monitoring Sensor,18\n098764512,Low-Voltage Isolation Gas SF6,50\n9856235,Isolation Oil X4,30\n22334455,High-Voltage Ceramic Insulator,100\n66778899,Composite Polymer Insulator,75\n44556677,Conductive Copper Busbar,40\n99887766,Dielectric Transformer Oil,60",
+                    "0077": "ID,Description,Quantity\n7531254,Cleaner XFZ,250\n044378,Lubricating grease,150\n12345678,Anti-Corrosion Spray,200\n98765432,Electrical Contact Cleaner,180\n11223344,Insulation Resistance Tester,120\n99884422,Cable Fault Locator,100",
+                    "0184": "ID,Description,Quantity\n11948679,Low-voltage Automatic Switch Gear,3\n22446688,Medium-Voltage Power Transformer,2\n33557799,Overhead Power Line Spacer,5\n44778899,Substation Earthing Electrode,4\n55667788,High-Voltage Surge Arrester,6\n66778899,HV Bushing for Transformer,3"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description Maximum Quantity\n0001,Location 0001,1000\n0077,Location 0077,1000\n0184,Location 0184,1000"
+                },
+                "get_storage_location": {
+                    "1540,0001": "ID,Description Maximum Quantity\n0001,Location 0001,1000",
+                    "1540,0077": "ID,Description Maximum Quantity\n0077,Location 0077,1000",
+                    "1540,0184": "ID,Description Maximum Quantity\n0184,Location 0184,1000"
+                }
+            },
+            "path1": {
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description,Quantity\n22456897,High-Voltage Circuit Breaker,15\n33567984,Medium-Voltage Transformer,8\n12948679,Low-Voltage Switch Gear,22\n55478963,Surge Protection Device,35\n67548923,High-Voltage Disconnect Switch,12\n87654321,Power Grid Monitoring Sensor,18\n098764512,Low-Voltage Isolation Gas SF6,50\n9856235,Isolation Oil X4,30\n22334455,High-Voltage Ceramic Insulator,100\n66778899,Composite Polymer Insulator,75\n44556677,Conductive Copper Busbar,40\n99887766,Dielectric Transformer Oil,60",
+                    "0077": "ID,Description,Quantity\n7531254,Cleaner XFZ,250\n044378,Lubricating grease,150\n12345678,Anti-Corrosion Spray,200\n98765432,Electrical Contact Cleaner,180\n11223344,Insulation Resistance Tester,120\n99884422,Cable Fault Locator,100"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description Maximum Quantity\n0001,Location 0001,1000\n0077,Location 0077,1000"
+                },
+                "get_storage_location": {
+                    "1540,0001": "ID,Description Maximum Quantity\n0001,Location 0001,1000",
+                    "1540,0077": "ID,Description Maximum Quantity\n0077,Location 0077,1000"
+                }
+            }
+        }
+    },
+    {
+        "id": "0004",
+        "query":"I need to verify and correct a delivery-related IDoc with ID 567123.\nRetrieve the date field ('DATUM' key) from the 'E1EDK03' segment.\nGet the current date and if the date ('DATUM') is in the past, update it to today's date, reinitialize the IDoc and send an email with a summary of the changes to supplychain@company.com.\nIf it is today's date or a date in the future write an email to error.handler1@company.com.",
+        "tasks":6,
+        "gateways":1,
+        "bpmn_path": "bpmn_user_requests/0004_tasks_6_gateways_1.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_idoc_field": {
+                    "567123,E1EDK03,DATUM": "20241231"
+                },
+                "get_current_date": "20250301"
+            },
+            "path1": {
+                "get_idoc_field": {
+                    "567123,E1EDK03,DATUM": "20250301"
+                },
+                "get_current_date": "20250301"
+            }
+        }
+    },
+    {
+        "id": "0005",
+        "query":"A batch of new materials has arrived, and I need to set up their storage.\nRetrieve all storage locations in plant 1540 and identify any unused, empty locations.\nIf no empty storage location is found, create a new storage location with an ID between 0001 and 0199 and the description 'Temporary Material Storage'.\nThen, assign the new materials to this storage location using MMSC transactions. Finally, send an email to procurement@company.com with the updated storage details.",
+        "tasks":5,
+        "gateways":1,
+        "bpmn_path": "bpmn_user_requests/0005_tasks_5_gateways_1.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0077,Location 0077,1000\n0184,Location 0184,1000"
+                },
+                "get_materials_in_storage_location": {
+                    "0077": "ID,Description\n7531254,Cleaner XFZ\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator",
+                    "0184": "ID,Description\n"
+                }
+            },
+            "path1": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0077,Location 0077,1000"
+                },
+                "get_materials_in_storage_location": {
+                    "0077": "ID,Description\n7531254,Cleaner XFZ\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator"
+                }
+            }
+        }
+    },
+    {
+        "id": "0006",
+        "query":"Production has an urgent need for specific raw materials.\nRetrieve all materials stored in plant 1540 and identify any instances where material '11948679' is stored in a low-priority storage location with an ID greater 0100.\nIf found, move them to 0001 or 0002 for easy access.\nIf no suitable locations are available, create a new high-priority storage location with an ID lower 0100 and move the material there.\nSend an email update to production_lead@company.com confirming the changes.",
+        "tasks":6,
+        "gateways":2,
+        "bpmn_path": "bpmn_user_requests/0006_tasks_6_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0001,Location 0001\n0077,Location 0077\n0184,Location 0184"
+                },
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description\n044375,Cleaner XF34E",
+                    "0077": "ID,Description\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator",
+                    "0184": "ID,Description\n11948679,Low-voltage Automatic Switch Gear\n22446688,Medium-Voltage Power Transformer\n33557799,Overhead Power Line Spacer\n44778899,Substation Earthing Electrode\n55667788,High-Voltage Surge Arrester\n66778899,HV Bushing for Transformer"
+                }
+            },
+            "path1": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0077,Location 0077\n0184,Location 0184"
+                },
+                "get_materials_in_storage_location": {
+                    "0077": "ID,Description\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator",
+                    "0184": "ID,Description\n11948679,Low-voltage Automatic Switch Gear\n22446688,Medium-Voltage Power Transformer\n33557799,Overhead Power Line Spacer\n44778899,Substation Earthing Electrode\n55667788,High-Voltage Surge Arrester\n66778899,HV Bushing for Transformer"
+                }
+            },
+            "path2": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0077,Location 0077\n0184,Location 0184"
+                },
+                "get_materials_in_storage_location": {
+                    "0001": "ERROR: Storage location 0001 does not exist",
+                    "0077": "ID,Description\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator",
+                    "0184": "ID,Description\n22446688,Medium-Voltage Power Transformer\n33557799,Overhead Power Line Spacer\n44778899,Substation Earthing Electrode\n55667788,High-Voltage Surge Arrester\n66778899,HV Bushing for Transformer"
+                }
+            }
+        }
+    },
+    {
+        "id": "0007",
+        "query":"We have reports of delayed IDocs causing disruptions in supply chain operations.\nCheck for IDocs 9876543, 9876547, and 9876567 if the 'STATUS' field in segment 'E1EDK03' is marked as 'ERROR'.\nAdditionally, check the 'DATUM' field in segment 'E1EDK03'.\nIf it is outdated, update it to the current date.\nFor each such IDoc, reinitialize it.\nNotify erp_support@company.com with a summary of IDoc issues and actions taken.",
+        "tasks":5,
+        "gateways":2,
+        "bpmn_path": "bpmn_user_requests/0007_tasks_5_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_idoc_field": {
+                    "9876543,E1EDK03,STATUS": "ERROR",
+                    "9876547,E1EDK03,STATUS": "ERROR",
+                    "9876567,E1EDK03,STATUS": "ERROR",
+                    "9876543,E1EDK03,DATUM": "20250101",
+                    "9876547,E1EDK03,DATUM": "20250301",
+                    "9876567,E1EDK03,DATUM": "20250301"    
+                },
+                "get_current_date": "20250301"
+            },
+            "path1": {
+                "get_idoc_field": {
+                    "9876543,E1EDK03,STATUS": "OK",
+                    "9876547,E1EDK03,STATUS": "OK",
+                    "9876567,E1EDK03,STATUS": "OK",
+                    "9876543,E1EDK03,DATUM": "20250301",
+                    "9876547,E1EDK03,DATUM": "20250301",
+                    "9876567,E1EDK03,DATUM": "20250301"    
+                },
+                "get_current_date": "20250301"
+            }
+        }
+    },
+    {
+        "id": "0008",
+        "query":"We are experiencing issues with supplier orders due to discrepancies in IDoc data.\nPlease check if the 'PARTN' field in segment 'E1EDKA1' is missing or incorrect in the IDocs 9876543 and 9876547.\nIf missing, fetch the correct PARTN with the RFC function 'RFC_READ_TABLE' reading the table with TABLE_NAME 'ORDERS_JOIN_SUPPLIERS' and using 'BELNR' from 'E1EDK01' from the IDoc as ORDER_NUMBER parameter.\nUpdate the IDoc with the correct PARTN, then reinitialize the IDoc to ensure proper processing.",
+        "tasks":5,
+        "gateways":1,
+        "bpmn_path": "bpmn_user_requests/0008_tasks_5_gateways_1.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_idoc_field": {
+                    "9876543,E1EDKA1,PARTN": "",
+                    "9876547,E1EDKA1,PARTN": "ERROR",
+                    "9876543,E1EDK01,BELNR": "IB978987654",
+                    "9876547,E1EDK01,BELNR": "IB048287654"
+                },
+                "rfc": {
+                    "RFC_READ_TABLE,ORDERS_JOIN_SUPPLIERS": {
+                        "ORDER_NUMBER,IB978987654": "ORD,PARTN\nIB978987654,000012929",
+                        "ORDER_NUMBER,IB048287654": "ORD,PARTN\nIB048287654,093812975"
+                    }
+                }
+            },
+            "path1": {
+                "get_idoc_field": {
+                    "9876543,E1EDKA1,PARTN": "000012929",
+                    "9876547,E1EDKA1,PARTN": "093812975",
+                    "9876543,E1EDK01,BELNR": "IB978987654",
+                    "9876547,E1EDK01,BELNR": "IB048287654"
+                },
+                "rfc": {
+                    "RFC_READ_TABLE,ORDERS_JOIN_SUPPLIERS": {
+                        "ORDER_NUMBER,IB978987654": "ORD,PARTN\nIB978987654,000012929",
+                        "ORDER_NUMBER,IB048287654": "ORD,PARTN\nIB048287654,093812975"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "id": "0009",
+        "query":"There have been reports of price mismatches between our system and supplier invoices.\nGet the 'VPREI' field in segment 'E1EDP01' of the IDoc 9876120 and determine if it does not match the standard price (STPRS) from the table with TABLE_NAME 'MBEW' using the RFC function 'RFC_READ_TABLE', with the 'MATNR' as a parameter.\nIf there is a mismatch between the price, correct the price in the IDoc and reinitialize it.\nIf the price difference is greater than 10%, escalate the issue by sending an email to finance_audit@company.com with the details of the discrepancies.",
+        "tasks":6,
+        "gateways":1,
+        "bpmn_path": "bpmn_user_requests/0009_tasks_6_gateways_1.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_idoc_field": {
+                    "9876120,E1EDP01,VPREI": "12374",
+                    "9876120,E1EDP01,MATNR": "22446688"
+                },
+                "rfc": {
+                    "RFC_READ_TABLE,MBEW": {
+                        "MATNR,22446688": "MATNR,STPRS\n22446688,9098"
+                    }
+                }
+            },
+            "path1": {
+                "get_idoc_field": {
+                    "9876120,E1EDP01,VPREI": "9098",
+                    "9876120,E1EDP01,MATNR": "22446688"
+                },
+                "rfc": {
+                    "RFC_READ_TABLE,MBEW": {
+                        "MATNR,22446688": "MATNR,STPRS\n22446688,9098"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "id": "0010",
+        "query": "I need you to check the IDoc 789456.\nFirst, get the material ID from the IDoc using Segment 'E1EDP01' and key 'MATNR' and retrieve the storage ID using Segment 'E1EDP01' and 'LGORT'.\nGather all available storage locations within plant 1540 and retrieve all materials for those locations.\nDetermine whether the specified material ID already exists in the SAP storage locations.\nIf the material does not exist at all, escalate the issue by sending a request for assistance to error.handler1@company.com.\nIf the material exists but is located in a different storage location, check whether the target storage location is already defined in the system.\nIf it is, move the material to this using transaction MMSC.\nIf it’s not, create the location, after which the material can be moved accordingly.\nOnce the material is in the correct location, reinitialize the IDoc and send a summary report via email to audit@company.com.",
+        "tasks": 10,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0010_tasks_10_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_idoc_field": {
+                    "789456,E1EDP01,MATNR": "22446688",
+                    "789456,E1EDP01,LGORT": "0001"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0001,Location 0001\n0077,Location 0077\n0184,Location 0184"
+                },
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description\n22456897,High-Voltage Circuit Breaker\n33567984,Medium-Voltage Transformer\n12948679,Low-Voltage Switch Gear\n55478963,Surge Protection Device\n67548923,High-Voltage Disconnect Switch\n87654321,Power Grid Monitoring Sensor",
+                    "0077": "ID,Description\n7531254,Cleaner XFZ\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator",
+                    "0184": "ID,Description\n11948679,Low-voltage Automatic Switch Gear\n22446688,Medium-Voltage Power Transformer\n33557799,Overhead Power Line Spacer\n44778899,Substation Earthing Electrode\n55667788,High-Voltage Surge Arrester\n66778899,HV Bushing for Transformer"
+                
+                }
+            },
+            "path1": {
+                "get_idoc_field": {
+                    "789456,E1EDP01,MATNR": "22446688",
+                    "789456,E1EDP01,LGORT": "0001"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0001,Location 0001\n0077,Location 0077\n0184,Location 0184"
+                },
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description\n22456897,High-Voltage Circuit Breaker\n33567984,Medium-Voltage Transformer\n12948679,Low-Voltage Switch Gear\n55478963,Surge Protection Device\n67548923,High-Voltage Disconnect Switch\n87654321,Power Grid Monitoring Sensor",
+                    "0077": "ID,Description\n7531254,Cleaner XFZ\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator",
+                    "0184": "ID,Description\n11948679,Low-voltage Automatic Switch Gear\n33557799,Overhead Power Line Spacer\n44778899,Substation Earthing Electrode\n55667788,High-Voltage Surge Arrester\n66778899,HV Bushing for Transformer"
+                }
+            },
+            "path2": {
+                "get_idoc_field": {
+                    "789456,E1EDP01,MATNR": "22446688",
+                    "789456,E1EDP01,LGORT": "0001"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0077,Location 0077\n0184,Location 0184"
+                },
+                "get_materials_in_storage_location": {
+                    "0077": "ID,Description\n7531254,Cleaner XFZ\n044378,Lubricating grease\n12345678,Anti-Corrosion Spray\n98765432,Electrical Contact Cleaner\n11223344,Insulation Resistance Tester\n99884422,Cable Fault Locator",
+                    "0184": "ID,Description\n11948679,Low-voltage Automatic Switch Gear\n33557799,Overhead Power Line Spacer\n44778899,Substation Earthing Electrode\n55667788,High-Voltage Surge Arrester\n66778899,HV Bushing for Transformer"
+                }
+            }
+        }
+    },
+    {
+        "id": "0011",
+        "query": "Retrieve the materials stored in location 0098, followed by retrieving the materials from location 0099.\nOnce both sets of materials are obtained, compare them.\nFor all materials that exist in both locations, move the redundant materials from both 0099 to storage location 0098.\nIf no materials exist in both locations skip this step.\nThen re-fetch the materials from location 0098 and obtain the storage location information for 0098.\nAnalyze the storage capacity.\nIf the total capacity required exceeds the maximum allowed for that location, retrieve a list of all storage locations in the plant and create a new storage location and move the materials that exceed the capacity to this newly created location.\nAfter all material movements are completed (or determined unnecessary), notify the logistics team by email with full details about the material movement using the email address warehouse_manager@company.com\nFinally, report the changes to Polex at employee3@serviceprovider.com with a request to update the records.",
+        "tasks": 12,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0011_tasks_12_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0098,Location 0098,500\n0099,Location 0099,500"
+                },
+                "get_storage_location": {
+                    "1540,0098": "ID,Description,Maximum Quantity\n0098,Location 0098,500",
+                    "1540,0099": "ID,Description,Maximum Quantity\n0099,Location 0099,500"
+                },
+                "get_materials_in_storage_location": {
+                    "0098": "ID,Description,Quantity\n22456897,High-Voltage Circuit Breaker,85\n33567984,Medium-Voltage Transformer,90\n12948679,Low-Voltage Switch Gear,70\n55478963,Surge Protection Device,60\n67548923,High-Voltage Disconnect Switch,95\n87654321,Power Grid Monitoring Sensor,100",
+                    "0099": "ID,Description,Quantity\n7531254,Cleaner XFZ,40\n044378,Lubricating grease,60\n22456897,High-Voltage Circuit Breaker,90\n12345678,Anti-Corrosion Spray,80\n98765432,Electrical Contact Cleaner,110\n11223344,Insulation Resistance Tester,60\n99884422,Cable Fault Locator,60",
+                    "0098_": "ID,Description,Quantity\n22456897,High-Voltage Circuit Breaker,175\n33567984,Medium-Voltage Transformer,90\n12948679,Low-Voltage Switch Gear,70\n55478963,Surge Protection Device,60\n67548923,High-Voltage Disconnect Switch,95\n87654321,Power Grid Monitoring Sensor,100",
+                    "0099_": "ID,Description,Quantity\n7531254,Cleaner XFZ,40\n044378,Lubricating grease,60\n12345678,Anti-Corrosion Spray,80\n98765432,Electrical Contact Cleaner,110\n11223344,Insulation Resistance Tester,60\n99884422,Cable Fault Locator,60"
+                }
+            },
+            "path1": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0098,Location 0098,500\n0099,Location 0099,500"
+                },
+                "get_storage_location": {
+                    "1540,0098": "ID,Description,Maximum Quantity\n0098,Location 0098,500",
+                    "1540,0099": "ID,Description,Maximum Quantity\n0099,Location 0099,500"
+                },
+                "get_materials_in_storage_location": {
+                    "0098": "ID,Description,Quantity\n22456897,High-Voltage Circuit Breaker,85\n33567984,Medium-Voltage Transformer,90\n12948679,Low-Voltage Switch Gear,70\n55478963,Surge Protection Device,60\n67548923,High-Voltage Disconnect Switch,95\n87654321,Power Grid Monitoring Sensor,100",
+                    "0099": "ID,Description,Quantity\n7531254,Cleaner XFZ,40\n044378,Lubricating grease,60\n12345678,Anti-Corrosion Spray,80\n98765432,Electrical Contact Cleaner,110\n11223344,Insulation Resistance Tester,60\n99884422,Cable Fault Locator,60",
+                    "0098_": "ID,Description,Quantity\n22456897,High-Voltage Circuit Breaker,85\n33567984,Medium-Voltage Transformer,90\n12948679,Low-Voltage Switch Gear,70\n55478963,Surge Protection Device,60\n67548923,High-Voltage Disconnect Switch,95\n87654321,Power Grid Monitoring Sensor,100",
+                    "0099_": "ID,Description,Quantity\n7531254,Cleaner XFZ,40\n044378,Lubricating grease,60\n12345678,Anti-Corrosion Spray,80\n98765432,Electrical Contact Cleaner,110\n11223344,Insulation Resistance Tester,60\n99884422,Cable Fault Locator,60"
+                }
+            },
+            "path2": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0098,Location 0098,500\n0099,Location 0099,500"
+                },
+                "get_storage_location": {
+                    "1540,0098": "ID,Description,Maximum Quantity\n0098,Location 0098,750",
+                    "1540,0099": "ID,Description,Maximum Quantity\n0099,Location 0099,500"
+                },
+                "get_materials_in_storage_location": {
+                    "0098": "ID,Description,Quantity\n22456897,High-Voltage Circuit Breaker,85\n33567984,Medium-Voltage Transformer,90\n12948679,Low-Voltage Switch Gear,70\n55478963,Surge Protection Device,60\n67548923,High-Voltage Disconnect Switch,95\n87654321,Power Grid Monitoring Sensor,100",
+                    "0099": "ID,Description,Quantity\n7531254,Cleaner XFZ,40\n044378,Lubricating grease,60\n12345678,Anti-Corrosion Spray,80\n98765432,Electrical Contact Cleaner,110\n11223344,Insulation Resistance Tester,60\n99884422,Cable Fault Locator,60",
+                    "0098_": "ID,Description,Quantity\n22456897,High-Voltage Circuit Breaker,85\n33567984,Medium-Voltage Transformer,90\n12948679,Low-Voltage Switch Gear,70\n55478963,Surge Protection Device,60\n67548923,High-Voltage Disconnect Switch,95\n87654321,Power Grid Monitoring Sensor,100",
+                    "0099_": "ID,Description,Quantity\n7531254,Cleaner XFZ,40\n044378,Lubricating grease,60\n12345678,Anti-Corrosion Spray,80\n98765432,Electrical Contact Cleaner,110\n11223344,Insulation Resistance Tester,60\n99884422,Cable Fault Locator,60"
+                }
+            }
+        }
+    },
+    {
+        "id": "0012",
+        "query": "We want to reuse storage location 0056 and need to empty it. Begin by retrieving all materials currently stored in storage location 0056.\nThen, obtain a complete list of all available storage locations within plant 1540.\nNext, assess the material types present in storage location 0056.\nIf the materials are identified as low-voltage, move them to the designated low-voltage storage location.\nIf they are mid-voltage, direct them to the mid-voltage storage location. Similarly, high-voltage materials should be transferred to the high-voltage storage location.\nFor any materials that do not explicitly fall under low-, mid-, or high-voltage materials, create a new temporary storage location '0199 Other' and move these 'other' materials accordingly.\nAfter this get the storage locations and get the materials in all of the storage locations. With this information, analyze whether any of the storage locations have exceeded their maximum capacity.\nIf any of the storage locations — whether for low, mid, or high-voltage materials — are found to be over capacity, move the excess materials into an appropriate temporary storage location created for such overflow.\nEnsure that this reassignment maintains proper classification of material types by moving them to respective new storages for low-, mid-, and high-voltage.\nOnce all materials have been successfully moved and all capacity issues resolved, compile a summary of all changes and transfers made throughout the process.\nThis report should then be sent to the warehouse manager via email at warehouse.manager@company.com.",
+        "tasks": 15,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0012_tasks_15_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_materials_in_storage_location": {
+                    "0056": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n67548923,High-Voltage Disconnect Switch,20\n22456897,High-Voltage Circuit Breaker,35\n87654321,Power Grid Monitoring Sensor,35\n33567984,Medium-Voltage Transformer,50\n22334455,High-Voltage Ceramic Insulator,100\n9856235,Isolation Oil X4,30\n12948679,Low-Voltage Switch Gear,20\n66778899,Composite Polymer Insulator,50\n098764512,Low-Voltage Isolation Gas SF6,50",
+                    "0056_": "ID,Description,Quantity\n",
+                    "0001_": "ID,Description,Quantity\n67548923,High-Voltage Disconnect Switch,20\n22456897,High-Voltage Circuit Breaker,35\n22334455,High-Voltage Ceramic Insulator,100",
+                    "0077_": "ID,Description,Quantity\n33567984,Medium-Voltage Transformer,50",
+                    "0184_": "ID,Description,Quantity\n12948679,Low-Voltage Switch Gear,20\n098764512,Low-Voltage Isolation Gas SF6,50",
+                    "0199": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0056,Location 0056,1000",
+                    "1540_": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0056,Location 0056,1000\n0199,Other,1000"
+                },
+                "get_storage_location": {
+                    "1540,0001": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150",
+                    "1540,0077": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100",
+                    "1540,0184": "ID,Description,Maximum Quantity\n0184,Low-voltage Location,50",
+                    "1540,0056": "ID,Description,Maximum Quantity\n0056,Location 0056,1000",
+                    "1540,0199": "ID,Description,Maximum Quantity\n0199,Other,1000"
+                }
+            },
+            "path1": {
+                "get_materials_in_storage_location": {
+                    "0056": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50",
+                    "0056_": "ID,Description,Quantity\n",
+                    "0001_": "ID,Description,Quantity\n",
+                    "0077_": "ID,Description,Quantity\n",
+                    "0184_": "ID,Description,Quantity\n",
+                    "0199_": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0056,Location 0056,1000",
+                    "1540_": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0056,Location 0056,1000\n0199,Other,1000"
+                },
+                "get_storage_location": {
+                    "1540,0001": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150",
+                    "1540,0077": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100",
+                    "1540,0184": "ID,Description,Maximum Quantity\n0184,Low-voltage Location,50",
+                    "1540,0056": "ID,Description,Maximum Quantity\n0056,Location 0056,1000",
+                    "1540,0199": "ID,Description,Maximum Quantity\n0199,Other,1000"
+                }
+            }
+        }
+    },
+    {
+        "id": "0013",
+        "query": "We want to reuse storage location 0101 and need to empty it. Begin by retrieving all materials currently stored in storage location 0101.\nOnce this information is collected, obtain a complete list of all available storage locations within plant 1540.\nDetermine the appropriate storage location for each type of material based on its classification.\nNext, assess the material types present in storage location 0101.\nIf the materials are identified as low-voltage, move them to the designated low-voltage storage location.\nIf they are mid-voltage, direct them to the mid-voltage storage area. Similarly, high-voltage materials should be transferred to the high-voltage storage location.\nFor any materials that do not fall under these three categories, create a new temporary storage location '0199 Other' and move these 'other' materials accordingly.\nAfter the materials have been allocated to their initial storage destinations, gather detailed information about all existing storage locations.\nThis includes their current capacity and the volume of materials they currently contain. With this information, analyze whether any of the storage locations have exceeded their maximum capacity.\nIf any of the storage locations—whether for low, mid, or high-voltage materials—are found to be over capacity, move the excess materials into an appropriate temporary storage location created for such overflow.\nEnsure that this reassignment maintains proper classification of material types.",
+        "tasks": 14,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0013_tasks_14_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_materials_in_storage_location": {
+                    "0101": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n67548923,High-Voltage Disconnect Switch,20\n22456897,High-Voltage Circuit Breaker,35\n87654321,Power Grid Monitoring Sensor,35\n33567984,Medium-Voltage Transformer,50\n22334455,High-Voltage Ceramic Insulator,100\n9856235,Isolation Oil X4,30\n12948679,Low-Voltage Switch Gear,20\n66778899,Composite Polymer Insulator,50\n098764512,Low-Voltage Isolation Gas SF6,50",
+                    "0101_": "ID,Description,Quantity\n",
+                    "0001_": "ID,Description,Quantity\n67548923,High-Voltage Disconnect Switch,20\n22456897,High-Voltage Circuit Breaker,35\n22334455,High-Voltage Ceramic Insulator,100",
+                    "0077_": "ID,Description,Quantity\n33567984,Medium-Voltage Transformer,50",
+                    "0184_": "ID,Description,Quantity\n12948679,Low-Voltage Switch Gear,20\n098764512,Low-Voltage Isolation Gas SF6,50",
+                    "0199": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0101,Location 0101,1000",
+                    "1540_": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0101,Location 0101,1000\n0199,Other,1000"
+                },
+                "get_storage_location": {
+                    "1540,0001": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150",
+                    "1540,0077": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100",
+                    "1540,0184": "ID,Description,Maximum Quantity\n0184,Low-voltage Location,50",
+                    "1540,0101": "ID,Description,Maximum Quantity\n0101,Location 0101,1000",
+                    "1540,0199": "ID,Description,Maximum Quantity\n0199,Other,1000"
+                }
+            },
+            "path1": {
+                "get_materials_in_storage_location": {
+                    "0101": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50",
+                    "0101_": "ID,Description,Quantity\n",
+                    "0001_": "ID,Description,Quantity\n",
+                    "0077_": "ID,Description,Quantity\n",
+                    "0184_": "ID,Description,Quantity\n",
+                    "0199_": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0101,Location 0101,1000",
+                    "1540_": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0101,Location 0101,1000\n0199,Other,1000"
+                },
+                "get_storage_location": {
+                    "1540,0001": "ID,Description,Maximum Quantity\n0001,High-Voltage Location,150",
+                    "1540,0077": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100",
+                    "1540,0184": "ID,Description,Maximum Quantity\n0184,Low-voltage Location,50",
+                    "1540,0101": "ID,Description,Maximum Quantity\n0101,Location 0101,1000",
+                    "1540,0199": "ID,Description,Maximum Quantity\n0199,Other,1000"
+                }
+            }
+        }
+    },
+    {
+        "id": "0014",
+        "query": "We want to empty storage location 0175. Begin by retrieving all materials currently stored in storage location 0175.\nAfterward obtain a complete list of all available storage locations within plant 1540.\nDetermine the appropriate storage location for each type of material based on its classification.\nNext, assess the material types present in storage location 0175.\nIf the materials are identified as low-voltage, move them to the designated low-voltage storage location.\nIf they are mid-voltage, move them to the mid-voltage storage area.\nFor any materials that are not explicitly mentioned to be mid- or low-voltage, create a new temporary storage location '0199 Other' and move these 'Other' materials accordingly.\nWhen all materials are moved accordingly, gather detailed information about the storage locations and get the materials in the storage locations to assess their current capacity load.\nWith this information, analyze whether any of the storage locations have exceeded their maximum capacity.\nIf any of the storage locations are found to be over capacity, move the excess materials into an appropriate temporary storage location created for such overflow.",
+        "tasks": 12,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0014_tasks_12_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_materials_in_storage_location": {
+                    "0175": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n33567984,Medium-Voltage Transformer,50\n9856235,Isolation Oil X4,30\n12948679,Low-Voltage Switch Gear,20\n66778899,Composite Polymer Insulator,50\n098764512,Low-Voltage Isolation Gas SF6,50",
+                    "0175_": "ID,Description,Quantity\n",
+                    "0077_": "ID,Description,Quantity\n33567984,Medium-Voltage Transformer,50",
+                    "0184_": "ID,Description,Quantity\n12948679,Low-Voltage Switch Gear,20\n098764512,Low-Voltage Isolation Gas SF6,50",
+                    "0199_": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0175,Location 0175,1000",
+                    "1540_": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0175,Location 0175,1000\n0199,Other,1000"
+                },
+                "get_storage_location": {
+                    "1540,0077": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100",
+                    "1540,0184": "ID,Description,Maximum Quantity\n0184,Low-voltage Location,50",
+                    "1540,0175": "ID,Description,Maximum Quantity\n0175,Location 0175,1000",
+                    "1540,0199": "ID,Description,Maximum Quantity\n0199,Other,1000"
+                }
+            },
+            "path1": {
+                "get_materials_in_storage_location": {
+                    "0175": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50",
+                    "0175_": "ID,Description,Quantity\n",
+                    "0077_": "ID,Description,Quantity\n",
+                    "0184_": "ID,Description,Quantity\n",
+                    "0199_": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50"
+                },
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0175,Location 0175,1000",
+                    "1540_": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0175,Location 0175,1000\n0199,Other,1000"
+                },
+                "get_storage_location": {
+                    "1540,0077": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100",
+                    "1540,0184": "ID,Description,Maximum Quantity\n0184,Low-voltage Location,50",
+                    "1540,0175": "ID,Description,Maximum Quantity\n0175,Location 0175,1000",
+                    "1540,0199": "ID,Description,Maximum Quantity\n0199,Other,1000"
+                }
+            }
+        }
+    },
+    {
+        "id": "0015",
+        "query": "To validate and resolve discrepancies between two IDocs with regard to storage location information, begin by retrieving the material IDs from IDoc 786341 and IDoc 786342.\nThese values are found in segment E1EDL24 under the key MATNR.\nOnce the material IDs are obtained, retrieve the storage location IDs from the same IDocs, also located in segment E1EDL24 but under the key LGORT.\nWith both the material and storage location IDs available from each IDoc, compare the two sets of values.\nIf both the material IDs and the storage location IDs match between IDoc 786341 and IDoc 786342, then no inconsistency exists, and the process requires only to lock IDoc 786342.\nThis is done using SAP Transaction SA38 by executing the program RC1_IDOC_SET_STATUS, with the parameters specifying the IDoc ID as 786342 and the status as 'LKD', which represents a locked state.\nIf material IDs and storage IDs are not the same, the process ends.\nIf the material IDs are the same but the storage location IDs are different, further investigation is needed.\nIn this case, retrieve the current stock or material presence from both of the differing storage locations and verify where the material in question is actually located.\nThis step helps determine which IDoc contains the correct storage location ID and which one is erroneous.\nIf the material is found in only one of the two locations, then it is clear that the IDoc pointing to the other location is incorrect.\nThe incorrect IDoc must then be locked using the same SAP Transaction SA38 and the RC1_IDOC_SET_STATUS program, with the IDoc ID and status 'LKD' provided in the parameters.\nAfter the incorrect IDoc is locked, notify the responsible party by sending an email to error.handler1@company.com.\nThe email must clearly state which IDoc was locked and identify the faulty storage location ID that caused the lock.\nHowever, if the material is not found in either location, or if the data does not allow for a clear conclusion regarding which IDoc is incorrect, manual intervention is required. \nIn this situation, send a message to error.handler1@company.com requesting assistance.\nThe email should describe the conflicting data, including both IDoc IDs and their associated storage location IDs, and explain that the system could not resolve the discrepancy without human review.",
+        "tasks": 9,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0015_tasks_9_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_idoc_field": {
+                    "786341,E1EDL24,MATNR": "22446688",
+                    "786341,E1EDL24,LGORT": "0001",
+                    "786342,E1EDL24,MATNR": "22446688",
+                    "786342,E1EDL24,LGORT": "0001"
+                }
+            },
+            "path1": {
+                "get_idoc_field": {
+                    "786341,E1EDL24,MATNR": "22446688",
+                    "786341,E1EDL24,LGORT": "0001",
+                    "786342,E1EDL24,MATNR": "22446688",
+                    "786342,E1EDL24,LGORT": "0002"
+                },
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description,Quantity\n22446688,High-Voltage Circuit Breaker,100",
+                    "0002": "ID,Description,Quantity\n22446688,High-Voltage Circuit Breaker,50"
+                }
+            },
+            "path2": {
+                "get_idoc_field": {
+                    "786341,E1EDL24,MATNR": "22446688",
+                    "786341,E1EDL24,LGORT": "0001",
+                    "786342,E1EDL24,MATNR": "22446688",
+                    "786342,E1EDL24,LGORT": "0002"
+                },
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description,Quantity\n99786541,Low-Voltage Disconnector,100",
+                    "0002": "ID,Description,Quantity\n22446688,High-Voltage Circuit Breaker,50"
+                }
+            }
+        }
+    },
+    {
+        "id": "0016",
+        "query": "To begin the synchronization process, retrieve all existing storage locations from the SAP system.\nOnce the data is available, examine it to determine whether a high-voltage storage location is already present.\nIf such a location exists in SAP, no further action is necessary, and the process can be concluded.\nIf no high-voltage storage location is found in SAP, continue by retrieving the list of storage locations from Pollex.\nAfter obtaining the Pollex data, search specifically for a high-voltage storage location.\nIf none exists in Pollex either, then a new high-voltage storage location must be created in SAP using an available, unused storage location ID.\nFollowing the creation of this SAP entry, immediately inform the external service provider by sending an email to employee3@serviceprovider.com.\nThe email must clearly request the creation of the corresponding high-voltage location in Pollex using the same storage location ID that was just established in SAP.\nIf a high-voltage storage location does exist in Pollex, use the exact storage location ID from Pollex to create a matching high-voltage location in SAP.\nNo notification to the service provider is necessary in this case, since the Pollex entry is already in place.\nOnce the appropriate storage location is successfully created in SAP, the process is complete.",
+        "tasks": 7,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0016_tasks_7_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0001,High-Voltage Location\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                },
+                "get_storage_location": {
+                    "1540,0001": "ID,Description\n0001,High-Voltage Location"
+                }
+            },
+            "path1": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                },
+                "get_storage_location": {
+                    "1540,0077": "ID,Description\n0077,Mid-voltage Location",
+                    "1540,0184": "ID,Description\n0184,Low-voltage Location"
+                },
+                "get_pollex_storage_locations": {
+                    "1540": "ID,Description\n0001,High-Voltage Location\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                }
+            },
+            "path2": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                },
+                "get_storage_location": {
+                    "1540,0077": "ID,Description\n0077,Mid-voltage Location",
+                    "1540,0184": "ID,Description\n0184,Low-voltage Location"
+                },
+                "get_pollex_storage_locations": {
+                    "1540": "ID,Description\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                }
+            }
+        }
+    },
+    {
+        "id": "0017",
+        "query": "Begin by retrieving all storage locations from both SAP and Pollex systems.\nOnce the data is collected, search for high-voltage storage locations in each system.\nIdentify whether a high-voltage storage location exists and compare its presence and storage location ID across both systems.\nIf a high-voltage storage location is present in both SAP and Pollex and the storage location IDs match, end the process—no further action is required.\nIf a high-voltage location is found in Pollex but does not exist in SAP, create a corresponding high-voltage storage location in SAP using the Pollex storage location ID.\nAfter creation, send notification emails to both warehouse_manager@company.com and employee3@serviceprovider.com informing them of the new SAP storage location.\nIf the high-voltage storage location exists in both systems but the IDs do not match, create a new storage location in SAP using the Pollex ID. Retrieve all materials stored in the existing, mismatched SAP location.\nUse SAP transaction MMSC to move each material to the new storage location, setting the parameters as follows: material_id as the ID of the material, storage_location_id as the new location ID, and plant as 1540.\nAfter completing the transfer, compile a report listing all moved materials along with the original and new storage location IDs.\nEmail this report to error.handler1@company.com and include a formal request for deletion of the old SAP storage location.",
+        "tasks": 11,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0017_tasks_11_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0001,High-Voltage Location\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                },
+                "get_pollex_storage_locations": {
+                    "1540": "ID,Description\n0001,High-Voltage Location\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                }
+            },
+            "path1": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0002,High-Voltage Location\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                },
+                "get_pollex_storage_locations": {
+                    "1540": "ID,Description\n0001,High-Voltage Location\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                },
+                "get_materials_in_storage_location": {
+                    "0002": "ID,Description,Quantity\n22446688,High-Voltage Circuit Breaker,100\n33567984,Medium-Voltage Transformer,50\n12948679,Low-Voltage Switch Gear,20"
+                }
+            },
+            "path2": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                },
+                "get_pollex_storage_locations": {
+                    "1540": "ID,Description\n0001,High-Voltage Location\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                }
+            }
+        }
+    },
+    {
+        "id": "0018",
+        "query": "Start by accessing the SAP system and retrieving the full list of storage locations. Once the data is obtained, search specifically for storage location 0001.\nIf this storage location does not exist within the system, no further action is needed and the process should end immediately.\nIf storage location 0001 is found, proceed to extract the list of all materials currently assigned to this location.\nAfter compiling the material information into a readable format, send an email to warehouse_manager@company.com.\nThis email should include the list of materials located in storage location 0001 so the warehouse team is properly informed.\nOnce the notification has been sent, the task is complete and the process can be concluded.",
+        "tasks": 4,
+        "gateways": 1,
+        "bpmn_path": "bpmn_user_requests/0018_tasks_4_gateways_1.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0001,High-Voltage Location\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                },
+                "get_storage_location": {
+                    "1540,0001": "ID,Description\n0001,High-Voltage Location"
+                },
+                "get_materials_in_storage_location": {
+                    "0001": "ID,Description,Quantity\n22446688,High-Voltage Circuit Breaker,100\n33567984,Medium-Voltage Transformer,50\n12948679,Low-Voltage Switch Gear,20"
+                }
+            },
+            "path1": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description\n0077,Mid-voltage Location\n0184,Low-voltage Location"
+                },
+                "get_storage_location": {
+                    "1540,0077": "ID,Description\n0077,Mid-voltage Location",
+                    "1540,0184": "ID,Description\n0184,Low-voltage Location"
+                }
+            }
+        }
+    },
+    {
+        "id": "0019",
+        "query": "Begin by accessing IDoc 98712419 and extracting its delivery date.\nThis value is located in segment EDI_DC40 under the key CREDAT.\nOnce the delivery date is retrieved, evaluate whether the year of that date is earlier than 2025.\nIf the year is 2025 or later, then the IDoc contains a valid delivery date and no changes are necessary, so the process should end.\nHowever, if the delivery date is from a year prior to 2025, it must be updated. In that case, retrieve the current date from the system.\nThen, overwrite the existing delivery date in the IDoc by setting the value of CREDAT in segment EDI_DC40 to the current date.\nThis update ensures the IDoc reflects an accurate and up-to-date delivery timestamp.\nOnce the modification is complete, the process concludes.",
+        "tasks": 4,
+        "gateways": 1,
+        "bpmn_path": "bpmn_user_requests/0019_tasks_4_gateways_1.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_idoc_field": {
+                    "98712419,EDI_DC40,CREDAT": "2025-11-15"
+                }
+            },
+            "path1": {
+                "get_idoc_field": {
+                    "98712419,EDI_DC40,CREDAT": "2024-05-20"
+                },
+                "get_current_date": "2025-03-01"
+            }
+        }
+    },
+    {
+        "id": "0020",
+        "query": "Get the materials in storage location 0199. Determine whether low-voltage materials exist in this location.\nIf low-voltage materials are present, move them to the designated low-voltage storage location 0099.",
+        "tasks": 3,
+        "gateways": 1,
+        "bpmn_path": "bpmn_user_requests/0020_tasks_3_gateways_1.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_materials_in_storage_location": {
+                    "0199": "ID,Description,Quantity\n98765432,Low-Voltage Circuit Breaker,50\n123456789,High-Voltage Insulator,30\n1122334455,Medium-Voltage Transformer,20",
+                    "0199_": "ID,Description,Quantity\n123456789,High-Voltage Insulator,30\n1122334455,Medium-Voltage Transformer,20",
+                    "0099": "ID,Description,Quantity\n"
+                },
+                "get_storage_location": {
+                    "1540,0199": "ID,Description,Maximum Quantity\n0199,Other,1000",
+                    "1540,0099": "ID,Description,Maximum Quantity\n0099,Low-voltage Location,100"
+                }
+            },
+            "path1": {
+                "get_materials_in_storage_location": {
+                    "0199": "ID,Description,Quantity\n55478963,Surge Protection Device,35\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50",
+                    "0099": "ID,Description,Quantity\n"
+                }
+            }
+        }
+    },
+    {
+        "id": "0021",
+        "query": "Begin by retrieving all available storage locations from the SAP system.\nFrom this list, determine whether there is a storage location currently used for storing 'other' materials.\nIf the storage location does not exist, create a new one specifically for these other materials, then conclude the process.\nIf the storage location does exist, retrieve the list of all materials stored there.\nOnce the materials have been obtained, analyze them to determine which are classified as high-voltage.\nThese high-voltage materials must then be transferred to a designated high-voltage storage location—specifically, location 0199.\nThis transfer should be carried out using SAP Transaction MMSC.\nAfter completing the transfer, retrieve all materials currently stored in location 0199 and gather the relevant information about this location.\nWith this data, assess whether the total number of materials has exceeded the maximum allowable capacity of the storage location.\nIf the capacity has not been exceeded, no further steps are required, and the process can end.\nHowever, if the storage limit has been surpassed, move only the materials that exceed the capacity threshold to storage location 0198.\nFollowing this adjustment, notify the warehouse manager by sending an email to warehouse_manager@company.com.\nThe message should detail the changes made, including the movement of materials due to the capacity issue.",
+        "tasks": 11,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0021_tasks_11_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0001,Other,1000\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0199,High-voltage Location,150"
+                },
+                "get_storage_location": {
+                    "1540,0199": "ID,Description,Maximum Quantity\n0199,High-voltage Location,150",
+                    "1540,0001": "ID,Description,Maximum Quantity\n0001,Other,1000",
+                    "1540,0077": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100",
+                    "1540,0184": "ID,Description,Maximum Quantity\n0184,Low-voltage Location,50"
+                
+                },
+                "get_materials_in_storage_location": {
+                    "0199": "ID,Description,Quantity\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50",
+                    "0001": "ID,Description,Quantity\n22446688,High-Voltage Circuit Breaker,100\n98785412,High-Voltage Disconnector,100\n55478963,Surge Protection Device,35",
+                    "0199_": "ID,Description,Quantity\n22446688,High-Voltage Circuit Breaker,100\n98785412,High-Voltage Disconnector,100\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50",
+                    "0001_": "ID,Description,Quantity\n55478963,Surge Protection Device,35"
+                }
+            },
+            "path1": {
+                "get_storage_locations_in_plant": {
+                    "1540": "ID,Description,Maximum Quantity\n0001,Other,1000\n0077,Mid-voltage Location,100\n0184,Low-voltage Location,50\n0199,High-voltage Location,400"
+                },
+                "get_storage_location": {
+                    "1540,0199": "ID,Description,Maximum Quantity\n0199,High-voltage Location,400",
+                    "1540,0001": "ID,Description,Maximum Quantity\n0001,Other,1000",
+                    "1540,0077": "ID,Description,Maximum Quantity\n0077,Mid-voltage Location,100",
+                    "1540,0184": "ID,Description,Maximum Quantity\n0184,Low-voltage Location,50"
+                
+                },
+                "get_materials_in_storage_location": {
+                    "0199": "ID,Description,Quantity\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50",
+                    "0001": "ID,Description,Quantity\n22446688,High-Voltage Circuit Breaker,100\n98785412,High-Voltage Disconnector,100\n55478963,Surge Protection Device,35",
+                    "0199_": "ID,Description,Quantity\n22446688,High-Voltage Circuit Breaker,100\n98785412,High-Voltage Disconnector,100\n87654321,Power Grid Monitoring Sensor,35\n9856235,Isolation Oil X4,30\n66778899,Composite Polymer Insulator,50",
+                    "0001_": "ID,Description,Quantity\n55478963,Surge Protection Device,35"
+                }
+            }
+        }
+    },
+    {
+        "id": "0022",
+        "query": "Begin by accessing IDoc number 7755231 and extracting its material ID from segment E1EDL24 using the key MATNR.\nOnce the material ID is retrieved, check its value to determine the appropriate course of action.\nIf the material ID matches 9923451764, fetch the current system date.\nThen, set the delivery date of the IDoc to this current date by updating segment E1EDK03 with the key DATUM.\nAfter updating the date, change the status of the IDoc in segment ED_IDC40 to the value '56' to reflect that the record has been modified accordingly.\nIf the material ID is instead 8783412, proceed with a different set of updates.\nFirst, set the supplier ID in segment E1EDKA1 under the key PARTN to '000001'.\nThen, update the storage location field in segment E1EDL24 with key LGORT to the value '0079'.\nThe delivery date of the IDoc should also be changed and set to '2025-01-01'.\nFinally, update the status of the IDoc in segment EDI_DC40 to the value '30'.\nOnce either of these update paths is completed, reinitialize the IDoc to finalize the changes.\nAfter reinitialization, prepare and send an email to error.handler1@company.com with a summary of the changes that were made.\nThe process is complete once the summary has been sent.",
+        "tasks": 11,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0022_tasks_11_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_idoc_field": {
+                    "7755231,E1EDL24,MATNR": "9923451764"
+                },
+                "get_current_date": "2025-01-01"
+            },
+            "path1": {
+                "get_idoc_field": {
+                    "7755231,E1EDL24,MATNR": "8783412"
+                }
+            }
+        }
+    },
+    {
+        "id": "0023",
+        "query": "Begin the process by retrieving the material ID from IDoc number 7755231.\nThis value should be extracted from segment E1EDL24 using the key MATNR.\nOnce you have the material ID, evaluate its value to determine the appropriate branch of the workflow.\nIf the material ID is 9923451764, proceed by fetching the current date.\nThen, update the IDoc by setting the delivery date in segment E1EDK03 (key DATUM) to the current date.\nNext, modify the storage location by setting the LGORT key in segment E1EDL24 to 0101.\nOnce this update is made, change the status of the IDoc by setting the STATUS key in segment EDI_DC40 to '56'.\nIf instead the material ID is 8783412, begin by updating the supplier ID to 000001 using segment E1EDKA1 with key PARTN.\nThen, set the IDoc status to '30' within segment EDI_DC40. Follow this by updating the storage location (LGORT in segment E1EDL24) to 0079.\nLastly, set the IDoc’s delivery date to '2025-01-01'.\nAfter completing the actions based on the material ID, analyze the current status of the IDoc.\nIf the status is found to be '56', update the plant assignment in the IDoc by setting the PLANT field in segment E1EDL20 to 1540.\nOnce all required changes have been applied, reinitialize the IDoc to ensure the updates take effect.\nAfter reinitialization, send a summary of all changes made to error.handler1@company.com.\nAdditionally, send the same summary to employee3@serviceprovider.com for external notification.",
+        "tasks": 15,
+        "gateways": 2,
+        "bpmn_path": "bpmn_user_requests/0023_tasks_15_gateways_2.bpmn",
+        "tool_values": {
+            "path0": {
+                "get_idoc_field": {
+                    "7755231,E1EDL24,MATNR": "9923451764",
+                    "7755231,EDI_DC40,STATUS": "56"
+                },
+                "get_current_date": "2025-01-01"
+            },
+            "path1": {
+                "get_idoc_field": {
+                    "7755231,E1EDL24,MATNR": "8783412",
+                    "7755231,EDI_DC40,STATUS": "30"
+                }
+            }
+        }
+    }
+]
