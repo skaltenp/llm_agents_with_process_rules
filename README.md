@@ -193,5 +193,4 @@ Process: 0023
 4. The five different rules databases generated are stored in the folder _vector_db_.
 5. The five different descriptions generated are stored in the folder _descriptions_
 6. The five different descriptions generated are stored in the folder _vector_db_descriptions_
-
-
+7. The error reasons and types in the user request evaluation can be found in the folder _results_ (_user_request_descriptions_errors.csv_, _user_request_rules_errors.csv_)

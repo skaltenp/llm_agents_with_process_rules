@@ -1,0 +1,9 @@
+id, error, type
+3, "098764512,Low-Voltage Isolation Gas SF6,50 is not transferred by the agent, instead Isolation Oil X4 (ID: 9856235) - Quantity: 30", process alignment error
+7, "summary report at the end states 'ERROR' while everything was okay", hallucination
+9, "rfc call does not work and agent cannot solve it", parameter error
+9, "rfc call does not work and agent cannot solve it", parameter error
+12, "agent does not go on with automating the process but stops and returns only a message to go on", process alignment error
+13, "agent moves the 'other' materials to low-, mid- or high-voltage storages", reasoning error
+14, "agent moves the 'other' materials to low- or mid-voltage storages", reasoning error
+20, "agent moves the 'other' materials to a low-voltage storages", reasoning error

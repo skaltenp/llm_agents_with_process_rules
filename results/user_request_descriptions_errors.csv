@@ -1,0 +1,14 @@
+id, error, type
+2, "agent does not identify both storage location with less than 10 materials but only one of them", process alignment error
+3, "098764512,Low-Voltage Isolation Gas SF6,50 is not transferred by the agent, instead Surge Protection Device (ID: 55478963) - Quantity: 35", reasoning error
+3, "model fails to check whether the maximum quantity of storage 0077 is exceeded", process alignment error
+6, "agent does not check if the location 0001 is existing for transfering the material", process alignment error
+6, "agent does hallucinate the material although it is not existing in one of the storage locations", hallucination
+8, "agent further goes on with the process although the 'PARTN' is not missing", process alignment error
+9, "rfc call does not work and agent cannot solve it", parameter error
+12, "agent accidentially moves all materials to the new exceeding storage location", reasining error
+13, "agent does not create multiple storage locations for every overflow but one and then lacks to identify the error when it tries to get the location 0200", process alignment error
+13, "agent moves all low-voltage materials to the low-voltage overflow location instead of only the overflowing materials", reasoning error
+14, "agent moves other materials to low-voltage storage", reasoning error
+20, "agent moves the 'other' materials to a low-voltage storages", reasoning error
+21, "agent moves the exceeding materials but still the materials exceed the capacity by 50", reasoning error
