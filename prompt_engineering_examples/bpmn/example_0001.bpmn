@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0">
+  <bpmn:collaboration id="Collaboration_1bzv1wk">
+    <bpmn:participant id="Participant_0svnxxm" name="LLM Agent" processRef="Process_1" />
+    <bpmn:textAnnotation id="TextAnnotation_09eed7p">
+      <bpmn:text>Error Message:
+IDoc ID: &lt;idoc_id&gt;
+Pollex ID: &lt;pollex_id&gt;
+Description: IDoc has wrong storage location &lt;storage_location&gt;</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1vyck8l" associationDirection="None" sourceRef="StartEvent_1" targetRef="TextAnnotation_09eed7p" />
+    <bpmn:textAnnotation id="TextAnnotation_03q77pd">
+      <bpmn:text>To: error.handler1@company.com
+Subject: LGORT of IDoc &lt;idoc_id&gt; exists
+Content: Request for help with IDoc &lt;idoc_id&gt;</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_16xkk40" associationDirection="None" sourceRef="Activity_12xkh27" targetRef="TextAnnotation_03q77pd" />
+    <bpmn:textAnnotation id="TextAnnotation_1dn5mfz">
+      <bpmn:text>To: warehouse.manager@company.com
+Content: Created new storage location &lt;LGORT&gt;</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1njttru" associationDirection="None" sourceRef="ServiceTask_5" targetRef="TextAnnotation_1dn5mfz" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="ServiceTask_1" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="ServiceTask_1" targetRef="Activity_0f0afsb" />
+    <bpmn:startEvent id="StartEvent_1" />
+    <bpmn:task id="ServiceTask_1" name="Retrieve &#39;LGORT&#39; from Segment &#39;E1EDP01&#39; in IDoc">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0alwre0" sourceRef="Activity_0f0afsb" targetRef="Activity_05kdimq" />
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1" name="LGORT exists in SAP storage locations?">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:incoming>Flow_16s8fjz</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1se6ko9</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="ServiceTask_2" name="Create storage location with id LGORT">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lk08go</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_3" name="no" sourceRef="ExclusiveGateway_1" targetRef="ServiceTask_2">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${DELIVERY_STATUS == '56'}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1se6ko9" name="yes" sourceRef="ExclusiveGateway_1" targetRef="Activity_12xkh27" />
+    <bpmn:sequenceFlow id="Flow_1ls3qnj" sourceRef="ServiceTask_5" targetRef="EndEvent_1" />
+    <bpmn:task id="Activity_05kdimq" name="Determine whether storage location does exist in SAP">
+      <bpmn:incoming>Flow_0alwre0</bpmn:incoming>
+      <bpmn:outgoing>Flow_16s8fjz</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_16s8fjz" sourceRef="Activity_05kdimq" targetRef="ExclusiveGateway_1" />
+    <bpmn:task id="Activity_0f0afsb" name="Get storage locations from SAP">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_0alwre0</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0lvptkr" sourceRef="Activity_12xkh27" targetRef="Event_1thcki8" />
+    <bpmn:task id="Activity_12xkh27" name="Send email to Error Handler and request manual help">
+      <bpmn:incoming>Flow_1se6ko9</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lvptkr</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_1thcki8">
+      <bpmn:incoming>Flow_0lvptkr</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0lk08go" sourceRef="ServiceTask_2" targetRef="ServiceTask_4" />
+    <bpmn:task id="ServiceTask_4" name="Reinitialize IDoc">
+      <bpmn:incoming>Flow_0lk08go</bpmn:incoming>
+      <bpmn:outgoing>Flow_061w4t1</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_061w4t1" sourceRef="ServiceTask_4" targetRef="ServiceTask_5" />
+    <bpmn:task id="ServiceTask_5" name="Inform warehouse manager about new storage location">
+      <bpmn:incoming>Flow_061w4t1</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ls3qnj</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_1">
+      <bpmn:incoming>Flow_1ls3qnj</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1bzv1wk">
+      <bpmndi:BPMNShape id="Participant_0svnxxm_di" bpmnElement="Participant_0svnxxm" isHorizontal="true">
+        <omgdc:Bounds x="158" y="80" width="1162" height="470" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="242" y="147" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="216" y="190" width="88" height="146" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1aj1dqn_di" bpmnElement="ServiceTask_1">
+        <omgdc:Bounds x="310" y="127" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1_di" bpmnElement="ExclusiveGateway_1" isMarkerVisible="true">
+        <omgdc:Bounds x="704" y="142" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="688" y="103" width="81" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1mg2nio_di" bpmnElement="ServiceTask_2">
+        <omgdc:Bounds x="819" y="127" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05kdimq_di" bpmnElement="Activity_05kdimq">
+        <omgdc:Bounds x="580" y="125" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0f0afsb_di" bpmnElement="Activity_0f0afsb">
+        <omgdc:Bounds x="440" y="125" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12xkh27_di" bpmnElement="Activity_12xkh27">
+        <omgdc:Bounds x="679" y="360" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1thcki8_di" bpmnElement="Event_1thcki8">
+        <omgdc:Bounds x="851" y="382" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0jimi59_di" bpmnElement="ServiceTask_4">
+        <omgdc:Bounds x="970" y="127" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1nba9u9_di" bpmnElement="ServiceTask_5">
+        <omgdc:Bounds x="1110" y="127" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <omgdc:Bounds x="1262" y="149" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <omgdi:waypoint x="278" y="165" />
+        <omgdi:waypoint x="310" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <omgdi:waypoint x="410" y="165" />
+        <omgdi:waypoint x="440" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0alwre0_di" bpmnElement="Flow_0alwre0">
+        <omgdi:waypoint x="540" y="165" />
+        <omgdi:waypoint x="580" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <omgdi:waypoint x="752" y="165" />
+        <omgdi:waypoint x="819" y="165" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="780" y="147" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1se6ko9_di" bpmnElement="Flow_1se6ko9">
+        <omgdi:waypoint x="729" y="192" />
+        <omgdi:waypoint x="729" y="360" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="735" y="273" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ls3qnj_di" bpmnElement="Flow_1ls3qnj">
+        <omgdi:waypoint x="1210" y="167" />
+        <omgdi:waypoint x="1262" y="167" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16s8fjz_di" bpmnElement="Flow_16s8fjz">
+        <omgdi:waypoint x="680" y="165" />
+        <omgdi:waypoint x="706" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lvptkr_di" bpmnElement="Flow_0lvptkr">
+        <omgdi:waypoint x="779" y="400" />
+        <omgdi:waypoint x="851" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lk08go_di" bpmnElement="Flow_0lk08go">
+        <omgdi:waypoint x="919" y="167" />
+        <omgdi:waypoint x="970" y="167" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_061w4t1_di" bpmnElement="Flow_061w4t1">
+        <omgdi:waypoint x="1070" y="167" />
+        <omgdi:waypoint x="1110" y="167" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_09eed7p_di" bpmnElement="TextAnnotation_09eed7p">
+        <omgdc:Bounds x="240" y="230" width="200" height="98" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_03q77pd_di" bpmnElement="TextAnnotation_03q77pd">
+        <omgdc:Bounds x="760" y="450" width="230" height="84" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1dn5mfz_di" bpmnElement="TextAnnotation_1dn5mfz">
+        <omgdc:Bounds x="1080" y="280" width="240" height="55" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1vyck8l_di" bpmnElement="Association_1vyck8l">
+        <omgdi:waypoint x="266" y="182" />
+        <omgdi:waypoint x="284" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_16xkk40_di" bpmnElement="Association_16xkk40">
+        <omgdi:waypoint x="775" y="437" />
+        <omgdi:waypoint x="791" y="450" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1njttru_di" bpmnElement="Association_1njttru">
+        <omgdi:waypoint x="1163" y="207" />
+        <omgdi:waypoint x="1169" y="280" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

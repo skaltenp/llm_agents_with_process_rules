@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0">
+  <collaboration id="Collaboration_08kpow3">
+    <participant id="Participant_0uv9vlz" name="LLM Agent" processRef="idocErrorHandlingProcess" />
+    <textAnnotation id="TextAnnotation_03g3sga">
+      <text>Segment "E1EDK03"</text>
+    </textAnnotation>
+  </collaboration>
+  <process id="idocErrorHandlingProcess" name="IDoc Error Handling Process" isExecutable="true">
+    <exclusiveGateway id="Gateway_1" name="Is STATUS &#39;ERROR&#39;?">
+      <incoming>Flow_2</incoming>
+      <outgoing>Flow_0nle2gb</outgoing>
+      <outgoing>Flow_154oceq</outgoing>
+    </exclusiveGateway>
+    <startEvent id="StartEvent_1" name="Start Process">
+      <outgoing>Flow_1</outgoing>
+    </startEvent>
+    <task id="ServiceTask_1" name="Check IDoc 9876543,  9876547, and 9876567  STATUS">
+      <extensionElements>
+        <camunda:property name="idoc_id" value="9876543" />
+        <camunda:property name="segment" value="E1EDK03" />
+        <camunda:property name="key" value="STATUS" />
+      </extensionElements>
+      <incoming>Flow_1</incoming>
+      <outgoing>Flow_2</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_2" name="Is DATUM outdated?">
+      <incoming>Flow_7</incoming>
+      <outgoing>Flow_9</outgoing>
+      <outgoing>Flow_8</outgoing>
+    </exclusiveGateway>
+    <endEvent id="EndEvent_1" name="End Process">
+      <incoming>Flow_11</incoming>
+    </endEvent>
+    <exclusiveGateway id="Gateway_09shruo">
+      <incoming>Flow_9</incoming>
+      <incoming>Flow_1jvy3do</incoming>
+      <outgoing>Flow_0op92hy</outgoing>
+    </exclusiveGateway>
+    <task id="ServiceTask_4" name="Reinitialize IDocs">
+      <extensionElements>
+        <camunda:property name="idoc_id" value="{IDOC_ID}" />
+      </extensionElements>
+      <incoming>Flow_0op92hy</incoming>
+      <outgoing>Flow_0dc3mwi</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_0ibptjq">
+      <incoming>Flow_0dc3mwi</incoming>
+      <incoming>Flow_154oceq</incoming>
+      <outgoing>Flow_0kssq28</outgoing>
+    </exclusiveGateway>
+    <task id="ServiceTask_6" name="Update DATUM for  erroneous IDocs">
+      <extensionElements>
+        <camunda:property name="idoc_id" value="{IDOC_ID}" />
+        <camunda:property name="segment" value="E1EDP01" />
+        <camunda:property name="key" value="DELIVERY_DATE" />
+        <camunda:property name="value" value="${current_date()}" />
+      </extensionElements>
+      <incoming>Flow_8</incoming>
+      <outgoing>Flow_1jvy3do</outgoing>
+    </task>
+    <task id="ServiceTask_5" name="Check &#39;DATUM&#39; for erroneous IDocs">
+      <extensionElements>
+        <camunda:property name="idoc_id" value="{IDOC_ID}" />
+        <camunda:property name="segment" value="E1EDP01" />
+        <camunda:property name="key" value="DELIVERY_DATE" />
+      </extensionElements>
+      <incoming>Flow_0nle2gb</incoming>
+      <outgoing>Flow_7</outgoing>
+    </task>
+    <task id="ServiceTask_7" name="Notify ERP support">
+      <extensionElements>
+        <camunda:property name="email" value="erp_support@company.com" />
+        <camunda:property name="content" value="Summary of IDoc issues and actions taken" />
+      </extensionElements>
+      <incoming>Flow_0kssq28</incoming>
+      <outgoing>Flow_11</outgoing>
+    </task>
+    <sequenceFlow id="Flow_2" sourceRef="ServiceTask_1" targetRef="Gateway_1" />
+    <sequenceFlow id="Flow_0nle2gb" name="yes" sourceRef="Gateway_1" targetRef="ServiceTask_5" />
+    <sequenceFlow id="Flow_154oceq" name="no" sourceRef="Gateway_1" targetRef="Gateway_0ibptjq" />
+    <sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="ServiceTask_1" />
+    <sequenceFlow id="Flow_7" sourceRef="ServiceTask_5" targetRef="Gateway_2" />
+    <sequenceFlow id="Flow_9" name="no" sourceRef="Gateway_2" targetRef="Gateway_09shruo">
+      <conditionExpression xsi:type="tFormalExpression">${delivery_date &gt;= current_date()}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_8" name="yes" sourceRef="Gateway_2" targetRef="ServiceTask_6" />
+    <sequenceFlow id="Flow_11" sourceRef="ServiceTask_7" targetRef="EndEvent_1" />
+    <sequenceFlow id="Flow_1jvy3do" sourceRef="ServiceTask_6" targetRef="Gateway_09shruo" />
+    <sequenceFlow id="Flow_0op92hy" sourceRef="Gateway_09shruo" targetRef="ServiceTask_4" />
+    <sequenceFlow id="Flow_0dc3mwi" sourceRef="ServiceTask_4" targetRef="Gateway_0ibptjq" />
+    <sequenceFlow id="Flow_0kssq28" sourceRef="Gateway_0ibptjq" targetRef="ServiceTask_7" />
+    <association id="Association_12oe7qq" associationDirection="None" sourceRef="ServiceTask_1" targetRef="TextAnnotation_03g3sga" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_08kpow3">
+      <bpmndi:BPMNShape id="Participant_0uv9vlz_di" bpmnElement="Participant_0uv9vlz" isHorizontal="true">
+        <omgdc:Bounds x="113" y="70" width="1460" height="400" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Gateway_1" bpmnElement="Gateway_1" isMarkerVisible="true">
+        <omgdc:Bounds x="410" y="270" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="470" y="281" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="166" y="276" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="151" y="312" width="67" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1g02tw6_di" bpmnElement="ServiceTask_1">
+        <omgdc:Bounds x="244" y="255" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Gateway_2" bpmnElement="Gateway_2" isMarkerVisible="true">
+        <omgdc:Bounds x="745" y="130" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="746" y="85" width="50" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="EndEvent_1">
+        <omgdc:Bounds x="1513" y="276" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1500" y="312" width="63" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_09shruo_di" bpmnElement="Gateway_09shruo" isMarkerVisible="true">
+        <omgdc:Bounds x="1065" y="270" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1dlt7vr_di" bpmnElement="ServiceTask_4">
+        <omgdc:Bounds x="1150" y="255" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0ibptjq_di" bpmnElement="Gateway_0ibptjq" isMarkerVisible="true">
+        <omgdc:Bounds x="1275" y="270" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05cngor_di" bpmnElement="ServiceTask_6">
+        <omgdc:Bounds x="890" y="115" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1k14z0s_di" bpmnElement="ServiceTask_5">
+        <omgdc:Bounds x="550" y="115" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xt2wuo_di" bpmnElement="ServiceTask_7">
+        <omgdc:Bounds x="1370" y="255" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_2" bpmnElement="Flow_2">
+        <omgdi:waypoint x="344" y="295" />
+        <omgdi:waypoint x="410" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0nle2gb_di" bpmnElement="Flow_0nle2gb">
+        <omgdi:waypoint x="435" y="270" />
+        <omgdi:waypoint x="435" y="155" />
+        <omgdi:waypoint x="550" y="155" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="441" y="137" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_154oceq_di" bpmnElement="Flow_154oceq">
+        <omgdi:waypoint x="435" y="320" />
+        <omgdi:waypoint x="435" y="410" />
+        <omgdi:waypoint x="1300" y="410" />
+        <omgdi:waypoint x="1300" y="320" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="861" y="393" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_1" bpmnElement="Flow_1">
+        <omgdi:waypoint x="202" y="295" />
+        <omgdi:waypoint x="244" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_7" bpmnElement="Flow_7">
+        <omgdi:waypoint x="650" y="155" />
+        <omgdi:waypoint x="745" y="155" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_9" bpmnElement="Flow_9">
+        <omgdi:waypoint x="770" y="180" />
+        <omgdi:waypoint x="770" y="295" />
+        <omgdi:waypoint x="1065" y="295" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="779" y="235" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_8" bpmnElement="Flow_8">
+        <omgdi:waypoint x="795" y="155" />
+        <omgdi:waypoint x="890" y="155" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="834" y="137" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_11" bpmnElement="Flow_11">
+        <omgdi:waypoint x="1470" y="295" />
+        <omgdi:waypoint x="1513" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jvy3do_di" bpmnElement="Flow_1jvy3do">
+        <omgdi:waypoint x="991" y="155" />
+        <omgdi:waypoint x="1090" y="155" />
+        <omgdi:waypoint x="1090" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0op92hy_di" bpmnElement="Flow_0op92hy">
+        <omgdi:waypoint x="1115" y="295" />
+        <omgdi:waypoint x="1150" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dc3mwi_di" bpmnElement="Flow_0dc3mwi">
+        <omgdi:waypoint x="1250" y="295" />
+        <omgdi:waypoint x="1275" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kssq28_di" bpmnElement="Flow_0kssq28">
+        <omgdi:waypoint x="1325" y="295" />
+        <omgdi:waypoint x="1370" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_12oe7qq_di" bpmnElement="Association_12oe7qq">
+        <omgdi:waypoint x="311" y="255" />
+        <omgdi:waypoint x="334" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_03g3sga_di" bpmnElement="TextAnnotation_03g3sga">
+        <omgdc:Bounds x="290" y="170" width="140" height="30" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

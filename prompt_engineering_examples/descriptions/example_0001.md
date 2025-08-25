@@ -1,0 +1,5 @@
+After identifying the issue with the IDoc, the LLM Agent begins by retrieving the 'LGORT' from the segment 'E1EDP01' within the IDoc. Once this information is gathered, the agent proceeds to obtain the list of storage locations from SAP to determine if the 'LGORT' already exists within the SAP storage locations.
+
+If the 'LGORT' does not exist, the agent takes action to create a new storage location with the ID 'LGORT'. Following this, the IDoc is reinitialized to ensure that the changes are properly integrated. The agent then informs the warehouse manager about the creation of the new storage location by sending an email to warehouse.manager@company.com with the content: "Created new storage location <LGORT>."
+
+However, if the 'LGORT' is found to exist in the SAP storage locations, the agent sends an email to the error handler at error.handler1@company.com. The email has the subject "LGORT of IDoc <idoc_id> exists" and contains the message: "Request for help with IDoc <idoc_id>." This step is taken to request manual assistance in resolving the issue with the IDoc.

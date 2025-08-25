@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0utygjx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:process id="Process_1xbn6du" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_112oldt</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_11zshd8" name="Get all storage locations from SAP">
+      <bpmn:incoming>Flow_112oldt</bpmn:incoming>
+      <bpmn:outgoing>Flow_1hdos5y</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_112oldt" sourceRef="StartEvent_1" targetRef="Activity_11zshd8" />
+    <bpmn:task id="Activity_1fq0tx2" name="Get all materials from all storage locations">
+      <bpmn:incoming>Flow_1hdos5y</bpmn:incoming>
+      <bpmn:outgoing>Flow_1cyzglk</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_007pwt7" name="&#60;material_id&#62; exists in storage any location?">
+      <bpmn:incoming>Flow_1kzkxjt</bpmn:incoming>
+      <bpmn:outgoing>Flow_12tsr59</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0fzhi4l</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1cyzglk" sourceRef="Activity_1fq0tx2" targetRef="Activity_0kul47y" />
+    <bpmn:task id="Activity_1qgzld7" name="Set storage location (&#39;LGORT&#39;) of IDoc to &#60;material_ids&#62; storage location">
+      <bpmn:incoming>Flow_12tsr59</bpmn:incoming>
+      <bpmn:outgoing>Flow_0939ria</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_12tsr59" name="yes" sourceRef="Gateway_007pwt7" targetRef="Activity_1qgzld7" />
+    <bpmn:sequenceFlow id="Flow_0fzhi4l" name="no" sourceRef="Gateway_007pwt7" targetRef="Activity_104fyv1" />
+    <bpmn:task id="Activity_104fyv1" name="Inform error handler1 that storage location does not exist">
+      <bpmn:incoming>Flow_0fzhi4l</bpmn:incoming>
+      <bpmn:outgoing>Flow_0klp400</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0klp400" sourceRef="Activity_104fyv1" targetRef="Event_0qyhgtl" />
+    <bpmn:task id="Activity_0kul47y" name="Search for &#60;material_id&#62; in storage location">
+      <bpmn:incoming>Flow_1cyzglk</bpmn:incoming>
+      <bpmn:outgoing>Flow_1kzkxjt</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1kzkxjt" sourceRef="Activity_0kul47y" targetRef="Gateway_007pwt7" />
+    <bpmn:endEvent id="Event_1tkmvab">
+      <bpmn:incoming>Flow_00dar81</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0939ria" sourceRef="Activity_1qgzld7" targetRef="Activity_1qctbgu" />
+    <bpmn:endEvent id="Event_0qyhgtl">
+      <bpmn:incoming>Flow_0klp400</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1hdos5y" sourceRef="Activity_11zshd8" targetRef="Activity_1fq0tx2" />
+    <bpmn:task id="Activity_1qctbgu" name="Reinitialize IDoc">
+      <bpmn:incoming>Flow_0939ria</bpmn:incoming>
+      <bpmn:outgoing>Flow_00dar81</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_00dar81" sourceRef="Activity_1qctbgu" targetRef="Event_1tkmvab" />
+    <bpmn:textAnnotation id="TextAnnotation_1tzmmcr">
+      <bpmn:text>Email: Material &lt;material_id&gt; does not exist in storage location 
+To: error.handler1@company.com</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0lems8w" associationDirection="None" sourceRef="Activity_104fyv1" targetRef="TextAnnotation_1tzmmcr" />
+    <bpmn:textAnnotation id="TextAnnotation_0g18npa">
+      <bpmn:text>Error Message:
+IDoc ID: &lt;idoc_id&gt;
+Pollex ID: &lt;pollex_id&gt;
+Description: Storage location does not exist for material &lt;material_id&gt;</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1bxtm0n" associationDirection="None" sourceRef="StartEvent_1" targetRef="TextAnnotation_0g18npa" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1xbn6du">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_11zshd8_di" bpmnElement="Activity_11zshd8">
+        <dc:Bounds x="280" y="170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1fq0tx2_di" bpmnElement="Activity_1fq0tx2">
+        <dc:Bounds x="460" y="170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_007pwt7_di" bpmnElement="Gateway_007pwt7" isMarkerVisible="true">
+        <dc:Bounds x="785" y="185" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="770" y="135" width="80" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1qgzld7_di" bpmnElement="Activity_1qgzld7">
+        <dc:Bounds x="910" y="330" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_104fyv1_di" bpmnElement="Activity_104fyv1">
+        <dc:Bounds x="930" y="170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0kul47y_di" bpmnElement="Activity_0kul47y">
+        <dc:Bounds x="620" y="170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1tkmvab_di" bpmnElement="Event_1tkmvab">
+        <dc:Bounds x="1242" y="352" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_09mx35r_di" bpmnElement="Event_0qyhgtl">
+        <dc:Bounds x="1092" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1qctbgu_di" bpmnElement="Activity_1qctbgu">
+        <dc:Bounds x="1060" y="330" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1tzmmcr_di" bpmnElement="TextAnnotation_1tzmmcr">
+        <dc:Bounds x="960" y="80" width="230" height="55" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0g18npa_di" bpmnElement="TextAnnotation_0g18npa">
+        <dc:Bounds x="160" y="270" width="200" height="84" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_112oldt_di" bpmnElement="Flow_112oldt">
+        <di:waypoint x="188" y="210" />
+        <di:waypoint x="280" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cyzglk_di" bpmnElement="Flow_1cyzglk">
+        <di:waypoint x="560" y="210" />
+        <di:waypoint x="620" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12tsr59_di" bpmnElement="Flow_12tsr59">
+        <di:waypoint x="810" y="235" />
+        <di:waypoint x="810" y="370" />
+        <di:waypoint x="910" y="370" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="852" y="352" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fzhi4l_di" bpmnElement="Flow_0fzhi4l">
+        <di:waypoint x="835" y="210" />
+        <di:waypoint x="930" y="210" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="845" y="191" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0klp400_di" bpmnElement="Flow_0klp400">
+        <di:waypoint x="1030" y="210" />
+        <di:waypoint x="1092" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kzkxjt_di" bpmnElement="Flow_1kzkxjt">
+        <di:waypoint x="720" y="210" />
+        <di:waypoint x="785" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0939ria_di" bpmnElement="Flow_0939ria">
+        <di:waypoint x="1010" y="370" />
+        <di:waypoint x="1060" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hdos5y_di" bpmnElement="Flow_1hdos5y">
+        <di:waypoint x="380" y="210" />
+        <di:waypoint x="460" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00dar81_di" bpmnElement="Flow_00dar81">
+        <di:waypoint x="1160" y="370" />
+        <di:waypoint x="1242" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0lems8w_di" bpmnElement="Association_0lems8w">
+        <di:waypoint x="991" y="170" />
+        <di:waypoint x="1002" y="135" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1bxtm0n_di" bpmnElement="Association_1bxtm0n">
+        <di:waypoint x="178" y="226" />
+        <di:waypoint x="202" y="270" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

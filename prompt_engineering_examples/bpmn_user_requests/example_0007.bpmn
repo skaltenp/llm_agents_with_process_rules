@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0utygjx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:collaboration id="Collaboration_11duups">
+    <bpmn:participant id="Participant_02xrof7" name="LLM Agent" processRef="Process_1xbn6du" />
+    <bpmn:textAnnotation id="TextAnnotation_1xulcbz">
+      <bpmn:text>Transaction SA38
+program: RC1_IDOC_SET_STATUS
+program_parameters_dict: {
+"IDOC_ID": "&lt;idoc_id&gt;",
+"STATUS": "LKD"
+}</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0li4b5h" associationDirection="None" sourceRef="Activity_0vlgzrm" targetRef="TextAnnotation_1xulcbz" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1xbn6du" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_112oldt</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_1tkmvab">
+      <bpmn:incoming>Flow_0y0gtro</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="Event_0jfziar">
+      <bpmn:incoming>Flow_1h015da</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_007pwt7" name="Storage location &#60;LGORT&#62; exists in Pollex?">
+      <bpmn:incoming>Flow_1hdos5y</bpmn:incoming>
+      <bpmn:outgoing>Flow_12tsr59</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1h015da</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_1qgzld7" name="Request the creation of &#60;LGORT&#62; from employee3@serviceprovider.com">
+      <bpmn:incoming>Flow_12tsr59</bpmn:incoming>
+      <bpmn:outgoing>Flow_0939ria</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_11zshd8" name="Determine whether storage location &#60;LGORT&#62; exists in Pollex">
+      <bpmn:incoming>Flow_0fp6rl6</bpmn:incoming>
+      <bpmn:outgoing>Flow_1hdos5y</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_0imopdk" name="Get LGORT from IDoc 0123456789 at Segment &#39;E1EDP01&#39;">
+      <bpmn:incoming>Flow_112oldt</bpmn:incoming>
+      <bpmn:outgoing>Flow_0fp6rl6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_0vlgzrm" name="Lock the IDoc using transactionSA38">
+      <bpmn:incoming>Flow_0939ria</bpmn:incoming>
+      <bpmn:outgoing>Flow_0y0gtro</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_112oldt" sourceRef="StartEvent_1" targetRef="Activity_0imopdk" />
+    <bpmn:sequenceFlow id="Flow_0y0gtro" sourceRef="Activity_0vlgzrm" targetRef="Event_1tkmvab" />
+    <bpmn:sequenceFlow id="Flow_1h015da" name="yes" sourceRef="Gateway_007pwt7" targetRef="Event_0jfziar" />
+    <bpmn:sequenceFlow id="Flow_1hdos5y" sourceRef="Activity_11zshd8" targetRef="Gateway_007pwt7" />
+    <bpmn:sequenceFlow id="Flow_12tsr59" name="yes" sourceRef="Gateway_007pwt7" targetRef="Activity_1qgzld7" />
+    <bpmn:sequenceFlow id="Flow_0939ria" sourceRef="Activity_1qgzld7" targetRef="Activity_0vlgzrm" />
+    <bpmn:sequenceFlow id="Flow_0fp6rl6" sourceRef="Activity_0imopdk" targetRef="Activity_11zshd8" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_11duups">
+      <bpmndi:BPMNShape id="Participant_02xrof7_di" bpmnElement="Participant_02xrof7" isHorizontal="true">
+        <dc:Bounds x="151" y="80" width="960" height="440" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="202" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1tkmvab_di" bpmnElement="Event_1tkmvab">
+        <dc:Bounds x="992" y="302" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0jfziar_di" bpmnElement="Event_0jfziar">
+        <dc:Bounds x="992" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_007pwt7_di" bpmnElement="Gateway_007pwt7" isMarkerVisible="true">
+        <dc:Bounds x="675" y="135" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="659" y="85" width="82" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1qgzld7_di" bpmnElement="Activity_1qgzld7">
+        <dc:Bounds x="650" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_11zshd8_di" bpmnElement="Activity_11zshd8">
+        <dc:Bounds x="520" y="120" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0imopdk_di" bpmnElement="Activity_0imopdk">
+        <dc:Bounds x="290" y="120" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0vlgzrm_di" bpmnElement="Activity_0vlgzrm">
+        <dc:Bounds x="830" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_112oldt_di" bpmnElement="Flow_112oldt">
+        <di:waypoint x="238" y="160" />
+        <di:waypoint x="290" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0y0gtro_di" bpmnElement="Flow_0y0gtro">
+        <di:waypoint x="930" y="320" />
+        <di:waypoint x="992" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1h015da_di" bpmnElement="Flow_1h015da">
+        <di:waypoint x="725" y="160" />
+        <di:waypoint x="992" y="160" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="850" y="142" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hdos5y_di" bpmnElement="Flow_1hdos5y">
+        <di:waypoint x="620" y="160" />
+        <di:waypoint x="675" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12tsr59_di" bpmnElement="Flow_12tsr59">
+        <di:waypoint x="700" y="185" />
+        <di:waypoint x="700" y="280" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="702" y="226" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0939ria_di" bpmnElement="Flow_0939ria">
+        <di:waypoint x="750" y="320" />
+        <di:waypoint x="830" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fp6rl6_di" bpmnElement="Flow_0fp6rl6">
+        <di:waypoint x="390" y="160" />
+        <di:waypoint x="520" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0li4b5h_di" bpmnElement="Association_0li4b5h">
+        <di:waypoint x="891" y="360" />
+        <di:waypoint x="906" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1xulcbz_di" bpmnElement="TextAnnotation_1xulcbz">
+        <dc:Bounds x="860" y="410" width="230" height="102" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0utygjx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:process id="Process_1xbn6du" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_112oldt</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_112oldt" sourceRef="StartEvent_1" targetRef="Activity_11zshd8" />
+    <bpmn:task id="Activity_1fq0tx2" name="Search storage location 0001">
+      <bpmn:incoming>Flow_05xmlz6</bpmn:incoming>
+      <bpmn:outgoing>Flow_0294hc3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_11zshd8" name="Get all storage locations from SAP">
+      <bpmn:incoming>Flow_112oldt</bpmn:incoming>
+      <bpmn:outgoing>Flow_05xmlz6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_05xmlz6" sourceRef="Activity_11zshd8" targetRef="Activity_1fq0tx2" />
+    <bpmn:exclusiveGateway id="Gateway_0o17yyf" name="Storage location 0001 exists?">
+      <bpmn:incoming>Flow_0294hc3</bpmn:incoming>
+      <bpmn:outgoing>Flow_1gfdwo5</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0uohiaq</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0294hc3" sourceRef="Activity_1fq0tx2" targetRef="Gateway_0o17yyf" />
+    <bpmn:task id="Activity_12oeml7" name="Get materials from storage location 0001">
+      <bpmn:incoming>Flow_1gfdwo5</bpmn:incoming>
+      <bpmn:outgoing>Flow_028bo8c</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1gfdwo5" name="yes" sourceRef="Gateway_0o17yyf" targetRef="Activity_12oeml7" />
+    <bpmn:endEvent id="Event_0bzay2k">
+      <bpmn:incoming>Flow_0uohiaq</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0uohiaq" name="no" sourceRef="Gateway_0o17yyf" targetRef="Event_0bzay2k" />
+    <bpmn:task id="Activity_1946vmd" name="Send an email listing the materials to warehouse_manager.company.com">
+      <bpmn:incoming>Flow_028bo8c</bpmn:incoming>
+      <bpmn:outgoing>Flow_0mzy7qv</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_028bo8c" sourceRef="Activity_12oeml7" targetRef="Activity_1946vmd" />
+    <bpmn:sequenceFlow id="Flow_0mzy7qv" sourceRef="Activity_1946vmd" targetRef="Event_0nt4kod" />
+    <bpmn:endEvent id="Event_0nt4kod">
+      <bpmn:incoming>Flow_0mzy7qv</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1gcb2j3" />
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1xbn6du">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="122" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1fq0tx2_di" bpmnElement="Activity_1fq0tx2">
+        <dc:Bounds x="400" y="100" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_11zshd8_di" bpmnElement="Activity_11zshd8">
+        <dc:Bounds x="240" y="100" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0o17yyf_di" bpmnElement="Gateway_0o17yyf" isMarkerVisible="true">
+        <dc:Bounds x="565" y="115" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="550" y="77.5" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12oeml7_di" bpmnElement="Activity_12oeml7">
+        <dc:Bounds x="680" y="100" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1946vmd_di" bpmnElement="Activity_1946vmd">
+        <dc:Bounds x="850" y="100" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0euc0dq_di" bpmnElement="Event_0nt4kod">
+        <dc:Bounds x="1022" y="122" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0bzay2k_di" bpmnElement="Event_0bzay2k">
+        <dc:Bounds x="712" y="232" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_112oldt_di" bpmnElement="Flow_112oldt">
+        <di:waypoint x="188" y="140" />
+        <di:waypoint x="240" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05xmlz6_di" bpmnElement="Flow_05xmlz6">
+        <di:waypoint x="340" y="140" />
+        <di:waypoint x="400" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0294hc3_di" bpmnElement="Flow_0294hc3">
+        <di:waypoint x="500" y="140" />
+        <di:waypoint x="565" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gfdwo5_di" bpmnElement="Flow_1gfdwo5">
+        <di:waypoint x="615" y="140" />
+        <di:waypoint x="680" y="140" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="639" y="122" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0uohiaq_di" bpmnElement="Flow_0uohiaq">
+        <di:waypoint x="590" y="165" />
+        <di:waypoint x="590" y="250" />
+        <di:waypoint x="712" y="250" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="599" y="205" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_028bo8c_di" bpmnElement="Flow_028bo8c">
+        <di:waypoint x="780" y="140" />
+        <di:waypoint x="850" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mzy7qv_di" bpmnElement="Flow_0mzy7qv">
+        <di:waypoint x="950" y="140" />
+        <di:waypoint x="1022" y="140" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0">
+  <collaboration id="Collaboration_1b9mwkl">
+    <participant id="Participant_18ipkdm" name="LLM Agent" processRef="CheckAndUpdateIDocs" />
+  </collaboration>
+  <process id="CheckAndUpdateIDocs" isExecutable="true">
+    <exclusiveGateway id="ExclusiveGateway_SupplierIDCheck" name="Storage location 0191 exists?">
+      <incoming>Flow_0w2fzzb</incoming>
+      <outgoing>SequenceFlow_SupplierIDPresent</outgoing>
+      <outgoing>SequenceFlow_SupplierIDMissing</outgoing>
+    </exclusiveGateway>
+    <endEvent id="EndEvent_ProcessComplete">
+      <incoming>Flow_18ort95</incoming>
+    </endEvent>
+    <exclusiveGateway id="Gateway_0pj5fa2">
+      <incoming>Flow_0knsnfo</incoming>
+      <incoming>SequenceFlow_SupplierIDMissing</incoming>
+      <outgoing>Flow_0j9jc50</outgoing>
+    </exclusiveGateway>
+    <task id="Activity_1hsg1yq" name="Create new storage location 0191">
+      <incoming>SequenceFlow_SupplierIDPresent</incoming>
+      <outgoing>Flow_0knsnfo</outgoing>
+    </task>
+    <task id="Activity_1p803uq" name="Determine whether storage location 0191 exists">
+      <incoming>SequenceFlow_IdocCheck1</incoming>
+      <outgoing>Flow_0w2fzzb</outgoing>
+    </task>
+    <startEvent id="StartEvent_IdocCheck">
+      <outgoing>SequenceFlow_IdocCheck1</outgoing>
+    </startEvent>
+    <task id="Activity_0jjoz7r" name="Move material 0987654321 to storage location 0191">
+      <incoming>Flow_0j9jc50</incoming>
+      <outgoing>Flow_18ort95</outgoing>
+    </task>
+    <sequenceFlow id="Flow_0w2fzzb" sourceRef="Activity_1p803uq" targetRef="ExclusiveGateway_SupplierIDCheck" />
+    <sequenceFlow id="SequenceFlow_SupplierIDPresent" name="no" sourceRef="ExclusiveGateway_SupplierIDCheck" targetRef="Activity_1hsg1yq">
+      <conditionExpression xsi:type="tFormalExpression">#{!missingSupplier}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_SupplierIDMissing" name="yes" sourceRef="ExclusiveGateway_SupplierIDCheck" targetRef="Gateway_0pj5fa2">
+      <conditionExpression xsi:type="tFormalExpression">#{missingSupplier}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_18ort95" sourceRef="Activity_0jjoz7r" targetRef="EndEvent_ProcessComplete" />
+    <sequenceFlow id="Flow_0knsnfo" sourceRef="Activity_1hsg1yq" targetRef="Gateway_0pj5fa2" />
+    <sequenceFlow id="Flow_0j9jc50" sourceRef="Gateway_0pj5fa2" targetRef="Activity_0jjoz7r" />
+    <sequenceFlow id="SequenceFlow_IdocCheck1" sourceRef="StartEvent_IdocCheck" targetRef="Activity_1p803uq" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_IdocExample">
+    <bpmndi:BPMNPlane id="BPMNPlane_IdocExample" bpmnElement="Collaboration_1b9mwkl">
+      <bpmndi:BPMNShape id="Participant_18ipkdm_di" bpmnElement="Participant_18ipkdm" isHorizontal="true">
+        <omgdc:Bounds x="160" y="80" width="840" height="410" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ExclusiveGateway_SupplierIDCheck" bpmnElement="ExclusiveGateway_SupplierIDCheck" isMarkerVisible="true">
+        <omgdc:Bounds x="475" y="235" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="460" y="205" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndEvent_ProcessComplete" bpmnElement="EndEvent_ProcessComplete">
+        <omgdc:Bounds x="922" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1115" y="280" width="90" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0pj5fa2_di" bpmnElement="Gateway_0pj5fa2" isMarkerVisible="true">
+        <omgdc:Bounds x="665" y="235" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1hsg1yq_di" bpmnElement="Activity_1hsg1yq">
+        <omgdc:Bounds x="640" y="350" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1p803uq_di" bpmnElement="Activity_1p803uq">
+        <omgdc:Bounds x="290" y="220" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartEvent_IdocCheck" bpmnElement="StartEvent_IdocCheck">
+        <omgdc:Bounds x="212" y="240" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="216" y="276" width="84" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0jjoz7r_di" bpmnElement="Activity_0jjoz7r">
+        <omgdc:Bounds x="770" y="220" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_SequenceFlow_IdocCheck1" bpmnElement="SequenceFlow_IdocCheck1">
+        <omgdi:waypoint x="248" y="260" />
+        <omgdi:waypoint x="290" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SequenceFlow_SupplierIDPresent" bpmnElement="SequenceFlow_SupplierIDPresent">
+        <omgdi:waypoint x="500" y="285" />
+        <omgdi:waypoint x="500" y="390" />
+        <omgdi:waypoint x="640" y="390" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="587" y="372" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0j9jc50_di" bpmnElement="Flow_0j9jc50">
+        <omgdi:waypoint x="715" y="260" />
+        <omgdi:waypoint x="770" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0w2fzzb_di" bpmnElement="Flow_0w2fzzb">
+        <omgdi:waypoint x="390" y="260" />
+        <omgdi:waypoint x="475" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SequenceFlow_SupplierIDMissing" bpmnElement="SequenceFlow_SupplierIDMissing">
+        <omgdi:waypoint x="525" y="260" />
+        <omgdi:waypoint x="665" y="260" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="558" y="245" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0knsnfo_di" bpmnElement="Flow_0knsnfo">
+        <omgdi:waypoint x="690" y="350" />
+        <omgdi:waypoint x="690" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18ort95_di" bpmnElement="Flow_18ort95">
+        <omgdi:waypoint x="870" y="260" />
+        <omgdi:waypoint x="922" y="260" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

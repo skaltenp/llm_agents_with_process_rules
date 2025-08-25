@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0">
+  <collaboration id="Collaboration_1b9mwkl">
+    <participant id="Participant_18ipkdm" name="LLM Agent" processRef="CheckAndUpdateIDocs" />
+    <textAnnotation id="TextAnnotation_0bptgov">
+      <text>Error Message:
+IDoc ID: &lt;idoc_id&gt;
+Pollex ID: &lt;pollex_id&gt;
+Description: IDoc order number unknown</text>
+    </textAnnotation>
+    <association id="Association_0pk3dld" associationDirection="None" sourceRef="StartEvent_IdocCheck" targetRef="TextAnnotation_0bptgov" />
+    <textAnnotation id="TextAnnotation_096odyz">
+      <text>Function: RFC
+Parameters:
+function: RFC_READ_TABLE
+rfc_parameters: {'TABLE_NAME': 'ORDERS', 'IDOC_ID': '&lt;idoc_id&gt;'}</text>
+    </textAnnotation>
+    <association id="Association_10lvlgq" associationDirection="None" sourceRef="Activity_0iqk13w" targetRef="TextAnnotation_096odyz" />
+    <textAnnotation id="TextAnnotation_15egb6g">
+      <text>SEGMENT: 'E1EDP01'
+KEY 'BELNR'
+VALUE: &lt;belnr_from_RFC_table&gt;</text>
+    </textAnnotation>
+    <association id="Association_1jg1tbt" associationDirection="None" sourceRef="ServiceTask_GetSupplierID_9876543" targetRef="TextAnnotation_15egb6g" />
+    <textAnnotation id="TextAnnotation_0y0tp9v">
+      <text>SEGMENT 'E1EDP01'
+KEY 'BELNR'</text>
+    </textAnnotation>
+    <association id="Association_1ssubay" associationDirection="None" sourceRef="ServiceTask_CheckSupplierID_9876543" targetRef="TextAnnotation_0y0tp9v" />
+  </collaboration>
+  <process id="CheckAndUpdateIDocs" isExecutable="true">
+    <startEvent id="StartEvent_IdocCheck">
+      <outgoing>SequenceFlow_IdocCheck1</outgoing>
+    </startEvent>
+    <task id="ServiceTask_CheckSupplierID_9876543" name="Check &#39;BELNR&#39; in IDoc">
+      <extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="idoc_id">9876543</camunda:inputParameter>
+          <camunda:inputParameter name="segment">E1EDKA1</camunda:inputParameter>
+          <camunda:inputParameter name="key">SUPPLIER_ID</camunda:inputParameter>
+        </camunda:inputOutput>
+      </extensionElements>
+      <incoming>SequenceFlow_IdocCheck1</incoming>
+      <outgoing>SequenceFlow_CheckGateway</outgoing>
+    </task>
+    <sequenceFlow id="SequenceFlow_CheckGateway" sourceRef="ServiceTask_CheckSupplierID_9876543" targetRef="Activity_1p803uq" />
+    <sequenceFlow id="SequenceFlow_IdocCheck1" sourceRef="StartEvent_IdocCheck" targetRef="ServiceTask_CheckSupplierID_9876543" />
+    <task id="ServiceTask_ReinitializeIDoc_9876543" name="Reinitialize IDoc">
+      <extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="idoc_id">9876543</camunda:inputParameter>
+        </camunda:inputOutput>
+      </extensionElements>
+      <incoming>SequenceFlow_UpdateIDoc</incoming>
+      <outgoing>Flow_1ylona2</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_0pj5fa2">
+      <incoming>Flow_1ylona2</incoming>
+      <incoming>SequenceFlow_SupplierIDPresent</incoming>
+      <outgoing>Flow_0j9jc50</outgoing>
+    </exclusiveGateway>
+    <endEvent id="EndEvent_ProcessComplete">
+      <incoming>Flow_0j9jc50</incoming>
+    </endEvent>
+    <sequenceFlow id="SequenceFlow_SupplierIDPresent" name="else" sourceRef="ExclusiveGateway_SupplierIDCheck" targetRef="Gateway_0pj5fa2">
+      <conditionExpression xsi:type="tFormalExpression">#{!missingSupplier}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_UpdateIDoc" sourceRef="ServiceTask_GetSupplierID_9876543" targetRef="ServiceTask_ReinitializeIDoc_9876543" />
+    <sequenceFlow id="Flow_1ylona2" sourceRef="ServiceTask_ReinitializeIDoc_9876543" targetRef="Gateway_0pj5fa2" />
+    <sequenceFlow id="Flow_0j9jc50" sourceRef="Gateway_0pj5fa2" targetRef="EndEvent_ProcessComplete" />
+    <sequenceFlow id="Flow_0w2fzzb" sourceRef="Activity_1p803uq" targetRef="ExclusiveGateway_SupplierIDCheck" />
+    <task id="Activity_1p803uq" name="Determine if BELNR is unknown">
+      <incoming>SequenceFlow_CheckGateway</incoming>
+      <outgoing>Flow_0w2fzzb</outgoing>
+    </task>
+    <exclusiveGateway id="ExclusiveGateway_SupplierIDCheck">
+      <incoming>Flow_0w2fzzb</incoming>
+      <outgoing>SequenceFlow_SupplierIDPresent</outgoing>
+      <outgoing>SequenceFlow_SupplierIDMissing</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="Flow_1wi6s78" sourceRef="Activity_0iqk13w" targetRef="ServiceTask_GetSupplierID_9876543" />
+    <sequenceFlow id="SequenceFlow_SupplierIDMissing" name="&#39;BELNR&#39; == &#39;UNKOWN&#39;" sourceRef="ExclusiveGateway_SupplierIDCheck" targetRef="Activity_0iqk13w">
+      <conditionExpression xsi:type="tFormalExpression">#{missingSupplier}</conditionExpression>
+    </sequenceFlow>
+    <task id="Activity_0iqk13w" name="Fetch BELNR ID for IDoc">
+      <incoming>SequenceFlow_SupplierIDMissing</incoming>
+      <outgoing>Flow_1wi6s78</outgoing>
+    </task>
+    <task id="ServiceTask_GetSupplierID_9876543" name="Set IDoc &#39;BELNR&#39; to the &#39;BELNR&#39; from the RFC table">
+      <extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="function">GET_SUPPLIER_DATA</camunda:inputParameter>
+          <camunda:inputParameter name="rfc_parameters">
+            {"ORDER_NUMBER": "9876543"}
+          </camunda:inputParameter>
+        </camunda:inputOutput>
+      </extensionElements>
+      <incoming>Flow_1wi6s78</incoming>
+      <outgoing>SequenceFlow_UpdateIDoc</outgoing>
+    </task>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_IdocExample">
+    <bpmndi:BPMNPlane id="BPMNPlane_IdocExample" bpmnElement="Collaboration_1b9mwkl">
+      <bpmndi:BPMNShape id="Participant_18ipkdm_di" bpmnElement="Participant_18ipkdm" isHorizontal="true">
+        <omgdc:Bounds x="160" y="80" width="1490" height="350" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartEvent_IdocCheck" bpmnElement="StartEvent_IdocCheck">
+        <omgdc:Bounds x="240" y="240" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="216" y="276" width="84" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1fq9pxy_di" bpmnElement="ServiceTask_CheckSupplierID_9876543">
+        <omgdc:Bounds x="330" y="220" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1cq23ae_di" bpmnElement="ServiceTask_ReinitializeIDoc_9876543">
+        <omgdc:Bounds x="1200" y="222" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0pj5fa2_di" bpmnElement="Gateway_0pj5fa2" isMarkerVisible="true">
+        <omgdc:Bounds x="1325" y="237" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndEvent_ProcessComplete" bpmnElement="EndEvent_ProcessComplete">
+        <omgdc:Bounds x="1422" y="244" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1115" y="280" width="90" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1p803uq_di" bpmnElement="Activity_1p803uq">
+        <omgdc:Bounds x="500" y="220" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ExclusiveGateway_SupplierIDCheck" bpmnElement="ExclusiveGateway_SupplierIDCheck" isMarkerVisible="true">
+        <omgdc:Bounds x="645" y="235" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="628" y="206" width="83" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0iqk13w_di" bpmnElement="Activity_0iqk13w">
+        <omgdc:Bounds x="780" y="220" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1jcb3qz_di" bpmnElement="ServiceTask_GetSupplierID_9876543">
+        <omgdc:Bounds x="990" y="222" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_SequenceFlow_CheckGateway" bpmnElement="SequenceFlow_CheckGateway">
+        <omgdi:waypoint x="430" y="260" />
+        <omgdi:waypoint x="500" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SequenceFlow_IdocCheck1" bpmnElement="SequenceFlow_IdocCheck1">
+        <omgdi:waypoint x="276" y="260" />
+        <omgdi:waypoint x="330" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SequenceFlow_SupplierIDPresent" bpmnElement="SequenceFlow_SupplierIDPresent">
+        <omgdi:waypoint x="670" y="285" />
+        <omgdi:waypoint x="670" y="390" />
+        <omgdi:waypoint x="1350" y="390" />
+        <omgdi:waypoint x="1350" y="287" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1000" y="372" width="21" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SequenceFlow_UpdateIDoc" bpmnElement="SequenceFlow_UpdateIDoc">
+        <omgdi:waypoint x="1090" y="262" />
+        <omgdi:waypoint x="1200" y="262" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ylona2_di" bpmnElement="Flow_1ylona2">
+        <omgdi:waypoint x="1300" y="262" />
+        <omgdi:waypoint x="1325" y="262" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0j9jc50_di" bpmnElement="Flow_0j9jc50">
+        <omgdi:waypoint x="1375" y="262" />
+        <omgdi:waypoint x="1422" y="262" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0w2fzzb_di" bpmnElement="Flow_0w2fzzb">
+        <omgdi:waypoint x="600" y="260" />
+        <omgdi:waypoint x="645" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wi6s78_di" bpmnElement="Flow_1wi6s78">
+        <omgdi:waypoint x="880" y="261" />
+        <omgdi:waypoint x="990" y="261" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SequenceFlow_SupplierIDMissing" bpmnElement="SequenceFlow_SupplierIDMissing">
+        <omgdi:waypoint x="695" y="260" />
+        <omgdi:waypoint x="780" y="260" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="698" y="247" width="57" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1ssubay_di" bpmnElement="Association_1ssubay">
+        <omgdi:waypoint x="418" y="220" />
+        <omgdi:waypoint x="455" y="181" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0bptgov_di" bpmnElement="TextAnnotation_0bptgov">
+        <omgdc:Bounds x="230" y="330" width="210" height="84" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_096odyz_di" bpmnElement="TextAnnotation_096odyz">
+        <omgdc:Bounds x="850" y="100" width="410" height="70" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_15egb6g_di" bpmnElement="TextAnnotation_15egb6g">
+        <omgdc:Bounds x="920" y="310" width="220" height="50" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0pk3dld_di" bpmnElement="Association_0pk3dld">
+        <omgdi:waypoint x="262" y="275" />
+        <omgdi:waypoint x="276" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_10lvlgq_di" bpmnElement="Association_10lvlgq">
+        <omgdi:waypoint x="849" y="220" />
+        <omgdi:waypoint x="873" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1jg1tbt_di" bpmnElement="Association_1jg1tbt">
+        <omgdi:waypoint x="997" y="301" />
+        <omgdi:waypoint x="987" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0y0tp9v_di" bpmnElement="TextAnnotation_0y0tp9v">
+        <omgdc:Bounds x="430" y="140" width="160" height="41" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

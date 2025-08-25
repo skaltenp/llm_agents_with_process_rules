@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:signavio="http://www.signavio.com" id="sid-c280f61e-6237-4b59-ae48-1ab9f660f4e6" targetNamespace="http://www.signavio.com" expressionLanguage="http://www.w3.org/TR/XPath" exporter="Camunda Modeler" exporterVersion="5.32.0" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+  <collaboration id="sid-26fe5dec-105b-4e52-b8cb-75336dc26a68">
+    <extensionElements>
+      <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="7cf7cd89faf84d578c2659acc88e4c9f" />
+    </extensionElements>
+    <participant id="sid-933BEB03-4623-401C-858F-E42EB2AEB004" name="Power Grid Provider" processRef="sid-CFA99936-8F7C-4653-8610-0F5AEA34C178">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </extensionElements>
+    </participant>
+    <textAnnotation id="TextAnnotation_0wifv0t">
+      <text>Email containing information that a task was complete, resolved, or released, usually including "COMPLETE" followed by the old error message.
+
+Error Message:
+IDoc ID: &lt;idoc_id&gt;
+Pollex ID: &lt;pollex_id&gt;
+Description: ....</text>
+    </textAnnotation>
+    <association id="Association_1fcvm8b" associationDirection="None" sourceRef="sid-734FDCF0-34B0-4222-BDFF-4D04274E2458" targetRef="TextAnnotation_0wifv0t" />
+  </collaboration>
+  <process id="sid-CFA99936-8F7C-4653-8610-0F5AEA34C178" processType="None" isClosed="false" isExecutable="false">
+    <extensionElements />
+    <laneSet id="sid-07a3a9e2-c21e-4bb5-bdc3-192b87eb76bc">
+      <lane id="sid-D1BEC7A3-F530-4FE6-95AF-BC828B36610F" name="LLM Agent">
+        <extensionElements>
+          <signavio:signavioMetaData metaKey="bgcolor" metaValue="" />
+          <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        </extensionElements>
+        <flowNodeRef>sid-734FDCF0-34B0-4222-BDFF-4D04274E2458</flowNodeRef>
+        <flowNodeRef>Activity_14rp7mm</flowNodeRef>
+        <flowNodeRef>sid-62C33CF1-38DA-4DBB-B092-D0866B2B14CF</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="sid-734FDCF0-34B0-4222-BDFF-4D04274E2458" name="Email">
+      <outgoing>Flow_1t3o2bs</outgoing>
+      <messageEventDefinition id="MessageEventDefinition_1mhoxib" />
+    </startEvent>
+    <task id="Activity_14rp7mm" name="Re-initalize IDoc">
+      <incoming>Flow_1t3o2bs</incoming>
+      <outgoing>Flow_11jikpy</outgoing>
+    </task>
+    <endEvent id="sid-62C33CF1-38DA-4DBB-B092-D0866B2B14CF" name="">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </extensionElements>
+      <incoming>Flow_11jikpy</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_1t3o2bs" sourceRef="sid-734FDCF0-34B0-4222-BDFF-4D04274E2458" targetRef="Activity_14rp7mm" />
+    <sequenceFlow id="Flow_11jikpy" sourceRef="Activity_14rp7mm" targetRef="sid-62C33CF1-38DA-4DBB-B092-D0866B2B14CF" />
+  </process>
+  <bpmndi:BPMNDiagram id="sid-df62e121-710a-44e2-9eec-85cb78164559">
+    <bpmndi:BPMNPlane id="sid-b5e5506b-4e0a-4453-97fb-4d34346d1ea9" bpmnElement="sid-26fe5dec-105b-4e52-b8cb-75336dc26a68">
+      <bpmndi:BPMNShape id="sid-933BEB03-4623-401C-858F-E42EB2AEB004_gui" bpmnElement="sid-933BEB03-4623-401C-858F-E42EB2AEB004" isHorizontal="true">
+        <omgdc:Bounds x="160" y="80" width="420" height="300" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-D1BEC7A3-F530-4FE6-95AF-BC828B36610F_gui" bpmnElement="sid-D1BEC7A3-F530-4FE6-95AF-BC828B36610F" isHorizontal="true">
+        <omgdc:Bounds x="190" y="80" width="390" height="300" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_19v9s53_di" bpmnElement="sid-734FDCF0-34B0-4222-BDFF-4D04274E2458">
+        <omgdc:Bounds x="240" y="302" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="244" y="345" width="28" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_14rp7mm_di" bpmnElement="Activity_14rp7mm">
+        <omgdc:Bounds x="330" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-62C33CF1-38DA-4DBB-B092-D0866B2B14CF_gui" bpmnElement="sid-62C33CF1-38DA-4DBB-B092-D0866B2B14CF">
+        <omgdc:Bounds x="516" y="306" width="28" height="28" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1t3o2bs_di" bpmnElement="Flow_1t3o2bs">
+        <omgdi:waypoint x="276" y="320" />
+        <omgdi:waypoint x="330" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11jikpy_di" bpmnElement="Flow_11jikpy">
+        <omgdi:waypoint x="430" y="320" />
+        <omgdi:waypoint x="516" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1fcvm8b_di" bpmnElement="Association_1fcvm8b">
+        <omgdi:waypoint x="262" y="303" />
+        <omgdi:waypoint x="271" y="256" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0wifv0t_di" bpmnElement="TextAnnotation_0wifv0t">
+        <omgdc:Bounds x="250" y="100" width="200" height="156" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="sid-40cc41cf-be19-42e2-adba-bff712752eea">
+      <omgdc:Font name="Arial" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="sid-df02448e-3c6c-4dab-bcaf-dd57faff01ff">
+      <omgdc:Font name="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</definitions>

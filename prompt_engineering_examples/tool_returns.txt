@@ -1,0 +1,57 @@
+# Example_0001
+
+### LGORT (get_idoc_field)
+0002
+
+### get_storage_locations_in_plant
+ID,Description\n0001,Location 0001
+
+
+# Example_0002
+### BELNR (get_idoc_field)
+UNKNOWN
+
+### RFC
+IDOC_ID,BELNR\n1234567890,9988776655
+
+### set_idoc_field
+PRESS ENTER
+
+# Example_0003
+get_storage_locations_in_plant
+ID,Description\n0087,High-Voltage Location\n0089,Mid-voltage Location
+
+get_materials_in_storage_location 0087
+ID,Description\n1122334455,High-Voltage Disconnect Switch\n22456897,High-Voltage Circuit Breaker\n22334455,High-Voltage Ceramic Insulator
+
+get_materials_in_storage_location 0089
+ID,Description\n33567984,Medium-Voltage Transformer
+
+# Example_0004
+-
+
+# Example_0005
+### PERSON_RESPONSIBLE get_field_by_rpa
+0001234
+
+# Example_0006
+
+### LGORT get_storage_location
+ERROR: Storage Location unknown 
+
+OR
+
+ID,Description\n0191,Storage Location 0191 (High-voltage Storage Location)
+
+
+# Example_0007
+### LGORT get_idoc_field
+0001
+
+### get_pollex_storage_locations
+
+ID,Description\n0087,High-Voltage Location\n0089,Mid-voltage Location
+
+OR
+
+ID,Description\n0001,High-Voltage Location\n0087,Mid-voltage Location\n0089,Low-voltage Location

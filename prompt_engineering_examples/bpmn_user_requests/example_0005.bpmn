@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0">
+  <bpmn:collaboration id="Collaboration_1bzv1wk">
+    <bpmn:participant id="Participant_0svnxxm" name="LLM Agent" processRef="Process_1" />
+    <bpmn:textAnnotation id="TextAnnotation_03q77pd">
+      <bpmn:text>To: error.handler1@company.com
+Content: Request to change the 'PERSON_RESPONSIBLE' in IDoc 123456890 as person 0001234 left company</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1xid4ac">
+      <bpmn:text>transaction: "IW33"
+rpa_parameters: {
+"ORDER_NUMBER": &lt;order_number&gt;
+}
+field: "PERSON_RESPONSIBLE"</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_16xkk40" associationDirection="None" sourceRef="Activity_12xkh27" targetRef="TextAnnotation_03q77pd" />
+    <bpmn:association id="Association_04cil6d" associationDirection="None" sourceRef="Activity_0f0afsb" targetRef="TextAnnotation_1xid4ac" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1" isExecutable="true">
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1" name="&#39;PERSON_RESPONSIBLE&#39; is 0001234?">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:incoming>Flow_16s8fjz</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1se6ko9</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_05kdimq" name="Determine whether the person is 0001234">
+      <bpmn:incoming>Flow_0alwre0</bpmn:incoming>
+      <bpmn:outgoing>Flow_16s8fjz</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_0f0afsb" name="Use RPA to get the person responsible from transaction &#39;IW33&#39;">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_0alwre0</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_12xkh27" name="Inform error handler1 that responsible person is outdated">
+      <bpmn:incoming>Flow_1se6ko9</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lvptkr</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_1thcki8">
+      <bpmn:incoming>Flow_0lvptkr</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="ServiceTask_4" name="Reinitialize IDoc">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_1wnl8ay</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_1">
+      <bpmn:incoming>Flow_1wnl8ay</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:startEvent id="StartEvent_1" />
+    <bpmn:sequenceFlow id="Flow_16s8fjz" sourceRef="Activity_05kdimq" targetRef="ExclusiveGateway_1" />
+    <bpmn:sequenceFlow id="Flow_3" name="no" sourceRef="ExclusiveGateway_1" targetRef="ServiceTask_4">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${DELIVERY_STATUS == '56'}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1se6ko9" name="yes" sourceRef="ExclusiveGateway_1" targetRef="Activity_12xkh27" />
+    <bpmn:sequenceFlow id="Flow_0alwre0" sourceRef="Activity_0f0afsb" targetRef="Activity_05kdimq" />
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Activity_0f0afsb" />
+    <bpmn:sequenceFlow id="Flow_0lvptkr" sourceRef="Activity_12xkh27" targetRef="Event_1thcki8" />
+    <bpmn:sequenceFlow id="Flow_1wnl8ay" sourceRef="ServiceTask_4" targetRef="EndEvent_1" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1bzv1wk">
+      <bpmndi:BPMNShape id="Participant_0svnxxm_di" bpmnElement="Participant_0svnxxm" isHorizontal="true">
+        <omgdc:Bounds x="160" y="80" width="1030" height="470" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1_di" bpmnElement="ExclusiveGateway_1" isMarkerVisible="true">
+        <omgdc:Bounds x="574" y="142" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="560" y="103" width="78" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05kdimq_di" bpmnElement="Activity_05kdimq">
+        <omgdc:Bounds x="450" y="125" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0f0afsb_di" bpmnElement="Activity_0f0afsb">
+        <omgdc:Bounds x="310" y="125" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12xkh27_di" bpmnElement="Activity_12xkh27">
+        <omgdc:Bounds x="549" y="360" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1thcki8_di" bpmnElement="Event_1thcki8">
+        <omgdc:Bounds x="721" y="382" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0jimi59_di" bpmnElement="ServiceTask_4">
+        <omgdc:Bounds x="689" y="125" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <omgdc:Bounds x="872" y="147" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="212" y="147" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="216" y="190" width="88" height="146" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <omgdi:waypoint x="248" y="165" />
+        <omgdi:waypoint x="310" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0alwre0_di" bpmnElement="Flow_0alwre0">
+        <omgdi:waypoint x="410" y="165" />
+        <omgdi:waypoint x="450" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <omgdi:waypoint x="622" y="165" />
+        <omgdi:waypoint x="689" y="165" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="628" y="147" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1se6ko9_di" bpmnElement="Flow_1se6ko9">
+        <omgdi:waypoint x="599" y="192" />
+        <omgdi:waypoint x="599" y="360" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="605" y="273" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16s8fjz_di" bpmnElement="Flow_16s8fjz">
+        <omgdi:waypoint x="550" y="165" />
+        <omgdi:waypoint x="576" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lvptkr_di" bpmnElement="Flow_0lvptkr">
+        <omgdi:waypoint x="649" y="400" />
+        <omgdi:waypoint x="721" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wnl8ay_di" bpmnElement="Flow_1wnl8ay">
+        <omgdi:waypoint x="789" y="165" />
+        <omgdi:waypoint x="872" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_04cil6d_di" bpmnElement="Association_04cil6d">
+        <omgdi:waypoint x="340" y="205" />
+        <omgdi:waypoint x="303" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_03q77pd_di" bpmnElement="TextAnnotation_03q77pd">
+        <omgdc:Bounds x="630" y="450" width="230" height="84" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_16xkk40_di" bpmnElement="Association_16xkk40">
+        <omgdi:waypoint x="645" y="437" />
+        <omgdi:waypoint x="661" y="450" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1xid4ac_di" bpmnElement="TextAnnotation_1xid4ac">
+        <omgdc:Bounds x="245" y="280" width="230" height="90" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

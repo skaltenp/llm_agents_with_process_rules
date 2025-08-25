@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <collaboration id="Collaboration_1qazvx5">
+    <participant id="Participant_1l9ztts" name="LLM Agent" processRef="Material_Reallocation_Process" />
+    <textAnnotation id="TextAnnotation_0bea407">
+      <text>production_lead@company.com</text>
+    </textAnnotation>
+    <textAnnotation id="TextAnnotation_1j0bj6z">
+      <text>High-priority storage locations are below 100</text>
+    </textAnnotation>
+    <association id="Association_1hp3b8l" associationDirection="None" sourceRef="ServiceTask_3" targetRef="TextAnnotation_0bea407" />
+    <association id="Association_09b1vne" associationDirection="None" sourceRef="ServiceTask_4" targetRef="TextAnnotation_1j0bj6z" />
+  </collaboration>
+  <process id="Material_Reallocation_Process" isExecutable="true">
+    <task id="Activity_01zlhsw" name="Retrieve all materials in storage locations">
+      <incoming>Flow_2</incoming>
+      <outgoing>Flow_0jezqfx</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_0icr2xe" name="Material &#39;11948679&#39; in low-priority location?">
+      <incoming>Flow_0jezqfx</incoming>
+      <outgoing>Flow_0voiez1</outgoing>
+      <outgoing>Flow_0pgjvlk</outgoing>
+    </exclusiveGateway>
+    <exclusiveGateway id="ExclusiveGateway_1" name="Storage locations 0001 or 0002 in plant 1540?">
+      <incoming>Flow_0voiez1</incoming>
+    </exclusiveGateway>
+    <task id="ServiceTask_4" name="Create new high-priority storage location and move material">
+      <extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="storage_location_id">0098</camunda:inputParameter>
+          <camunda:inputParameter name="description">New High Priority Location</camunda:inputParameter>
+          <camunda:inputParameter name="plant">1540</camunda:inputParameter>
+        </camunda:inputOutput>
+      </extensionElements>
+      <incoming>Flow_4</incoming>
+      <outgoing>Flow_7</outgoing>
+    </task>
+    <task id="ServiceTask_5" name="Move material 11948679 to new location in 1540">
+      <extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="material_id">11948679</camunda:inputParameter>
+          <camunda:inputParameter name="storage_location_id">0098</camunda:inputParameter>
+          <camunda:inputParameter name="plant">1540</camunda:inputParameter>
+        </camunda:inputOutput>
+      </extensionElements>
+      <incoming>Flow_7</incoming>
+      <outgoing>Flow_0du7pdh</outgoing>
+    </task>
+    <task id="ServiceTask_2" name="Move material 11948679 to 0001 or 0002 in 1540">
+      <extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="material_id">11948679</camunda:inputParameter>
+          <camunda:inputParameter name="storage_location_id">0001</camunda:inputParameter>
+          <camunda:inputParameter name="plant">1540</camunda:inputParameter>
+        </camunda:inputOutput>
+      </extensionElements>
+      <incoming>Flow_3</incoming>
+      <outgoing>Flow_1sfoprc</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_00zktlb">
+      <incoming>Flow_0pgjvlk</incoming>
+      <incoming>Flow_1sfoprc</incoming>
+      <incoming>Flow_0du7pdh</incoming>
+      <outgoing>Flow_0ueyyxi</outgoing>
+    </exclusiveGateway>
+    <task id="ServiceTask_3" name="Notify logistics team by email after material move">
+      <extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="email">production_lead@company.com</camunda:inputParameter>
+          <camunda:inputParameter name="content">Material 11948679 moved to high-priority storage location 0001 or 0002 in plant 1540.</camunda:inputParameter>
+        </camunda:inputOutput>
+      </extensionElements>
+      <incoming>Flow_0ueyyxi</incoming>
+      <outgoing>Flow_6</outgoing>
+    </task>
+    <endEvent id="EndEvent_1">
+      <incoming>Flow_6</incoming>
+      <messageEventDefinition id="MessageEventDefinition_081i1te" />
+    </endEvent>
+    <startEvent id="StartEvent_1" />
+    <task id="ServiceTask_1" name="Retrieve storage locations in plant 1540">
+      <extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="plant">1540</camunda:inputParameter>
+        </camunda:inputOutput>
+      </extensionElements>
+      <incoming>Flow_1</incoming>
+      <outgoing>Flow_2</outgoing>
+    </task>
+    <sequenceFlow id="Flow_2" sourceRef="ServiceTask_1" targetRef="Activity_01zlhsw" />
+    <sequenceFlow id="Flow_0jezqfx" sourceRef="Activity_01zlhsw" targetRef="Gateway_0icr2xe" />
+    <sequenceFlow id="Flow_0voiez1" name="yes" sourceRef="Gateway_0icr2xe" targetRef="ExclusiveGateway_1" />
+    <sequenceFlow id="Flow_0pgjvlk" name="no" sourceRef="Gateway_0icr2xe" targetRef="Gateway_00zktlb" />
+    <sequenceFlow id="Flow_3" name="yes" sourceRef="ExclusiveGateway_1" targetRef="ServiceTask_2">
+      <conditionExpression xsi:type="tFormalExpression">${lowPriorityLocationFound}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_4" name="no" sourceRef="ExclusiveGateway_1" targetRef="ServiceTask_4">
+      <conditionExpression xsi:type="tFormalExpression">${!lowPriorityLocationFound}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_7" sourceRef="ServiceTask_4" targetRef="ServiceTask_5" />
+    <sequenceFlow id="Flow_0du7pdh" sourceRef="ServiceTask_5" targetRef="Gateway_00zktlb" />
+    <sequenceFlow id="Flow_1sfoprc" sourceRef="ServiceTask_2" targetRef="Gateway_00zktlb" />
+    <sequenceFlow id="Flow_0ueyyxi" sourceRef="Gateway_00zktlb" targetRef="ServiceTask_3" />
+    <sequenceFlow id="Flow_6" sourceRef="ServiceTask_3" targetRef="EndEvent_1" />
+    <sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="ServiceTask_1" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process" bpmnElement="Collaboration_1qazvx5">
+      <bpmndi:BPMNShape id="Participant_1l9ztts_di" bpmnElement="Participant_1l9ztts" isHorizontal="true">
+        <omgdc:Bounds x="130" y="80" width="1350" height="459" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_01zlhsw_di" bpmnElement="Activity_01zlhsw">
+        <omgdc:Bounds x="410" y="250" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0icr2xe_di" bpmnElement="Gateway_0icr2xe" isMarkerVisible="true">
+        <omgdc:Bounds x="557" y="265" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="538" y="322" width="88" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1_shape" bpmnElement="ExclusiveGateway_1" isMarkerVisible="true">
+        <omgdc:Bounds x="724" y="353" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="777" y="356" width="85" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0izytc7_di" bpmnElement="ServiceTask_4">
+        <omgdc:Bounds x="831" y="438" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1hmeyha_di" bpmnElement="ServiceTask_5">
+        <omgdc:Bounds x="980" y="438" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0cuwbfx_di" bpmnElement="ServiceTask_2">
+        <omgdc:Bounds x="831" y="250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_00zktlb_di" bpmnElement="Gateway_00zktlb" isMarkerVisible="true">
+        <omgdc:Bounds x="1165" y="265" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_003rhxj_di" bpmnElement="ServiceTask_3">
+        <omgdc:Bounds x="1264" y="250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ec1yu8_di" bpmnElement="EndEvent_1">
+        <omgdc:Bounds x="1422" y="272" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1413" y="308" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_shape" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="182" y="270" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="155" y="306" width="90" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12udu2k_di" bpmnElement="ServiceTask_1">
+        <omgdc:Bounds x="260" y="250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_2_edge" bpmnElement="Flow_2">
+        <omgdi:waypoint x="360" y="290" />
+        <omgdi:waypoint x="410" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jezqfx_di" bpmnElement="Flow_0jezqfx">
+        <omgdi:waypoint x="510" y="290" />
+        <omgdi:waypoint x="557" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0voiez1_di" bpmnElement="Flow_0voiez1">
+        <omgdi:waypoint x="607" y="290" />
+        <omgdi:waypoint x="666" y="290" />
+        <omgdi:waypoint x="666" y="378" />
+        <omgdi:waypoint x="724" y="378" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="673" y="331" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pgjvlk_di" bpmnElement="Flow_0pgjvlk">
+        <omgdi:waypoint x="582" y="265" />
+        <omgdi:waypoint x="582" y="140" />
+        <omgdi:waypoint x="1190" y="140" />
+        <omgdi:waypoint x="1190" y="265" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="880" y="122" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_edge" bpmnElement="Flow_3">
+        <omgdi:waypoint x="749" y="353" />
+        <omgdi:waypoint x="749" y="290" />
+        <omgdi:waypoint x="831" y="290" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="755" y="319" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_edge" bpmnElement="Flow_4">
+        <omgdi:waypoint x="749" y="403" />
+        <omgdi:waypoint x="749" y="478" />
+        <omgdi:waypoint x="831" y="478" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="758" y="438" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_edge" bpmnElement="Flow_7">
+        <omgdi:waypoint x="931" y="478" />
+        <omgdi:waypoint x="980" y="478" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0du7pdh_di" bpmnElement="Flow_0du7pdh">
+        <omgdi:waypoint x="1080" y="478" />
+        <omgdi:waypoint x="1190" y="478" />
+        <omgdi:waypoint x="1190" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sfoprc_di" bpmnElement="Flow_1sfoprc">
+        <omgdi:waypoint x="931" y="290" />
+        <omgdi:waypoint x="1165" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ueyyxi_di" bpmnElement="Flow_0ueyyxi">
+        <omgdi:waypoint x="1215" y="290" />
+        <omgdi:waypoint x="1264" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_edge" bpmnElement="Flow_6">
+        <omgdi:waypoint x="1364" y="290" />
+        <omgdi:waypoint x="1422" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1_edge" bpmnElement="Flow_1">
+        <omgdi:waypoint x="218" y="288" />
+        <omgdi:waypoint x="260" y="288" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0bea407_di" bpmnElement="TextAnnotation_0bea407">
+        <omgdc:Bounds x="1250" y="160" width="200" height="30" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1j0bj6z_di" bpmnElement="TextAnnotation_1j0bj6z">
+        <omgdc:Bounds x="910" y="343" width="100" height="70" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1hp3b8l_di" bpmnElement="Association_1hp3b8l">
+        <omgdi:waypoint x="1350" y="250" />
+        <omgdi:waypoint x="1358" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_09b1vne_di" bpmnElement="Association_09b1vne">
+        <omgdi:waypoint x="907" y="438" />
+        <omgdi:waypoint x="924" y="413" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

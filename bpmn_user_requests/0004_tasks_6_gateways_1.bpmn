@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.32.0">
+  <collaboration id="Collaboration_0k3418l">
+    <participant id="Participant_0mewxne" name="LLM Agent" processRef="Process_1" />
+  </collaboration>
+  <process id="Process_1" isExecutable="true">
+    <startEvent id="StartEvent_1" />
+    <task id="GetCurrentDate" name="Get &#39;DATUM&#39; value from segment &#39;E1EDK03&#39; in IDoc 567123">
+      <incoming>Flow_GetCurrentDate</incoming>
+      <outgoing>Flow_GetDeliveryDate</outgoing>
+    </task>
+    <task id="GetDeliveryDate" name="Get current date">
+      <incoming>Flow_GetDeliveryDate</incoming>
+      <outgoing>Flow_09bvjjc</outgoing>
+    </task>
+    <exclusiveGateway id="DateComparisonGateway" name="Is DATUM in the past?">
+      <incoming>Flow_GetDeliveryDate</incoming>
+      <incoming>Flow_09bvjjc</incoming>
+      <outgoing>Flow_UpdateIdoc</outgoing>
+      <outgoing>Flow_SendErrorEmail</outgoing>
+    </exclusiveGateway>
+    <task id="SetNewDeliveryDate" name="Set new &#39;DATUM&#39; in &#39;E1EDK03&#39; to today">
+      <incoming>Flow_UpdateIdoc</incoming>
+      <outgoing>Flow_ContinueUpdate</outgoing>
+    </task>
+    <task id="ReinitializeIdoc" name="Reinitialize IDoc 567123">
+      <incoming>Flow_ContinueUpdate</incoming>
+      <outgoing>Flow_SendSummaryEmail</outgoing>
+    </task>
+    <task id="SendSummaryEmail" name="Send summary email to supplychain@company.com">
+      <incoming>Flow_SendSummaryEmail</incoming>
+      <outgoing>Flow_EndFromSummary</outgoing>
+    </task>
+    <task id="SendErrorEmail" name="Send error email to error.handler1@company.com">
+      <incoming>Flow_SendErrorEmail</incoming>
+      <outgoing>Flow_EndFromError</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_15tkpij">
+      <incoming>Flow_EndFromSummary</incoming>
+      <incoming>Flow_EndFromError</incoming>
+      <outgoing>Flow_0qhl5e0</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="Flow_GetCurrentDate" sourceRef="StartEvent_1" targetRef="GetCurrentDate" />
+    <sequenceFlow id="Flow_GetDeliveryDate" sourceRef="GetCurrentDate" targetRef="GetDeliveryDate" />
+    <sequenceFlow id="Flow_09bvjjc" sourceRef="GetDeliveryDate" targetRef="DateComparisonGateway" />
+    <sequenceFlow id="Flow_UpdateIdoc" name="yes" sourceRef="DateComparisonGateway" targetRef="SetNewDeliveryDate">
+      <conditionExpression xsi:type="tFormalExpression">${deliveryDateInPast}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_SendErrorEmail" name="no" sourceRef="DateComparisonGateway" targetRef="SendErrorEmail">
+      <conditionExpression xsi:type="tFormalExpression">${!deliveryDateInPast}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_ContinueUpdate" sourceRef="SetNewDeliveryDate" targetRef="ReinitializeIdoc" />
+    <sequenceFlow id="Flow_SendSummaryEmail" sourceRef="ReinitializeIdoc" targetRef="SendSummaryEmail" />
+    <sequenceFlow id="Flow_EndFromSummary" sourceRef="SendSummaryEmail" targetRef="Gateway_15tkpij" />
+    <sequenceFlow id="Flow_EndFromError" sourceRef="SendErrorEmail" targetRef="Gateway_15tkpij" />
+    <sequenceFlow id="Flow_0qhl5e0" sourceRef="Gateway_15tkpij" targetRef="EndEvent_1" />
+    <endEvent id="EndEvent_1">
+      <incoming>Flow_0qhl5e0</incoming>
+      <messageEventDefinition id="MessageEventDefinition_0tf7jjl" />
+    </endEvent>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0k3418l">
+      <bpmndi:BPMNShape id="Participant_0mewxne_di" bpmnElement="Participant_0mewxne" isHorizontal="true">
+        <omgdc:Bounds x="159" y="60" width="1090" height="290" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="210" y="180" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1sp62fj_di" bpmnElement="GetCurrentDate">
+        <omgdc:Bounds x="290" y="160" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ursz3m_di" bpmnElement="GetDeliveryDate">
+        <omgdc:Bounds x="430" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_di" bpmnElement="DateComparisonGateway" isMarkerVisible="true">
+        <omgdc:Bounds x="575" y="175" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="636" y="178" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ftizl5_di" bpmnElement="SetNewDeliveryDate">
+        <omgdc:Bounds x="675" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1787ytx_di" bpmnElement="ReinitializeIdoc">
+        <omgdc:Bounds x="830" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0oyvc0z_di" bpmnElement="SendSummaryEmail">
+        <omgdc:Bounds x="980" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_15qu4s2_di" bpmnElement="SendErrorEmail">
+        <omgdc:Bounds x="675" y="250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_15tkpij_di" bpmnElement="Gateway_15tkpij" isMarkerVisible="true">
+        <omgdc:Bounds x="1105" y="165" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0rqxcxy_di" bpmnElement="EndEvent_1">
+        <omgdc:Bounds x="1192" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_GetCurrentDate_di" bpmnElement="Flow_GetCurrentDate">
+        <omgdi:waypoint x="246" y="198" />
+        <omgdi:waypoint x="290" y="198" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_GetDeliveryDate_di" bpmnElement="Flow_GetDeliveryDate">
+        <omgdi:waypoint x="390" y="200" />
+        <omgdi:waypoint x="430" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09bvjjc_di" bpmnElement="Flow_09bvjjc">
+        <omgdi:waypoint x="530" y="200" />
+        <omgdi:waypoint x="575" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_UpdateIdoc_di" bpmnElement="Flow_UpdateIdoc">
+        <omgdi:waypoint x="600" y="175" />
+        <omgdi:waypoint x="600" y="120" />
+        <omgdi:waypoint x="675" y="120" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="606" y="145" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_SendErrorEmail_di" bpmnElement="Flow_SendErrorEmail">
+        <omgdi:waypoint x="600" y="225" />
+        <omgdi:waypoint x="600" y="290" />
+        <omgdi:waypoint x="675" y="290" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="609" y="255" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_ContinueUpdate_di" bpmnElement="Flow_ContinueUpdate">
+        <omgdi:waypoint x="775" y="120" />
+        <omgdi:waypoint x="830" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_SendSummaryEmail_di" bpmnElement="Flow_SendSummaryEmail">
+        <omgdi:waypoint x="930" y="120" />
+        <omgdi:waypoint x="980" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_EndFromSummary_di" bpmnElement="Flow_EndFromSummary">
+        <omgdi:waypoint x="1080" y="120" />
+        <omgdi:waypoint x="1130" y="120" />
+        <omgdi:waypoint x="1130" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_EndFromError_di" bpmnElement="Flow_EndFromError">
+        <omgdi:waypoint x="775" y="290" />
+        <omgdi:waypoint x="1130" y="290" />
+        <omgdi:waypoint x="1130" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qhl5e0_di" bpmnElement="Flow_0qhl5e0">
+        <omgdi:waypoint x="1155" y="190" />
+        <omgdi:waypoint x="1192" y="190" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
