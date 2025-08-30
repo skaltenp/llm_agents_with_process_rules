@@ -1,5 +1,7 @@
 # Online Appendix: A Step Towards Cognitive Automation: Integrating LLM Agents with Process Rules
 
+[Link to the paper](https://doi.org/10.1007/978-3-032-02867-9_19)
+
 ## Appendix A: Code
 ### 0. Installation
 #### 0.1 Create conda environment
@@ -194,3 +196,28 @@ Process: 0023
 5. The five different descriptions generated are stored in the folder _descriptions_
 6. The five different descriptions generated are stored in the folder _vector_db_descriptions_
 7. The error reasons and types in the user request evaluation can be found in the folder _results_ (_user_request_descriptions_errors.csv_, _user_request_rules_errors.csv_)
+
+
+## Citation
+Please cite our paper from the BPM 2025 conference:
+
+```
+@InProceedings{10.1007/978-3-032-02867-9_19,
+    author="Kaltenpoth, Sascha
+    and Skolik, Alexander
+    and M{\"u}ller, Oliver
+    and Beverungen, Daniel",
+    editor="Senderovich, Arik
+    and Cabanillas, Cristina
+    and Vanderfeesten, Irene
+    and A. Reijers, Hajo",
+    title="A Step Towards Cognitive Automation: Integrating LLM Agents with Process Rules",
+    booktitle="Business Process Management",
+    year="2026",
+    publisher="Springer Nature Switzerland",
+    address="Cham",
+    pages="308--324"
+}
+```
+[Link to the paper](https://doi.org/10.1007/978-3-032-02867-9_19)
+
